@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Playlist Script';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
+    }
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    /* color: black; */
+    color: #fff;
+}
+
+.container-fluid{
+    padding: 3% 15%;
+}
+
+/* Margin */
+.marginTop{
+    margin-top: 10%;
+}
+
+/* Navbar */
+.navbar-brand{
+    font-family: 'Playlist Script';
+    font-size: 3rem;
+}
+
+.nav-link{
+    font-size: 1.2rem;
+}
+
+.myNavbar{
+    background-color: #7f4d33;
+}
+
+
+/* First Page */
+.titlePic{
+    width: 100%;
+}
+
+#firstPage{
+    /* background-color: #fff; */
+    background-color: #2a2b33;
+    text-align: left;
+    padding-bottom: 5%;
+}
+
+.firstPageText{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 4.5rem;
+}
+
+.myButton{
+    margin: 5% 3% 5% 0;
+}
+
+.loginText{
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.loginText, .loginText:hover, .loginText:active, loginText:visited {
+     color: white;
+}
+
+/* Services */
+
+#services{
+    padding: 3% 4%;
+    color: black;
+}
+
+#services > h1 {
+    font-weight: bold;
+}
+
+.card{
+    margin-top: 3%;
+}
+
+
+
+@media screen and (max-width: 1618px) {
+
+    /* First Page */
+    .firstPageText{
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 1305px) {
+
+    /* First Page */
+    .firstPageText{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+
+    /* First Page */
+    .firstPageText{
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 990px) {
+
+    /* First Page */
+    .firstPageText{
+        font-size: 2.5rem;
+    }
+
+    .mobMargin{
+        margin-top: 10%;
+    }
+}
