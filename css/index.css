@@ -24,21 +24,25 @@ body{
 /* Navbar */
 .navbar-brand{
     font-family: 'Playlist Script';
-    font-size: 3rem;
+    font-size: 3px;
 }
 
 .nav-link{
     font-size: 1.2rem;
+    
 }
 
 .myNavbar{
     background-color: #7f4d33;
 }
 
-
 /* First Page */
 .titlePic{
     width: 100%;
+}
+
+#firstPageMainBG{
+    background-image: url("css_images/indexbg.jpg");
 }
 
 #firstPage{
@@ -46,6 +50,9 @@ body{
     background-color: #2a2b33;
     text-align: left;
     padding-bottom: 5%;
+    background-position: center;
+    width: 90vw;
+    flex-direction: column;
 }
 
 .firstPageText{
@@ -53,8 +60,15 @@ body{
     font-size: 4.5rem;
 }
 
-.myButton{
+.myButton1{
     margin: 5% 3% 5% 0;
+    background-color: #f8925b;
+}
+
+.myButton2{
+    margin: 5% 3% 5% 0;
+    
+
 }
 
 .loginText{
@@ -80,7 +94,6 @@ body{
 .card{
     margin-top: 3%;
 }
-
 
 
 @media screen and (max-width: 1618px) {
