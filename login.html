@@ -19,23 +19,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <title>Obaya Studio | Home</title>
 </head>
 <body>
     <section id = firstPageMainBG>
-       
+
     <section id="firstPage" class="container-fluid"> 
         <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 90px; transform: scale(3); margin-left: 55px;">
-                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
@@ -67,68 +64,37 @@
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
                     </ul>
+                    
                 </div>
 
                 
         </nav>
-
+ 
+    
         <div class="row marginTop">
             <div class="col-lg-6">
-                <h1 class="firstPageText">Here to serve you good looks and good coffee!</h1>
-                <button type="button" class="btn btn-light btn-lg myButton1"><i class="fas fa-book"></i> Book Now</button>
-                <button type="button" class="btn btn-outline-light btn-lg myButton2"><i class="fas fa-info-circle" ></i> About Us</button>
-                <br>
-                <a class="loginText" href="login.html">Are you a staff? Login now</a>               
-            </div>
-            <div class="col-lg-6 mobMargin">
-                <img class="titlePic" src="images/titlepic.jpg" alt="">
-            </div>
+        <a class="navbar-brand" href="login.html">
+            <img src="images/logo.png" style="height: 400px;">
+         </a><br>
         </div>
-
-    </section>
-    </section>
-    <section id="services">
-        <h1>Services</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <img src="images/service1.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Haircut</h5>
-                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                              <a href="#" class="btn btn-dark">Book Now</a>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <img src="images/service2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Rebond</h5>
-                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                              <a href="#" class="btn btn-dark">Book Now</a>
-                            </div>
-                          </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="card">
-                            <img src="images/service3.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title">Lorem</h5>
-                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                              <a href="#" class="btn btn-dark">View All Services</a>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                
+        <div class="col-lg-6 mobMargin">
+            <h1 style="float: right;">STAFF LOGIN</h1><br><br>
+        <form>
+            <div class="mb-3">
+              <label for="txtemail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp">
             </div>
-              
+            <div class="mb-3">
+              <label for="txtpassowrd" class="form-label">Password</label>
+              <input type="password" class="form-control" id="txtpassword">
+              <button type="button" class="btn btn-light btn-lg myButton3">Login</button><br>
+        <a class="loginText" href="#">Forgot Password?</a> 
+            </div>
+          </form>
+        
+        </div>
+    </div>
     </section>
-
-    
-</body>
-</html>
+    </section>
+    </body>
+    </html>
