@@ -12,16 +12,20 @@ body{
     color: #fff;
 }
 
-.container-fluid{
-    padding: 3% 15%;
-}
-
 /* Margin */
 .marginTop{
     margin-top: 10%;
 }
 
 /* Navbar */
+.navbar {
+    background-color: #7f4d33;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%;
+    position: sticky;
+    overflow: hidden;
+}
+
 .navbar-brand{
     font-family: 'Playlist Script';
     font-size: 3rem;
@@ -31,27 +35,17 @@ body{
     font-size: 1.2rem;
 }
 
-.myNavbar{
-    background-color: #7f4d33;
+#MainBG{
+    /* The image used */
+    background-image: url(css_images/viewservice.png);
+    /* Full height */  
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-
-/* First Page */
-.titlePic{
-    width: 100%;
-}
-
-#firstPage{
-    /* background-color: #fff; */
-    background-color: #2a2b33;
-    text-align: left;
-    padding-bottom: 10%;
-}
-
-.firstPageText{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 4.5rem;
-}
 
 .myButton{
     margin: 5% 3% 5% 0;
@@ -70,6 +64,7 @@ body{
 
 #services{
     padding: 3% 4%;
+    margin-top: 30px;
     color: black;
 }
 
