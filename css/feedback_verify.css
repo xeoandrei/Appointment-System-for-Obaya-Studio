@@ -4,12 +4,26 @@
     font-weight: normal;
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
+html{
+        background: url(css_images/feedback_verify_bg.png);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
 
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     /* color: black; */
     color: #fff;
+}
+
+/* Main Background */
+#MainBG{
+    background: url(css_images/feedback_verify_bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .container-fluid{
@@ -31,32 +45,7 @@ body{
     background-color: #7f4d33;
 }
 
-#MainBG{
- /* background-color: #fff; */
- background-image: url(css_images/feedback_verify_bg.png);
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
-}
 
-
-.firstPageText{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 4.5rem;
-}
-
-.myButton{
-    margin: 5% 3% 5% 0;
-}
-
-.loginText{
-    font-style: italic;
-    font-size: 0.8rem;
-}
-
-.loginText, .loginText:hover, .loginText:active, loginText:visited {
-     color: white;
-}
 
 
 /* Box */
@@ -87,5 +76,4 @@ form {
 input {
     margin-bottom:15px;
     color: #fff;
-    background-color: ;
 }
