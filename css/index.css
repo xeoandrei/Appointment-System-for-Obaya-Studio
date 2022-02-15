@@ -6,7 +6,7 @@
     }
 
 body{
-    margin: 5rem;
+    
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     /* color: black; */
@@ -44,6 +44,7 @@ body{
 
 #firstPage{
     /* background-color: #fff; */
+    margin: 5rem;
     background-color: #2a2b33;
     text-align: left;
     padding-bottom: 10%;
