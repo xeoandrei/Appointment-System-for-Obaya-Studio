@@ -19,11 +19,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/about_us.css">
+    <link rel="stylesheet" href="css/feedback_verify.css">
 
-    <title>Obaya Studio | About Us</title>
+    <title>Obaya Studio | Feedback</title>
 </head>
 <body>
+    <section id = MainBG>
 
     <section id="firstPage" class="container-fluid"> 
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -71,17 +72,22 @@
                 
         </nav>
 
-        <div class="row marginTop">
-            <div class="col-lg-6">
-                <h1 class="firstPageText">About Us!</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in incidunt inventore. Voluptas modi excepturi, asperiores corporis consequuntur esse sunt impedit mollitia, expedita debitis aliquid odio harum accusamus nulla quae.</p>
-                <br>
-                <form><a href="feedback_verify.html" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i> Send Feedback</a></form>
-                               
-            </div>
-            <div class="col-lg-6 mobMargin">
-                <img class="titlePic" src="images/obaya pic.jpg" alt="">
+
+        <div class='table'>
+            <div class='cell'>
+                <form id="login" action="index.html">
+                    <h1>Want to leave a feedback?</h1>
+                    <label>Appointment ID:</label>
+                    <input type="text" name="userid" size="18" maxlength="18"/>
+                    <br/>
+                    <input type="submit" value="Verify"/>
+                    <input type="reset" value="Cancel" onclick="myFunction()" value="Reset form"/>
+                </form>
             </div>
         </div>
 
-        
+    </section>
+</section>
+
+</body>
+</html>
