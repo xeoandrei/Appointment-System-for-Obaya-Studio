@@ -49,12 +49,14 @@ body{
     /* background-color: #fff; */
     margin: 4rem;
     background-color: #2a2b33;
+    background-position: center;
     text-align: left;
     padding-bottom: 10%;
     
 }
 
 .firstPageText{
+    color: white;
     font-family: 'Ubuntu', sans-serif;
     font-size: 4.5rem;
 }
