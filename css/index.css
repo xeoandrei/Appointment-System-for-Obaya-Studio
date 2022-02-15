@@ -16,10 +16,14 @@ body{
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     margin: 5rem;
+    padding: 0;
     text-align: center;
     /* color: black; */
 }
-
+.gap{
+    height: 2rem;
+    background-color: transparent;
+}
 .container-fluid{
     padding: 3% 15%;
 }
@@ -43,7 +47,6 @@ body{
     background-color: #7f4d33;
 }
 
-
 /* First Page */
 .titlePic{
     width: 100%;
@@ -55,6 +58,7 @@ body{
 }
 #firstPage{
     /* background-color: #fff; */
+    padding-bottom: 2rem;
     background: #2a2b33;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,6 +88,7 @@ body{
 /* Services */
 
 #services{
+
     padding: 3% 4%;
     color: black;
 }
