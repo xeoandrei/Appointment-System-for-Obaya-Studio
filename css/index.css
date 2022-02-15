@@ -6,7 +6,7 @@
     }
 
 body{
-    background: url("Obayacafe.jpg");
+    background-image: url("Obayacafe.jpg");
     font-family: 'Montserrat', sans-serif;
     height: 100%;
     text-align: center;
