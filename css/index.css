@@ -48,10 +48,10 @@ body{
 
 #firstPage{
     /* background-color: #fff; */
-    margin: 5rem;
-    color: #2a2b33;
+    background-color: #2a2b33;
     text-align: left;
     padding-bottom: 10%;
+    
 }
 
 .firstPageText{
