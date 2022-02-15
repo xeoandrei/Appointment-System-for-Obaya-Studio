@@ -53,7 +53,9 @@ body{
     padding-bottom: 10%;
     
 }
-
+h1{
+    color: white;
+}
 .firstPageText{
     color: white;
     font-family: 'Ubuntu', sans-serif;
