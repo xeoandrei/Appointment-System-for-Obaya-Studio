@@ -5,13 +5,7 @@
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
 
-    html{
-        background: url(css_images/feedback_verify_bg.png);
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
-
+    
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -51,7 +45,6 @@ body{
 #firstPage{
     /* background-color: #fff; */
     background-color: #2a2b33;
-    /*background-image: url(css_images/feedback_verify_bg.png); */
     text-align: left;
     padding-bottom: 5%;
 }

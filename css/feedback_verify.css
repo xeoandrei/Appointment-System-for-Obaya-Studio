@@ -32,6 +32,12 @@ body{
 
 
 /* Navbar */
+.navbar {
+    background-color: #2a2b33;
+    padding: 5px;
+    border-bottom: #fff;
+}
+
 .navbar-brand{
     font-family: 'Playlist Script';
     font-size: 3rem;
@@ -40,12 +46,6 @@ body{
 .nav-link{
     font-size: 1.2rem;
 }
-
-.myNavbar{
-    background-color: #7f4d33;
-}
-
-
 
 
 /* Box */
@@ -69,11 +69,14 @@ label {
 }
 form {
     display:inline-block;
-    width: 450px;
-    padding:50px 0;
+    width: 600px;
+    padding:55px 0;
     background: #2a2b33;
+    margin-top: 70px;
 }
-input {
-    margin-bottom:15px;
+
+.myButton{
+    margin: 5% 3% 5% 0;
     color: #fff;
+    background-color: beige;
 }
