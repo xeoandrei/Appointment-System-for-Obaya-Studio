@@ -5,10 +5,11 @@
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
 html{
-    background: url(/images/Obayacafe.jpg);
+    background: url(css_images/indexbg.jpg);
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
+    display: flex;
 }
 
 body{
