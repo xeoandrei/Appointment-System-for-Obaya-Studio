@@ -31,7 +31,7 @@ body{
     font-size: 1.2rem;
 }
 
-.myNavbar{
+.navbar{
     background-color: #7f4d33;
 }
 
@@ -41,11 +41,17 @@ body{
     width: 100%;
 }
 
-#firstPage{
-    /* background-color: #fff; */
-    background-color: #2a2b33;
-    text-align: left;
-    padding-bottom: 5%;
+
+
+#MainBG{
+    /* The image used */
+    background-color: white;
+    /* Full height */  
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .firstPageText{
