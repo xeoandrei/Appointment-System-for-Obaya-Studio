@@ -101,9 +101,8 @@
     <?php
         if(isset($_POST['submit']))
         {
-           echo $username = $_POST['username'];  
-           echo $password = $_POST['password']; 
-
+           $username = $_POST['username'];  
+           $password = $_POST['password']; 
         }
        
 
