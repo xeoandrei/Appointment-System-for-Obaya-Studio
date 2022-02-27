@@ -98,13 +98,36 @@
     </section>
     </body>
     </html>
-    <?php
-        if(isset($_POST['submit']))
-        {
-           echo $username = $_POST['username'];  
-           echo $password = $_POST['password']; 
+<?php
 
-        }
-       
+if(isset($_POST['submit']))
+{
+    //Process for Login
+//1. Get the Data from Login form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+//2. SQL to check whether the user with username and password exists or not
+    $sql = "SELECT * FROM tbl_accounts WHERE username='$username' AND password='$password'";
+//3. Execute the Query
+    $conn = mysqli_connect('localhost', 'root', '');
+    $dbselect = mysqli_connect($conn, 'obaya_studio');
+    $res = mysqli_query($conn, $sql);
 
-    ?>
+//4. Count rows to check whether the user exists or not
+    $count = mysqli_num_rows($res);
+
+    if($count==1)
+    {
+    //User Available and Login Success
+    $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
+    }
+else{
+    echo "login error";
+    //User not Available and Login FAIL
+}
+
+
+
+}
+
+?>
