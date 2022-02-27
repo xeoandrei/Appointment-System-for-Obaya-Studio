@@ -87,7 +87,7 @@
             <div class="mb-3">
               <label for="txtpassowrd" name="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="txtpassword">
-              <button type="button" class="btn btn-light btn-lg myButton3">Login</button><br>
+              <button type="button" name="submit" class="btn btn-light btn-lg myButton3">Login</button><br>
         <a class="loginText" href="#">Forgot Password?</a> 
             </div>
           </form>
@@ -99,4 +99,11 @@
     </body>
     </html>
     <?php
+        if (isset(&_POST['submit']))
+        {
+           echo $username = $_POST['username'];  
+           echo $password = $_POST['username']; 
+        }
+       
+
     ?>
