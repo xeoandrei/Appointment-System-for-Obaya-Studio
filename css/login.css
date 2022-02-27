@@ -81,7 +81,9 @@ body{
   margin-top: 3%;
 }
 
-
+button{
+  margin-top: 2rem;
+}
 
 @media screen and (max-width: 1618px) {
 

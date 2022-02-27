@@ -99,10 +99,11 @@
     </body>
     </html>
     <?php
-        if (isset(&_POST['submit']))
+
+        if(isset($_POST['submit']))
         {
            echo $username = $_POST['username'];  
-           echo $password = $_POST['username']; 
+           echo $password = $_POST['password']; 
         }
        
 
