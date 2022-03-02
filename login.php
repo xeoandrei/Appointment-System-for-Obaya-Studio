@@ -8,6 +8,9 @@
 	    		$result = mysqli_stmt_get_result($stmt);
 	        	if(mysqli_num_rows($result) == 1){
 	        		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    session_start();
+	        		$_SESSION['username'] = $_POST['txtusername'];
+	        		$_SESSION['usertype'] = $row['usertype'];
 	        		header("location: management.php");
 	    		}
 	    		else{
