@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Account Management</title>
+	<title>Accounts Management</title>
 	<link rel="stylesheet" type="text/css" href="accounts.css">
 </head>
 <body>
