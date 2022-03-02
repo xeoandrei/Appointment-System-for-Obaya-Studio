@@ -1,5 +1,31 @@
+<?php
+  	if(isset($_POST['btnsubmit'])){
+	    require_once "config.php";
+	    $sql = "SELECT * FROM tbl_accounts WHERE username = ? and password = ?";
+	    if($stmt = mysqli_prepare($link, $sql)){
+		    mysqli_stmt_bind_param($stmt, "ss", $_POST['username'], $_POST['password']);
+	    	if(mysqli_stmt_execute($stmt)){
+	    		$result = mysqli_stmt_get_result($stmt);
+	        	if(mysqli_num_rows($result) == 1){
+	        		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    session_start();
+	        		$_SESSION['username'] = $_POST['txtusername'];
+	        		$_SESSION['usertype'] = $row['usertype'];
+	        		header("location: management.php");
+	    		}
+	    		else{
+	            	echo "Incorrect username or Password or Account is Inactive";
+	    		}
+	    	}
+	    }
+	    else{
+	    		echo "Error on select statement";
+	    }
+	}
 
-<html lang="en">
+?>
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +105,7 @@
         </div>
         <div class="col-lg-6 mobMargin">
             <h1 style="float: right;">STAFF LOGIN</h1><br><br>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form action="" method="post">
             <div class="mb-3">
               <label for="username" class="form-label">Email</label>
               <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
@@ -98,57 +124,3 @@
     </section>
     </body>
     </html>
-<?php
-
-// if(isset($_POST['submit']))
-// {
-//     //Process for Login
-// //1. Get the Data from Login form
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
-// //2. SQL to check whether the user with username and password exists or not
-//     $sql = "SELECT * FROM tbl_accounts WHERE username='$username' AND password='$password'";
-// //3. Execute the Query
-//     $conn = mysqli_connect('localhost', 'root', '');
-//     $dbselect = mysqli_connect($conn, 'obaya_studio');
-//     $res = mysqli_query($conn, $sql);
-
-// //4. Count rows to check whether the user exists or not
-//     $count = mysqli_num_rows($res);
-
-//     if($count==1)
-//     {
-//     //User Available and Login Success
-//     $_SESSION['login'] = "<div class='success'>Login Successful.</div>";
-//     }
-// else{
-//     echo "login error";
-//     //User not Available and Login FAIL
-// }
-
-
-
-// }
-
-  	if(isset($_POST['btnsubmit'])){
-	    require_once "config.php";
-	    $sql = "SELECT * FROM tbl_accounts WHERE username = ? and password = ?";
-	    if($stmt = mysqli_prepare($link, $sql)){
-		    mysqli_stmt_bind_param($stmt, "ss", $_POST['username'], $_POST['password']);
-	    	if(mysqli_stmt_execute($stmt)){
-	    		$result = mysqli_stmt_get_result($stmt);
-	        	if(mysqli_num_rows($result) == 1){
-	        		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-	        		header("location: management.php");
-	    		}
-	    		else{
-	            	echo "Incorrect username or Password or Account is Inactive";
-	    		}
-	    	}
-	    }
-	    else{
-	    		echo "Error on select statement";
-	    }
-	}
-
-?>
