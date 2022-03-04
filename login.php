@@ -1,5 +1,30 @@
+<?php
+  	if(isset($_POST['btnsubmit'])){
+	    require_once "config.php";
+	    $sql = "SELECT * FROM tbl_accounts WHERE username = ? and password = ?";
+	    if($stmt = mysqli_prepare($link, $sql)){
+		    mysqli_stmt_bind_param($stmt, "ss", $_POST['username'], $_POST['password']);
+	    	if(mysqli_stmt_execute($stmt)){
+	    		$result = mysqli_stmt_get_result($stmt);
+	        	if(mysqli_num_rows($result) == 1){
+	        		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    session_start();
+	        		$_SESSION['username'] = $_POST['username'];
+	        		header("location: management.php");
+	    		}
+	    		else{
+	            	echo "Incorrect username or Password or Account is Inactive";
+	    		}
+	    	}
+	    }
+	    else{
+	    		echo "Error on select statement";
+	    }
+	}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +59,7 @@
                 <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
             
                         <li class="nav-item">
@@ -79,15 +104,15 @@
         </div>
         <div class="col-lg-6 mobMargin">
             <h1 style="float: right;">STAFF LOGIN</h1><br><br>
-        <form>
+            <form action="" method="post">
             <div class="mb-3">
-              <label for="txtemail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp">
+              <label for="username" class="form-label">Email</label>
+              <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-              <label for="txtpassowrd" class="form-label">Password</label>
-              <input type="password" class="form-control" id="txtpassword">
-              <button type="button" class="btn btn-light btn-lg myButton3">Login</button><br>
+              <label for="password"  class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="password"><br>
+              <input type="submit" name="btnsubmit" value="Login" class="btn btn-light btn-lg myButton3"><br>
         <a class="loginText" href="#">Forgot Password?</a> 
             </div>
           </form>

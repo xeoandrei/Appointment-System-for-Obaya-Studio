@@ -8,8 +8,8 @@
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    /* color: black; */
-    color: #fff;
+    color: black;
+    /*color: white;*/
 }
 
 .container-fluid{
@@ -31,7 +31,7 @@ body{
     font-size: 1.2rem;
 }
 
-.myNavbar{
+.navbar{
     background-color: #7f4d33;
 }
 
@@ -41,11 +41,31 @@ body{
     width: 100%;
 }
 
-#firstPage{
-    /* background-color: #fff; */
-    background-color: #2a2b33;
+table tr td{
+    padding: 1%;;
+
+}
+table tr th{
+    padding: 1%;
+    border-bottom: 1px solid black;
     text-align: left;
-    padding-bottom: 5%;
+}
+.tbl1{
+    width: 100%;
+}
+.btnprimaty{
+    
+}
+
+#MainBG{
+    /* The image used */
+
+    /* Full height */  
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .firstPageText{
@@ -62,9 +82,6 @@ body{
     font-size: 0.8rem;
 }
 
-.loginText, .loginText:hover, .loginText:active, loginText:visited {
-     color: white;
-}
 
 /* Services */
 
@@ -81,7 +98,9 @@ body{
     margin-top: 3%;
 }
 
-
+.main-content{
+    color: black;
+}
 
 @media screen and (max-width: 1618px) {
 
