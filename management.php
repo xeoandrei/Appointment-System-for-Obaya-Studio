@@ -21,8 +21,86 @@
     <link rel="stylesheet" href="css/index.css">
 
     <title>Obaya Studio | Home</title>
-</head>
+    </head>
     <body>
-        welcome tite
+    <section id = firstPageMainBG>
+       
+       <section id="firstPage" class="container-fluid"> 
+           <nav class="navbar navbar-expand-lg navbar-dark">
+                   <a class="navbar-brand" href="#">
+                       <img src="images/logo.png" style="height: 90px; transform: scale(3); margin-left: 55px;">
+                   </a>
+                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                   </button>
+                   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                       <ul class="navbar-nav ms-auto">
+                           <li class="nav-item">
+                               <a class="nav-link" href="index.php">Home</a>
+                           </li>
+               
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                   Services
+                               </a>
+                               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                   <li>
+                                       <a class="dropdown-item" href="services_men.html">For Men</a>
+                                   </li>
+                                   <li><hr class="dropdown-divider"></li>
+                                   <li>
+                                       <a class="dropdown-item" href="services_women.html">For Women</a>
+                                   </li>
+                               </ul>
+                           </li>
+       
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                   Book
+                               </a>
+                               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                   <li>
+                                       <a class="dropdown-item" href="verify_appointment.html">Book Appointment</a>
+                                   </li>
+                                   <li><hr class="dropdown-divider"></li>
+                                   <li>
+                                       <a class="dropdown-item" href="#">Cancel Appointment</a>
+                                   </li>
+                               </ul>
+                           </li>
+               
+                           <li class="nav-item">
+                               <a class="nav-link" href="food.html">Food</a>
+                           </li>
+               
+                           <li class="nav-item">
+                               <a class="nav-link" href="about_us.html">About Us</a>
+                           </li>
+                       </ul>
+                   </div>
+   
+                   
+           </nav>
+           <div class="row marginTop">
+            <div class="col-lg-6">
+                <h1 class="firstPageText">System Management</h1>
+                
+                <form>
+                    <a href="book_appointment.html" class="btn btn-light btn-lg myButton">Contents</a>
+                    <a href="about_us.html" class="btn btn-outline-light btn-lg myButton2">Appointments</a>
+                    <a href="book_appointment.html" class="btn btn-light btn-lg myButton">Feedbacks</a>
+                    <a href="about_us.html" class="btn btn-outline-light btn-lg myButton2">Staff/Members</a>
+                </form>
+
+                <br>
+                <a class="loginText" href="login.html">Logout</a>               
+            </div>
+            <div class="col-lg-6 mobMargin">
+                <img class="titlePic" src="images/titlepic.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+    </section>
 </body>
 </html>
