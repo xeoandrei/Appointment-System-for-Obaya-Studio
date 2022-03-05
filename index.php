@@ -145,8 +145,5 @@
             </div>
               
     </section>
-<div class = "Loginbut">
-<a href = "login.php" class="btn btn-dark">Login</a>
-</div>
 </body>
 </html>
