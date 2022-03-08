@@ -30,13 +30,13 @@
     <section id="firstPage" class="container-fluid"> 
     <nav class="navbar navbar-expand-lg navbar-dark">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-right: 1em;">
+                    <img src="images/logo.png" style="height: 60px; transform: scale(3);">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -81,22 +81,10 @@
 
                     </ul>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link d-lg-none" href="login.php">
-                                Log-In
-                            </a>
-                            <a class="nav-link d-none d-lg-block" href="login.php">
-                                <img src="images/user.png" style="height:40px;" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                </div>  
         </nav>
         <div class="marginTop">
                 <h1 class="text-center">LOGIN</h1>
-                <div class="card w-25 mx-auto">
+                <div class="card w-50 mx-auto">
                     <div class="card-body">
                     <form action="" method="POST">
                     <?php
@@ -134,4 +122,3 @@
 </section>
 </body>
 </html>
-    <!-- btn btn-light btn-lg myButton3 -->
