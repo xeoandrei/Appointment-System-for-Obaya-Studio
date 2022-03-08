@@ -94,10 +94,9 @@
                     </ul>
                 </div>  
         </nav>
-        <div class="marginTop container">
-            <div class="mx-auto">
-                <h1>LOGIN</h1>
-                <div class="card w-25">
+        <div class="marginTop">
+                <h1 class="text-center">LOGIN</h1>
+                <div class="card w-25 mx-auto">
                     <div class="card-body">
                     <form action="" method="POST">
                     <?php
@@ -130,7 +129,6 @@
                     </form>
                     </div>
                 </div>
-            </div>
             </div>  
     </section>
 </section>
