@@ -95,7 +95,7 @@
         <div class="card w-25 mx-auto shadow p-3 mb-5 bg-body rounded">
             <div class="mt-5">
                 <img src="images/salon.png" style="height:75px;" alt="">
-                <h5 class="fw-bold">Login</h5>
+                <h5 class="fw-bold my-3">Login</h5>
             </div>                
                     <div class="card-body">
                     <form action="" method="POST">

@@ -78,7 +78,7 @@
         <div class="card w-25 h-50 mx-auto shadow p-3 mb-5 bg-body rounded">
             <div class="mt-5">
                 <img src="images/salon.png" style="height:75px;" alt="">
-                <h5 class="fw-bold">Create Account</h5>
+                <h5 class="fw-bold my-3">Create Account</h5>
             </div> 
             <div class="card-body">
             <form action="signup-user.php" method="POST" autocomplete="">
