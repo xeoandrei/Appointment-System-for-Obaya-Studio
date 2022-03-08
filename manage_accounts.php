@@ -6,12 +6,12 @@
 <body>
 <?php
 session_start();
-if(isset($_SESSION['username'])){
+if(isset($_SESSION['email'])){
 	?> <h1> <?php echo "ACCOUNTS TABLE"?> </h1>
-	<h4> <?php echo "Username: " . $_SESSION['username']; ?> </h4> <?php
+	<h4> <?php echo "User: " . $_SESSION['email']; ?> </h4> <?php
 }
 else{
-	header("location: login.php");
+	//header("location: login.php");
 }
 ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -40,15 +40,15 @@ function build_table($result){
 		//table data (loop each row of the result)
 		while($row = mysqli_fetch_array($result)){
 			echo "<tr>";
-			echo "<td>" . $row['username'] . "</td>";
+			echo "<td>" . $row['name'] . "</td>";
 			// echo "<td>" . $row['usertype'] . "</td>";
 			// echo "<td>" . $row['status'] . "</td>";
 			// echo "<td>" . $row['createdby'] . "</td>";
 			echo "<td>";
-			echo "<a href='update-account.php?username=" . $row['username'] . "'>Update</a> ";
-			echo "<a href='activate-account.php?username=" . $row['username'] . "'>Activate</a> ";
-			echo "<a href='deactivate-account.php?username=" . $row['username'] . "'>Deactivate</a> ";
-			echo "<a href='delete-account.php?username=" . $row['username'] . "'>Delete</a> ";
+			echo "<a href='update-account.php?name=" . $row['name'] . "'>Update</a> ";
+			echo "<a href='activate-account.php?name=" . $row['name'] . "'>Activate</a> ";
+			echo "<a href='deactivate-account.php?name=" . $row['name'] . "'>Deactivate</a> ";
+			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
 			echo "<br>";
@@ -77,9 +77,9 @@ require_once "config.php";
 // }
 //form load
 // else{
-	$sql = "SELECT * FROM tbl_accounts WHERE username <> ? ORDER BY username";
+	$sql = "SELECT * FROM usertable WHERE email <> ? ORDER BY email";
 	if($stmt = mysqli_prepare($link, $sql)){
-		mysqli_stmt_bind_param($stmt, "s", $_SESSION['username']);
+		mysqli_stmt_bind_param($stmt, "s", $_SESSION['email']);
 		if(mysqli_stmt_execute($stmt)){
 			$result = mysqli_stmt_get_result($stmt);
 			build_table($result);
