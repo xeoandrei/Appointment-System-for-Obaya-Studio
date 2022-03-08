@@ -1,15 +1,7 @@
-@font-face {
-    font-family: 'Playlist Script';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
-    }
-
 body{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    /* color: black; */
-    color: #fff;
+    color: black;
 }
 
 /* Margin */
@@ -18,43 +10,18 @@ body{
 }
 
 /* Navbar */
-.navbar {
-    background-color: #7f4d33;
-}
-
-.navbar-brand{
-    font-family: 'Playlist Script';
-    font-size: 3rem;
+.custom-navbar {
+    background-color: #2a2b33;
 }
 
 .nav-link{
     font-size: 1.2rem;
 }
 
-#MainBG{
-    /* The image used */
-    background-image: url(css_images/viewservice.png);
-    /* Full height */  
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
 .myButton{
     margin: 5% 3% 5% 0;
 }
 
-.loginText{
-    font-style: italic;
-    font-size: 0.8rem;
-}
-
-.loginText, .loginText:hover, .loginText:active, loginText:visited {
-     color: white;
-}
 
 /* Services */
 
@@ -72,10 +39,14 @@ body{
     margin-top: 3%;
 }
 
-
+#footer{
+    background-color: #2a2b33;
+    bottom:0;
+    width:100%;
+    color:#959fa3;
+}
 
 @media screen and (max-width: 1618px) {
-
     /* First Page */
     .firstPageText{
         font-family: 'Ubuntu', sans-serif;

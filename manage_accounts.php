@@ -19,8 +19,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-                <a class="navbar-brand ms-3" href="#">
-                    Obaya
+                <a class="navbar-brand mx-5" href="index.php">
+                    <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,7 +66,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+						<li class="nav-item mx-3 my-3">
+							<a href="signup-user.php" class="btn btn-primary">Create Account</a>
+						</li>
+                        <li class="nav-item mx-3 my-3">
                             <a href="logout.php" class="btn btn-danger me-3">Logout</a>
                         </li>
                     </ul>
@@ -77,10 +80,9 @@ session_start();
 if(isset($_SESSION['email'])){
 	?>
 	<div class="container-fluid">
-	<a href="signup-user.php" class="btn btn-primary float-end">Create Account</a>
 		<div class="col-lg-12 col-md-12">
 
-			<div class="card">
+			<div class="card shadow p-3 mb-5 bg-body rounded">
 				<div class="card-header bg-dark text-white">
 					<div class="float-start mt-2">
 						Accounts Table | User: <?php echo $_SESSION['email']; ?>  
@@ -112,7 +114,7 @@ if(isset($_SESSION['email'])){
 					// }
 					//form load
 					// else{
-						$sql = "SELECT * FROM usertable WHERE email <> ? ORDER BY email";
+						$sql = "SELECT * FROM usertable WHERE email <> ? ORDER BY id";
 						if($stmt = mysqli_prepare($link, $sql)){
 							mysqli_stmt_bind_param($stmt, "s", $_SESSION['email']);
 							if(mysqli_stmt_execute($stmt)){
@@ -143,7 +145,8 @@ else{
 function build_table($result){
 	if(mysqli_num_rows($result) > 0){
 		//table header
-		echo "<table class='table'>";
+		echo "<div class='table-responsive'>";
+		echo "<table class='table table-sm'>";
 		echo "<thead>";
 		echo "<tr>";
 		echo "<th scope='col'>ID</th>";
@@ -167,6 +170,7 @@ function build_table($result){
 		}
 		echo "</tbody>";
 		echo "</table>";
+		echo "</div>";
 	}
 	else{
 		echo "No user account/s found";

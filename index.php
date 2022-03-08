@@ -24,13 +24,11 @@
     <title>Obaya Studio | Home</title>
 </head>
 <body>
-        
-    <section id = firstPageMainBG>
        
     <section id="firstPage" class="container-fluid"> 
-        <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-right: 2em;">
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <a class="navbar-brand" href="index.php">
+                    <img src="images/logo3.png" style="height: 90px; margin-right: 2em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -108,10 +106,8 @@
                 <img class="titlePic" src="images/titlepic.jpg" alt="">
             </div>
         </div>
+    </section>
 
-    </section>
-    </section>
-    <section id="gap"></section>
     <section id="services">
         <h1>Services</h2>
             <div class="container">
@@ -151,7 +147,15 @@
                 </div>
                 
             </div>
-              
     </section>
+    <section id="footer" class="py-4">
+            <div class="sticky-bottom">
+                <a class="mx-2 my-3"href="" style="color:#959fa3;"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fas fa-envelope"></i></a>
+                <p class="mx-2 my-3">© Copyright 2021 Obaya</p>
+          </div>
+        </section>     
 </body>
 </html>

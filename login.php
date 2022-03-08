@@ -25,18 +25,15 @@
     <title>Obaya Studio | Home</title>
 </head>
 <body>
-    <section id = firstPageMainBG>
-
-    <section id="firstPage" class="container-fluid"> 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 60px; transform: scale(3);">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <a class="navbar-brand mx-5" href="index.php">
+                    <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -78,13 +75,28 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
-
+    
                     </ul>
                 </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-lg-none" href="login.php">
+                                Log-In
+                            </a>
+                            <a class="nav-link d-none d-lg-block me-5" href="login.php">
+                                <img src="images/user.png" style="height:40px;" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>  
         </nav>
-        <div class="marginTop">
-                <h1 class="text-center">LOGIN</h1>
-                <div class="card w-50 mx-auto">
+
+        <div class="card w-25 mx-auto shadow p-3 mb-5 bg-body rounded">
+            <div class="mt-5">
+                <img src="images/salon.png" style="height:75px;" alt="">
+                <h5 class="fw-bold">Login</h5>
+            </div>                
                     <div class="card-body">
                     <form action="" method="POST">
                     <?php
@@ -100,25 +112,28 @@
                                 <?php
                             }
                             ?>
-                            <div class="form-group">
-                                <label for="username" class="form-label">Email</label>
-                                <input class="form-control" type="email" name="email" required value="<?php echo $email ?>">
+                            <div class="mb-3">
+                                <input class="form-control" type="email" name="email" placeholder="Email" required value="<?php echo $email ?>">
                             </div>
-                            <div class="form-group">    
-                                <label for="password" class="form-label">Password</label>
-                                <input class="form-control" type="password" name="password" required>
+                            <div class="mb-3">    
+                                <input class="form-control" type="password" name="password" placeholder="Password" required>
                             </div>
-                            <br>
-                            <div class="link loginText"><a href="forgot-password.php">Forgot password?</a></div>
-                                <div class="form-group">
-                                <input class="form-control button" type="submit" name="login" value="Login">
+                            <div class="mb-3">
+                                <input class="form-control btn btn-success" type="submit" name="login" value="Login">
                             </div>
+                            <div class="link loginText mb-4"><a href="forgot-password.php">Forgot password?</a></div>
                         </div>
                     </form>
                     </div>
                 </div>
-            </div>  
-    </section>
-</section>
+                <section id="" class="py-4">
+            <div class="sticky-bottom">
+                <a class="mx-2 my-3"href="" style="color:#959fa3;"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-facebook-f"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fas fa-envelope"></i></a>
+                <p class="mx-2 my-3">© Copyright 2021 Obaya</p>
+          </div>
+        </section>
 </body>
 </html>

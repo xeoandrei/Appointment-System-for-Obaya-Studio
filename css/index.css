@@ -4,27 +4,12 @@
     font-weight: normal;
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
-    
-/* html{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-}  */
 
 body{
-
-    height: 100%;
     font-family: 'Montserrat', sans-serif;
-    /* margin: 5rem;
-    padding: 0; */
     text-align: center;
     color: black; 
 }
-/* .gap{
-    height: 2rem;
-    background-color: transparent;
-} */
     
 .container-fluid{
     padding: 3% 15%;
@@ -36,6 +21,10 @@ body{
 }
 
 /* Navbar */
+.custom-navbar{
+    background-color: #2a2b33;
+}
+
 .navbar-brand{
     font-family: 'Playlist Script';
     font-size: 3rem;
@@ -43,10 +32,6 @@ body{
 
 .nav-link{
     font-size: 1.2rem;
-}
-
-.myNavbar{
-    background-color: #7f4d33;
 }
 
 .user-logo{
@@ -107,6 +92,13 @@ body{
     margin-top: 3%;
 }
 
+#footer{
+    background-color: #2a2b33;
+    bottom:0;
+    position:absolute;
+    width:100%;
+    color:#959fa3;
+}
 
 
 @media screen and (max-width: 1618px) {

@@ -47,8 +47,8 @@ if($email != false && $password != false){
     </head>
     <body>
        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-                <a class="navbar-brand ms-3" href="#">
-                    Obaya
+                <a class="navbar-brand mx-5" href="index.php">
+                    <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -94,9 +94,6 @@ if($email != false && $password != false){
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-2 mb-2">
-                            <a href="signup-user.php" class="btn btn-primary">Create Account</a>
-                        </li>
                         <li class="nav-item">
                             <a href="logout.php" class="btn btn-danger me-3">Logout</a>
                         </li>
@@ -107,49 +104,49 @@ if($email != false && $password != false){
         <div class="container-fluid mt-2">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                  <div class="card">
+                  <div class="card shadow p-3 mb-5 bg-body rounded">
                       <div class="card-header bg-dark text-white">
                           Dashboard
                       </div>
                       <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>All Services <i class="fas fa-bars"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>All Food <i class="fas fa-pizza-slice"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>Total Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>Pending Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>Verified Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center p-3">
+                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
                                     <h4>Staff <i class="fas fa-users"></i></h4>
                                     <h3>4</h3>
                                 </div>
