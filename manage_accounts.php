@@ -16,7 +16,7 @@ else{
 ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <!-- <a href="index.php">Back</a> -->
-<a href="create_account.php">Add Account</a>
+<a href="signup-user.php">Create Account</a>
 <br><br>Search: <input type="text" name="txtsearch"><br>
 <input type="submit" name="btnsubmit" value="Go"><br>
 </form>
