@@ -17,12 +17,10 @@
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="style.css">
 
     <title>Obaya Studio | Home</title>
 </head>
@@ -104,11 +102,11 @@
                         <label for="password"  class="form-label">Password</label>
                         <input class="form-control" type="password" name="password" required>
                     </div>
+                    <br>
                     <div class="link loginText"><a href="forgot-password.php">Forgot password?</a></div>
                         <div class="form-group">
                         <input class="form-control button" type="submit" name="login" value="Login">
                     </div>
-                    <div class="link login-link text-center">Not yet a member? <a href="signup-user.php">Signup now</a></div>
                 </div>
             </form>
         </div>
@@ -117,4 +115,4 @@
 </section>
 </body>
 </html>
-    btn btn-light btn-lg myButton3
+    <!-- btn btn-light btn-lg myButton3 -->

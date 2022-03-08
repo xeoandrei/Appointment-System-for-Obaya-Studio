@@ -4,13 +4,13 @@
     font-weight: normal;
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
-html{
+/* html{
     background: url(css_images/indexbg.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-}
+} */
 
 body{
     

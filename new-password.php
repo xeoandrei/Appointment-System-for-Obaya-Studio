@@ -42,10 +42,10 @@ if($email == false){
                     }
                     ?>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Create new password" required>
+                        <input class="form-control" type="password" name="password" placeholder="Create new password" minlength="8" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="cpassword" placeholder="Confirm your password" required>
+                        <input class="form-control" type="password" name="cpassword" placeholder="Confirm your password" minlength="8" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="change-password" value="Change">

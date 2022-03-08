@@ -94,7 +94,7 @@
                 </form>
 
                 <br>
-                <a class="loginText" href="login.html">Are you a staff? Login now</a>               
+                <a class="loginText" href="login.php">Are you a staff? Login now</a>               
             </div>
             <div class="col-lg-6 mobMargin">
                 <img class="titlePic" src="images/titlepic.jpg" alt="">

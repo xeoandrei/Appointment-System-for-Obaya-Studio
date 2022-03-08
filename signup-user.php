@@ -46,13 +46,13 @@
                         <input class="form-control" type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <input class="form-control" type="password" name="password" placeholder="Password" minlength="8" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="signup" value="Signup">
+                        <input class="form-control button" type="submit" name="signup" value="Add New Account">
                     </div>
                     <div class="link login-link text-center">Already a member? <a href="login.php">Login here</a></div>
                 </form>
