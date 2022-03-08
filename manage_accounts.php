@@ -146,16 +146,17 @@ function build_table($result){
 		echo "<table class='table'>";
 		echo "<thead>";
 		echo "<tr>";
-		echo "<th>ID</th>";
-		echo "<th>Username</th>";
-		echo "<th>Email</th>";
-		echo "<th>Status</th>";
+		echo "<th scope='col'>ID</th>";
+		echo "<th scope='col'>Username</th>";
+		echo "<th scope='col'>Email</th>";
+		echo "<th scope='col'>Status</th>";
 		echo "</tr>";
 		echo "</thead>";
+		echo "<tbody>";
 		//table data (loop each row of the result)
 		while($row = mysqli_fetch_array($result)){
 			echo "<tr>";
-			echo "<td>" . $row['id'] . "</td>";
+			echo "<th scop='row'>" . $row['id'] . "</td>";
 			echo "<td>" . $row['name'] . "</td>";
 			echo "<td>" . $row['email'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
@@ -164,6 +165,7 @@ function build_table($result){
 			echo "</td>";
 			echo "</tr>";
 		}
+		echo "</tbody>";
 		echo "</table>";
 	}
 	else{
