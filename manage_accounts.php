@@ -16,7 +16,7 @@ else{
 ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <!-- <a href="index.php">Back</a> -->
-<a href="create-account.php">Add Account</a>
+<a href="create_account.php">Add Account</a>
 <br><br>Search: <input type="text" name="txtsearch"><br>
 <input type="submit" name="btnsubmit" value="Go"><br>
 </form>
@@ -45,9 +45,6 @@ function build_table($result){
 			// echo "<td>" . $row['status'] . "</td>";
 			// echo "<td>" . $row['createdby'] . "</td>";
 			echo "<td>";
-			echo "<a href='update-account.php?name=" . $row['name'] . "'>Update</a> ";
-			echo "<a href='activate-account.php?name=" . $row['name'] . "'>Activate</a> ";
-			echo "<a href='deactivate-account.php?name=" . $row['name'] . "'>Deactivate</a> ";
 			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
