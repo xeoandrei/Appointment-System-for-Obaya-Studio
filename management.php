@@ -114,7 +114,7 @@ if($email != false && $password != false){
                     <a href="book_appointment.html" class="btn btn-light btn-lg myButton">Feedbacks</a>
                     <a href="manage_accounts.php" class="btn btn-outline-light btn-lg myButton2">Staff/Members</a>
                     <a href="logout.php" class="btn btn-light btn-lg myButton">Logout</a>
-                    <a href="signup-user.php" class="btn btn-outline-light btn-lg myButton2">Signup now</a>    
+                    <!-- <a href="signup-user.php" class="btn btn-outline-light btn-lg myButton2">Signup now</a>     -->
                 </form>          
             </div>
             <div class="col-lg-6 mobMargin">
