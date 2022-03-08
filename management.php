@@ -105,48 +105,48 @@ if($email != false && $password != false){
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                   <div class="card shadow p-3 mb-5 bg-body rounded">
-                      <div class="card-header bg-dark text-white">
+                      <div class="card-header bg-dark text-white py-3">
                           Dashboard
                       </div>
                       <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>All Services <i class="fas fa-bars"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>All Food <i class="fas fa-pizza-slice"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Total Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Pending Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Verified Appointments <i class="fas fa-book-open"></i></h4>
                                     <h3>4</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="card text-center shadow-sm p-3 mb-5 bg-body rounded">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Staff <i class="fas fa-users"></i></h4>
                                     <h3>4</h3>
                                 </div>

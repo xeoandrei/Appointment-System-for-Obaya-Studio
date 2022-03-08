@@ -66,7 +66,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-						<li class="nav-item mx-3 my-3">
+						<li class="nav-item my-3">
 							<a href="signup-user.php" class="btn btn-primary">Create Account</a>
 						</li>
                         <li class="nav-item mx-3 my-3">
