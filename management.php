@@ -41,88 +41,125 @@ if($email != false && $password != false){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/management.css">
 
     <title>Obaya Studio | Home</title>
     </head>
     <body>
-    <section id = firstPageMainBG>
-       
-       <section id="firstPage" class="container-fluid"> 
-           <nav class="navbar navbar-expand-lg navbar-dark">
-                   <a class="navbar-brand" href="#">
-                       <img src="images/logo.png" style="height: 90px; transform: scale(3); margin-left: 55px;">
-                   </a>
-                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                       <span class="navbar-toggler-icon"></span>
-                   </button>
-                   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                       <ul class="navbar-nav ms-auto">
-                           <li class="nav-item">
-                               <a class="nav-link" href="index.php">Home</a>
-                           </li>
-               
-                           <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                   Services
-                               </a>
-                               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                   <li>
-                                       <a class="dropdown-item" href="services_men.html">For Men</a>
-                                   </li>
-                                   <li><hr class="dropdown-divider"></li>
-                                   <li>
-                                       <a class="dropdown-item" href="services_women.html">For Women</a>
-                                   </li>
-                               </ul>
-                           </li>
-       
-                           <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                   Book
-                               </a>
-                               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                   <li>
-                                       <a class="dropdown-item" href="verify_appointment.html">Book Appointment</a>
-                                   </li>
-                                   <li><hr class="dropdown-divider"></li>
-                                   <li>
-                                       <a class="dropdown-item" href="#">Cancel Appointment</a>
-                                   </li>
-                               </ul>
-                           </li>
-               
-                           <li class="nav-item">
-                               <a class="nav-link" href="food.html">Food</a>
-                           </li>
-               
-                           <li class="nav-item">
-                               <a class="nav-link" href="about_us.html">About Us</a>
-                           </li>
-                       </ul>
-                   </div>
-   
-                   
-           </nav>
-           <div class="row marginTop">
-            <div class="col-lg-6">
-                <h1 class="firstPageText">System Management</h1>
-                
-                <form>
-                    <a href="book_appointment.html" class="btn btn-light btn-lg myButton">Contents</a>
-                    <a href="about_us.html" class="btn btn-outline-light btn-lg myButton2">Appointments</a>
-                    <a href="book_appointment.html" class="btn btn-light btn-lg myButton">Feedbacks</a>
-                    <a href="manage_accounts.php" class="btn btn-outline-light btn-lg myButton2">Staff/Members</a>
-                    <a href="logout.php" class="btn btn-light btn-lg myButton">Logout</a>
-                    <!-- <a href="signup-user.php" class="btn btn-outline-light btn-lg myButton2">Signup now</a>     -->
-                </form>          
-            </div>
-            <div class="col-lg-6 mobMargin">
-                <img class="titlePic" src="images/titlepic.jpg" alt="">
-            </div>
-        </div>
+       <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <a class="navbar-brand ms-3" href="#">
+                    Obaya
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto">
 
-    </section>
-    </section>
+                        <li class="nav-item">
+                            <a class="nav-link" href="management.php">Dashboard</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Appointments</a>
+                        </li>
+            
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="services_men.html">For Men</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="services_women.html">For Women</a>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="food.html">Food</a>
+                        </li>
+            
+                        <li class="nav-item">
+                            <a class="nav-link" href="food.html">Feedback</a>
+                        </li>
+            
+                        <li class="nav-item">
+                            <a class="nav-link" href="manage_accounts.php">Staff</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-2 mb-2">
+                            <a href="signup-user.php" class="btn btn-primary">Create Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="btn btn-danger me-3">Logout</a>
+                        </li>
+                    </ul>
+                </div>  
+        </nav>
+        
+        <div class="container-fluid mt-2">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="card">
+                      <div class="card-header bg-dark text-white">
+                          Dashboard
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>All Services <i class="fas fa-bars"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>All Food <i class="fas fa-pizza-slice"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>Total Appointments <i class="fas fa-book-open"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>Pending Appointments <i class="fas fa-book-open"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>Verified Appointments <i class="fas fa-book-open"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card text-center p-3">
+                                    <h4>Staff <i class="fas fa-users"></i></h4>
+                                    <h3>4</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                
+            </div>          
+        </div>
 </body>
 </html>
