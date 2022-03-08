@@ -4,6 +4,10 @@ body{
     color: #fff;
 }
 
+.title{
+    text-align: right;
+}
+
 .container-fluid{
     padding: 3% 15%;
 }

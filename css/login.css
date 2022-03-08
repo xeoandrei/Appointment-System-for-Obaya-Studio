@@ -21,12 +21,6 @@ body{
   margin-top: 10%;
 }
 
-/* Navbar */
-.navbar-brand{
-  font-family: 'Playlist Script';
-  font-size: 3rem;
-}
-
 .nav-link{
   font-size: 1.2rem;
 }
@@ -35,14 +29,7 @@ body{
   background-color: #7f4d33;
 }
 
-
-/* First Page */
-.titlePic{
-  width: 100%;
-}
-
 #firstPage{
-  /* background-color: #fff; */
   background-color: #2a2b33;
   text-align: left;
   padding-bottom: 5%;
@@ -64,6 +51,10 @@ body{
 
 .loginText, .loginText:hover, .loginText:active, loginText:visited {
    color: white;
+}
+
+label{
+  color:black;
 }
 
 /* Services */

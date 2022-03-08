@@ -30,13 +30,13 @@
     <section id="firstPage" class="container-fluid"> 
     <nav class="navbar navbar-expand-lg navbar-dark">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-left: 55px;">
+                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-right: 1em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -78,46 +78,60 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
+
                     </ul>
                 </div>
-
-                
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link d-lg-none" href="login.php">
+                                Log-In
+                            </a>
+                            <a class="nav-link d-none d-lg-block" href="login.php">
+                                <img src="images/user.png" style="height:40px;" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>  
         </nav>
- 
-    
-        <div class="row marginTop">
-            <h1>STAFF LOGIN</h1><br><br>
-            <form action="" method="POST">
-            <?php
-                    if(count($errors) > 0){
-                        ?>
-                        <div class="alert alert-danger text-center">
-                            <?php
-                            foreach($errors as $showerror){
-                                echo $showerror;
+        <div class="marginTop container">
+            <div class="mx-auto">
+                <h1>LOGIN</h1>
+                <div class="card w-25">
+                    <div class="card-body">
+                    <form action="" method="POST">
+                    <?php
+                            if(count($errors) > 0){
+                                ?>
+                                <div class="alert alert-danger text-center">
+                                    <?php
+                                    foreach($errors as $showerror){
+                                        echo $showerror;
+                                    }
+                                    ?>
+                                </div>
+                                <?php
                             }
                             ?>
+                            <div class="form-group">
+                                <label for="username" class="form-label">Email</label>
+                                <input class="form-control" type="email" name="email" required value="<?php echo $email ?>">
+                            </div>
+                            <div class="form-group">    
+                                <label for="password" class="form-label">Password</label>
+                                <input class="form-control" type="password" name="password" required>
+                            </div>
+                            <br>
+                            <div class="link loginText"><a href="forgot-password.php">Forgot password?</a></div>
+                                <div class="form-group">
+                                <input class="form-control button" type="submit" name="login" value="Login">
+                            </div>
                         </div>
-                        <?php
-                    }
-                    ?>
-                    <div class="form-group">
-                        <label for="username" class="form-label">Email</label>
-                        <input class="form-control" type="email" name="email" required value="<?php echo $email ?>">
-                    </div>
-                    <div class="form-group">    
-                        <label for="password"  class="form-label">Password</label>
-                        <input class="form-control" type="password" name="password" required>
-                    </div>
-                    <br>
-                    <div class="link loginText"><a href="forgot-password.php">Forgot password?</a></div>
-                        <div class="form-group">
-                        <input class="form-control button" type="submit" name="login" value="Login">
+                    </form>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
+            </div>
+            </div>  
     </section>
 </section>
 </body>

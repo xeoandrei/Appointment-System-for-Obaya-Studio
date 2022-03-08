@@ -79,13 +79,17 @@
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
 
-
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Log-In</a>
+                            <a class="nav-link d-lg-none" href="login.php">
+                                Log-In
+                            </a>
+                            <a class="nav-link d-none d-lg-block" href="login.php">
+                                <img src="images/user.png" style="height:40px;" alt="">
+                            </a>
                         </li>
                     </ul>
                 </div>  
