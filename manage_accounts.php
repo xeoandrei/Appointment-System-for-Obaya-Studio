@@ -31,19 +31,19 @@ function build_table($result){
 		//table header
 		echo "<table>";
 		echo "<tr>";
+		echo "<th>ID</th>";
 		echo "<th>Username</th>";
-		// echo "<th>Usertype</th>";
-		// echo "<th>Status</th>";
-		// echo "<th>Created by</th>";
+		echo "<th>Email</th>";
+		echo "<th>Status</th>";
 		echo "</tr>";
 		echo "<br>";
 		//table data (loop each row of the result)
 		while($row = mysqli_fetch_array($result)){
 			echo "<tr>";
+			echo "<td>" . $row['id'] . "</td>";
 			echo "<td>" . $row['name'] . "</td>";
-			// echo "<td>" . $row['usertype'] . "</td>";
-			// echo "<td>" . $row['status'] . "</td>";
-			// echo "<td>" . $row['createdby'] . "</td>";
+			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
 			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";
 			echo "</td>";
