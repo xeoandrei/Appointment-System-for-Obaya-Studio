@@ -49,6 +49,10 @@ body{
     background-color: #7f4d33;
 }
 
+.user-logo{
+    height: 10px;
+}
+
 /* First Page */
 .titlePic{
     width: 100%;

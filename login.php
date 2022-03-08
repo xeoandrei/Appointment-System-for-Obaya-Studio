@@ -28,18 +28,32 @@
     <section id = firstPageMainBG>
 
     <section id="firstPage" class="container-fluid"> 
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-left: 55px;">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
             
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="services_men.html">For Men</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="services_women.html">For Women</a>
+                                </li>
+                            </ul>
                         </li>
     
                         <li class="nav-item dropdown">
@@ -65,7 +79,6 @@
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
                     </ul>
-                    
                 </div>
 
                 
@@ -73,13 +86,7 @@
  
     
         <div class="row marginTop">
-            <div class="col-lg-6">
-        <a class="navbar-brand" href="login.html">
-            <img src="images/logo.png" style="height: 400px;">
-         </a><br>
-        </div>
-        <div class="col-lg-6 mobMargin">
-            <h1 style="float: right;">STAFF LOGIN</h1><br><br>
+            <h1>STAFF LOGIN</h1><br><br>
             <form action="" method="POST">
             <?php
                     if(count($errors) > 0){

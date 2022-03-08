@@ -30,13 +30,13 @@
     <section id="firstPage" class="container-fluid"> 
         <nav class="navbar navbar-expand-lg navbar-dark">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 90px; transform: scale(3); margin-left: 55px;">
+                    <img src="images/logo.png" style="height: 60px; transform: scale(3); margin-right: 1em;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -78,10 +78,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about_us.html">About Us</a>
                         </li>
+
+
                     </ul>
                 </div>
-
-                
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Log-In</a>
+                        </li>
+                    </ul>
+                </div>  
         </nav>
 
         <div class="row marginTop">
@@ -91,10 +98,7 @@
                 <form>
                     <a href="book_appointment.html" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i> Book Now</a>
                     <a href="about_us.html" class="btn btn-outline-light btn-lg myButton2"><i class="fas fa-info-circle"></i> About Us</a>
-                </form>
-
-                <br>
-                <a class="loginText" href="login.php">Are you a staff? Login now</a>               
+                </form>           
             </div>
             <div class="col-lg-6 mobMargin">
                 <img class="titlePic" src="images/titlepic.jpg" alt="">
