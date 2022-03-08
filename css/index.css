@@ -4,26 +4,27 @@
     font-weight: normal;
     src: local('Playlist Script'), url(fonts/Playlist\ Script.woff) format('woff');
     }
-html{
+    
+/* html{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-} 
+}  */
 
 body{
 
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    margin: 5rem;
-    padding: 0;
+    /* margin: 5rem;
+    padding: 0; */
     text-align: center;
     color: black; 
 }
-.gap{
+/* .gap{
     height: 2rem;
     background-color: transparent;
-}
+} */
     
 .container-fluid{
     padding: 3% 15%;
