@@ -85,7 +85,7 @@ if(isset($_SESSION['email'])){
 			<div class="card shadow p-3 mb-5 bg-body rounded">
 				<div class="card-header bg-dark text-white">
 					<div class="float-start mt-2">
-						Accounts Table | User: <?php echo $_SESSION['email']; ?>  
+						Accounts Table | User: <?php echo $_SESSION['email'];?>  
 					</div>
 					<div class="float-end mt-2">
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="row">
@@ -178,6 +178,10 @@ function build_table($result){
 }
 
 // }
+print_r($_SESSION);
+echo "<br>";
+print_r($_SERVER);
+
 ?>
 </body>
 </html>

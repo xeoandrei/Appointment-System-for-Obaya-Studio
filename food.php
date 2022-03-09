@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+    if(isset($_SESSION['email'])){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } else {
+
+    }
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,10 +31,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/servicesfood.css">
 
-    <title>Obaya Studio | Services for Men</title>
+    <title>Obaya Studio | Food</title>
 </head>
 <body>
-    <section id="firstPage" class=""> 
+        <section id="firstPage"> 
             <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
                 <a class="navbar-brand mx-5" href="index.php">
                     <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
@@ -81,28 +91,33 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link d-lg-none" href="login.php">
-                                Log-In
-                            </a>
-                            <a class="nav-link d-none d-lg-block me-5" href="login.php">
-                                <img src="images/user.png" style="height:40px;" alt="">
-                            </a>
+                            <?php
+                            if(isset($_SESSION['email'])){
+                                echo   '<li class="nav-item mx-3 my-3">
+                                            <a href="logout.php" class="btn btn-danger me-3">Logout</a>
+                                        </li>';
+                            } else {
+                                echo   '<a class="nav-link d-lg-none" href="login.php">
+                                            Log-In
+                                        </a>
+                                        <a class="nav-link d-none d-lg-block" href="login.php">
+                                            <img src="images/user.png" style="height:40px;" alt="">
+                                        </a>';
+                            }
+                            ?>
                         </li>
                     </ul>
-                </div>  
+                </div>
         </nav>
-    </section>
 
-        <section id="services">
+            <section id="services">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-6">
                             <div class="card">
                                 <img src="images/service1.jpg" class="card-img-top">
                                 <div class="card-body">
-                                  <h5 class="card-title">Men's Haircut</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
+                                  <h5 class="card-title">Food 1</h5>
                                 </div>
                               </div>
                         </div>
@@ -111,9 +126,7 @@
                             <div class="card">
                                 <img src="images/service2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">Men's Hair Color</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
+                                  <h5 class="card-title">Food2</h5>
                                 </div>
                               </div>
                         </div>
@@ -122,9 +135,7 @@
                             <div class="card">
                                 <img src="images/service3.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">L'OREAL Hair Spa Treatment</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">View All Services</a>
+                                  <h5 class="card-title">food3</h5>
                                 </div>
                               </div>
                         </div>
@@ -136,9 +147,7 @@
                                 <div class="card">
                                     <img src="images/service1.jpg" class="card-img-top">
                                     <div class="card-body">
-                                      <h5 class="card-title">Men's Haircut with Shampoo</h5>
-                                      <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                      <a href="#" class="btn btn-dark">Book Now</a>
+                                      <h5 class="card-title">food4</h5>
                                     </div>
                                   </div>
                             </div>
@@ -147,9 +156,7 @@
                             <div class="card">
                                 <img src="images/service2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">Obaya TreatMENt Day</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
+                                  <h5 class="card-title">food5</h5>
                                 </div>
                               </div>
                         </div>
@@ -158,13 +165,29 @@
                             <div class="card">
                                 <img src="images/service2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">The Gentleman's Package by Obaya</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
+                                  <h5 class="card-title">food6</h5>
                                 </div>
                               </div>
-                    </div>     
-        </div>
+                        </div>
+            
+                    <div class="container" style="margin-top: 3rem;">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6">
+
+                            </div>
+                    
+                    <div class="col-lg-4 col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title">Grab/Food Panda Link</h5>
+                                </div>
+                              </div>
+                        </div>
+                        
+                    <div class="col-lg-4 col-sm-6">
+                        
+                    </div>
+            </div>               
         </section>
         <section id="footer" class="py-4">
             <div class="sticky-bottom">
@@ -175,5 +198,5 @@
                 <p class="mx-2 my-3">© Copyright 2021 Obaya</p>
           </div>
         </section>
-</body>
-</html>
+    </body>
+    </html>

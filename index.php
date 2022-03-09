@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+    if(isset($_SESSION['email'])){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } else {
+
+    }
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,11 +55,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="services_men.html">For Men</a>
+                                    <a class="dropdown-item" href="services_men.php">For Men</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="services_women.html">For Women</a>
+                                    <a class="dropdown-item" href="services_women.php">For Women</a>
                                 </li>
                             </ul>
                         </li>
@@ -82,12 +92,20 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link d-lg-none" href="login.php">
-                                Log-In
-                            </a>
-                            <a class="nav-link d-none d-lg-block" href="login.php">
-                                <img src="images/user.png" style="height:40px;" alt="">
-                            </a>
+                            <?php
+                            if(isset($_SESSION['email'])){
+                                echo   '<li class="nav-item mx-3 my-3">
+                                            <a href="logout.php" class="btn btn-danger me-3">Logout</a>
+                                        </li>';
+                            } else {
+                                echo   '<a class="nav-link d-lg-none" href="login.php">
+                                            Log-In
+                                        </a>
+                                        <a class="nav-link d-none d-lg-block" href="login.php">
+                                            <img src="images/user.png" style="height:40px;" alt="">
+                                        </a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>  
@@ -148,6 +166,7 @@
                 
             </div>
     </section>
+
     <section id="footer" class="py-4">
             <div class="sticky-bottom">
                 <a class="mx-2 my-3"href="" style="color:#959fa3;"><i class="fab fa-twitter"></i></a>
