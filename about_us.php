@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    if(isset($_SESSION['email'])){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } else {
+
+    }
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -78,17 +86,25 @@
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link d-lg-none" href="login.php">
-                        Log-In
-                    </a>
-                    <a class="nav-link d-none d-lg-block me-5" href="login.php">
-                        <img src="images/user.png" style="height:40px;" alt="">
-                    </a>
-                </li>
-            </ul>
-        </div>  
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <?php
+                            if(isset($_SESSION['email'])){
+                                echo   '<li class="nav-item mx-3 my-3">
+                                            <a href="logout.php" class="btn btn-danger me-3">Logout</a>
+                                        </li>';
+                            } else {
+                                echo   '<a class="nav-link d-lg-none" href="login.php">
+                                            Log-In
+                                        </a>
+                                        <a class="nav-link d-none d-lg-block" href="login.php">
+                                            <img src="images/user.png" style="height:40px;" alt="">
+                                        </a>';
+                            }
+                            ?>
+                        </li>
+                    </ul>
+                </div>    
     </nav>
         <div class="mt-5">
             <h1 class="firstPageText">About Us!</h1>
