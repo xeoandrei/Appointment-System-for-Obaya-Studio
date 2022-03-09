@@ -97,21 +97,19 @@
                 <img src="images/salon.png" style="height:75px;" alt="">
                 <h5 class="fw-bold my-3">Login</h5>
             </div>                
-                    <div class="card-body">
-                    <form action="" method="POST">
+            <div class="card-body">
+            <form action="" method="POST">
                     <?php
-                            if(count($errors) > 0){
-                                ?>
-                                <div class="alert alert-danger text-center">
-                                    <?php
-                                    foreach($errors as $showerror){
-                                        echo $showerror;
-                                    }
-                                    ?>
-                                </div>
-                                <?php
+                        if(count($errors) > 0){
+                    ?>
+                        <div class="alert alert-danger text-center">
+                        <?php
+                            foreach($errors as $showerror){
+                                echo $showerror;
                             }
-                            ?>
+                        }
+                        ?>
+                            </div>
                             <div class="mb-3">
                                 <input class="form-control" type="email" name="email" placeholder="Email" required value="<?php echo $email ?>">
                             </div>
@@ -123,10 +121,10 @@
                             </div>
                             <div class="link loginText mb-4"><a href="forgot-password.php">Forgot password?</a></div>
                         </div>
-                    </form>
-                    </div>
-                </div>
-                <section id="" class="py-4">
+                </form>            
+            </div>
+        </div>
+        <section id="" class="py-4">
             <div class="sticky-bottom">
                 <a class="mx-2 my-3"href="" style="color:#959fa3;"><i class="fab fa-twitter"></i></a>
                 <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-facebook-f"></i></a>
