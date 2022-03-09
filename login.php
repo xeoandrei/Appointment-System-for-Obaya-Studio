@@ -25,113 +25,43 @@
     <title>Obaya Studio | Home</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-                <a class="navbar-brand mx-5" href="index.php">
-                    <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
-                        </li>
-            
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                Services
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="services_men.html">For Men</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="services_women.html">For Women</a>
-                                </li>
-                            </ul>
-                        </li>
-    
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                                Book
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="verify_appointment.html">Book Appointment</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Cancel Appointment</a>
-                                </li>
-                            </ul>
-                        </li>
-            
-                        <li class="nav-item">
-                            <a class="nav-link" href="food.html">Food</a>
-                        </li>
-            
-                        <li class="nav-item">
-                            <a class="nav-link" href="about_us.html">About Us</a>
-                        </li>
-    
-                    </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link d-lg-none" href="login.php">
-                                Log-In
-                            </a>
-                            <a class="nav-link d-none d-lg-block me-5" href="login.php">
-                                <img src="images/user.png" style="height:40px;" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                </div>  
-        </nav>
+    <?php include "navbar/navbar-login.php"; ?>
 
-        <div class="card w-25 mx-auto shadow p-3 mb-5 bg-body rounded">
-            <div class="mt-5">
-                <img src="images/salon.png" style="height:75px;" alt="">
-                <h5 class="fw-bold my-3">Login</h5>
-            </div>                
-            <div class="card-body">
-            <form action="" method="POST">
-                    <?php
-                        if(count($errors) > 0){
-                    ?>
-                        <div class="alert alert-danger text-center">
+        <div class="container-fluid row">
+            <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-xl-6 col-lg-8">
+                <div class="mt-5">
+                    <img src="images/salon.png" style="height:75px;" alt="">
+                    <h5 class="fw-bold my-3">Login</h5>
+                </div>                
+                <div class="card-body">
+                <form action="" method="POST">
                         <?php
-                            foreach($errors as $showerror){
-                                echo $showerror;
-                            }
-                        }
+                            if(count($errors) > 0){
                         ?>
+                            <div class="alert alert-danger text-center">
+                            <?php
+                                foreach($errors as $showerror){
+                                    echo $showerror;
+                                }
+                            }
+                            ?>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" required value="<?php echo $email ?>">
+                                </div>
+                                <div class="mb-3">    
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control btn btn-success" type="submit" name="login" value="Login">
+                                </div>
+                                <div class="link loginText mb-4"><a href="forgot-password.php">Forgot password?</a></div>
                             </div>
-                            <div class="mb-3">
-                                <input class="form-control" type="email" name="email" placeholder="Email" required value="<?php echo $email ?>">
-                            </div>
-                            <div class="mb-3">    
-                                <input class="form-control" type="password" name="password" placeholder="Password" required>
-                            </div>
-                            <div class="mb-3">
-                                <input class="form-control btn btn-success" type="submit" name="login" value="Login">
-                            </div>
-                            <div class="link loginText mb-4"><a href="forgot-password.php">Forgot password?</a></div>
-                        </div>
-                </form>            
+                    </form>            
+                </div>
             </div>
         </div>
-        <section id="" class="py-4">
-            <div class="sticky-bottom">
-                <a class="mx-2 my-3"href="" style="color:#959fa3;"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fab fa-instagram"></i></a>
-                <a class="mx-2 my-3" href="" style="color:#959fa3;"><i class="fas fa-envelope"></i></a>
-                <p class="mx-2 my-3">© Copyright 2021 Obaya</p>
-          </div>
-        </section>
+        
+    <?php include "footer/footer-nobg.php"; ?>
 </body>
 </html>
