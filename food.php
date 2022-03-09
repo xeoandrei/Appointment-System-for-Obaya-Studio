@@ -79,7 +79,7 @@
                         </li>
             
                         <li class="nav-item">
-                            <a class="nav-link" href="food.html">Food</a>
+                            <a class="nav-link" href="food.php">Food</a>
                         </li>
             
                         <li class="nav-item">
