@@ -108,7 +108,7 @@ function build_table($result){
 			echo "<td>" . $row['email'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
-			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";
+			echo "<a href='delete_account.php?name=" . $row['name'] . "'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
 		}
