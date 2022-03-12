@@ -33,25 +33,25 @@
                     <h5 class="fw-bold my-3">Book Appointment</h5>
                     <div class="card-body">
                     <!-- FORM -->
-                    <form action="" method="POST">
+                    <form action="book_appointment.php" method="POST">
                         <div class="row">
                                 <div class="mb-3 col-6">
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name" required>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <input type="date" class="form-control" name="date" id="inputDate">
+                                    <input type="date" class="form-control" name="date" id="inputDate" required>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <input type="time" class="form-control" name="time" id="inputTime">
+                                    <input type="time" class="form-control" name="time" id="inputTime" min="8:00" max="16:00" required>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <input type="text" class="form-control" id="inputContact" placeholder="Contact Number">
+                                    <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" required>
                                 </div>
                                 <div class="mb-3 col-6">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" required>
                                         <option selected>Number of Clients</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -59,7 +59,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="book_appointment.php" class="btn btn-primary">Next</a>
+                                    <input class="form-control btn btn-success" type="submit" name="submit" value="Next">
                                 </div>
                             </div>
                         </form>
