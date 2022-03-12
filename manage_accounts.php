@@ -76,7 +76,6 @@
                 </div>  
         </nav>
 <?php
-include "navbar/navbar-staff-page.php";
 session_start();
 if(isset($_SESSION['email'])){
 	?>
@@ -135,7 +134,7 @@ if(isset($_SESSION['email'])){
 	<?php
 }
 else{
-	header("location: login.php");
+	//header("location: login.php");
 }
 ?>
 
@@ -167,7 +166,7 @@ function build_table($result){
 			echo "<td>" . $row['usertype'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
-			echo "<a href='delete_account.php?name=" . $row['name'] . "'>Delete</a> ";
+			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
 		}
@@ -179,6 +178,12 @@ function build_table($result){
 		echo "No user account/s found";
 	}
 }
+
+// }
+print_r($_SESSION);
+echo "<br>";
+print_r($_SERVER);
+
 ?>
 </body>
 </html>
