@@ -42,11 +42,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="services_men.html">For Men</a>
+                                    <a class="dropdown-item" href="manage-services.php">For Men</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="services_women.html">For Women</a>
+                                    <a class="dropdown-item" href="manage-services.php">For Women</a>
                                 </li>
                             </ul>
                         </li>
@@ -152,6 +152,7 @@ function build_table($result){
 		echo "<th scope='col'>ID</th>";
 		echo "<th scope='col'>Username</th>";
 		echo "<th scope='col'>Email</th>";
+		echo "<th scope='col'>Usertype</th>";
 		echo "<th scope='col'>Status</th>";
 		echo "</tr>";
 		echo "</thead>";
@@ -162,6 +163,7 @@ function build_table($result){
 			echo "<th scop='row'>" . $row['id'] . "</td>";
 			echo "<td>" . $row['name'] . "</td>";
 			echo "<td>" . $row['email'] . "</td>";
+			echo "<td>" . $row['usertype'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
 			echo "<a href='delete-account.php?name=" . $row['name'] . "'>Delete</a> ";

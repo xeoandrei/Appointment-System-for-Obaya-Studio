@@ -119,6 +119,11 @@
                     <div class="mb-3">
                         <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
                     </div>
+                    <class="form-control"><select name = "cmbusertype" id = "cmbusertype" class="form-control" required>
+			            <option value = "">--User Type--</option>
+			            <option value = "ADMINISTRATOR">Administrator</option>
+			            <option value = "STAFF">Staff</option>
+		                </select><br>
                     <div class="mb-4">
                         <input class="form-control btn btn-primary" type="submit" name="signup" value="Add New Account">
                     </div>

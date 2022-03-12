@@ -11,6 +11,7 @@ if(isset($_POST['signup'])){
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+    $usertype = mysqli_real_escape_string($con, $_POST['cmbusertype']);
     if($password !== $cpassword){
         $errors['password'] = "Confirm password not matched!";
     }
@@ -23,8 +24,8 @@ if(isset($_POST['signup'])){
         $encpass = password_hash($password, PASSWORD_BCRYPT);
         $code = rand(999999, 111111);
         $status = "notverified";
-        $insert_data = "INSERT INTO usertable (name, email, password, code, status)
-                        values('$name', '$email', '$encpass', '$code', '$status')";
+        $insert_data = "INSERT INTO usertable (name, email, password, code, usertype, status)
+                        values('$name', '$email', '$encpass', '$code', '$usertype', '$status')";
         $data_check = mysqli_query($con, $insert_data);
         if($data_check){
             $subject = "Email Verification Code";
@@ -84,6 +85,7 @@ if(isset($_POST['signup'])){
             $fetch_pass = $fetch['password'];
             if(password_verify($password, $fetch_pass)){
                 $_SESSION['email'] = $email;
+                $_SESSION['usertype'] = $fetch['usertype'];
                 $status = $fetch['status'];
                 if($status == 'verified'){
                   $_SESSION['email'] = $email;
@@ -116,7 +118,7 @@ if(isset($_POST['signup'])){
                 $message = "Your password reset code is $code";
                 $sender = "From: sammygarma26@gmail.com";
                 if(mail($email, $subject, $message, $sender)){
-                    $info = "We've sent a passwrod reset otp to your email - $email";
+                    $info = "We've sent a password reset otp to your email - $email";
                     $_SESSION['info'] = $info;
                     $_SESSION['email'] = $email;
                     header('location: reset-code.php');

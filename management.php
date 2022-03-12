@@ -70,11 +70,11 @@ if($email != false && $password != false){
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="services_men.html">For Men</a>
+                                    <a class="dropdown-item" href="manage-services.php">For Men</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="services_women.html">For Women</a>
+                                    <a class="dropdown-item" href="manage-services.php">For Women</a>
                                 </li>
                             </ul>
                         </li>
@@ -86,10 +86,15 @@ if($email != false && $password != false){
                         <li class="nav-item">
                             <a class="nav-link" href="food.html">Feedback</a>
                         </li>
-            
-                        <li class="nav-item">
-                            <a class="nav-link" href="manage_accounts.php">Staff</a>
-                        </li>
+                        <?php
+                        if(($_SESSION['usertype']) == 'ADMINISTRATOR')
+	                    {
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="manage_accounts.php">Staff</a>';
+                                echo '<li class="nav-item">';
+                            echo '</li>';
+                        }
+		                ?>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
