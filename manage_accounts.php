@@ -1,3 +1,20 @@
+<?php
+require_once "config.php";
+session_start();
+//check if the session contains data
+if (($_SESSION['usertype'] == 'ADMINISTRATOR'))
+{
+    //display session data
+    /*
+				?>
+				<h3><?php echo "Welcome, " . $_SESSION['username']."!"; ?></h3>
+				<h3> <?php echo "User type right now is: " . $_SESSION['usertype']; ?> </h3> 
+				<?php
+				*/} 
+else
+{
+    header("location: management.php");}
+?>
 <html>
 <head>
 	<title>Accounts Management</title>
@@ -76,7 +93,6 @@
                 </div>  
         </nav>
 <?php
-session_start();
 if(isset($_SESSION['email'])){
 	?>
 	<div class="container-fluid">
@@ -180,10 +196,6 @@ function build_table($result){
 }
 
 // }
-print_r($_SESSION);
-echo "<br>";
-print_r($_SERVER);
-
 ?>
 </body>
 </html>

@@ -1,3 +1,20 @@
+<?php
+require_once "config.php";
+session_start();
+//check if the session contains data
+if (($_SESSION['usertype'] == 'ADMINISTRATOR'))
+{
+    //display session data
+    /*
+				?>
+				<h3><?php echo "Welcome, " . $_SESSION['username']."!"; ?></h3>
+				<h3> <?php echo "User type right now is: " . $_SESSION['usertype']; ?> </h3> 
+				<?php
+				*/} 
+else
+{
+    header("location: management.php");}
+?>
 <?php require_once "controllerUserData.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
