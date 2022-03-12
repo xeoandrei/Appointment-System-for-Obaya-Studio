@@ -39,9 +39,15 @@
                             <a class="nav-link" href="food.html">Feedback</a>
                         </li>
             
-                        <li class="nav-item">
-                            <a class="nav-link" href="manage_accounts.php">Staff</a>
-                        </li>
+                        <?php
+                        if(($_SESSION['usertype']) == 'ADMINISTRATOR')
+	                    {
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="manage_accounts.php">Staff</a>';
+                            echo '<li class="nav-item">';
+                            echo '</li>';
+                        }
+		                ?>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
