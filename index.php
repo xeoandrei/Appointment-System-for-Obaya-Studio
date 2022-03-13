@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <?php
+    require_once "config.php";
     session_start();
-    if(isset($_SESSION['email'])){
+    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } else {
-
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
 ?>
 

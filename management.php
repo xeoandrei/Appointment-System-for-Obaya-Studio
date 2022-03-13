@@ -21,6 +21,14 @@ if($email != false && $password != false){
     header('Location: login.php');
 }
 ?>
+<!-- <?php
+    include "config.php";
+    if(($_SESSION['usertype'] == 'ADMINISTRATOR')){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } else {
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+    }
+?> -->
 <html>
     <head>
         <meta charset="UTF-8">

@@ -1,10 +1,10 @@
 <?php
 	require_once "config.php";
     session_start();
-    if(isset($_SESSION['email'])){
+    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } else {
-
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
 ?>
 <html>
@@ -68,10 +68,14 @@
                             <a class="nav-link" href="food.html">Feedback</a>
                         </li>
 						<?php
-						?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="manage_accounts.php">Staff</a>
-                        </li>
+                        if(($_SESSION['usertype']) == 'ADMINISTRATOR')
+	                    {
+                            echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="manage_accounts.php">Staff</a>';
+                                echo '<li class="nav-item">';
+                            echo '</li>';
+                        }
+		                ?>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -104,11 +108,11 @@
 		<?php
 		if(isset($_POST['btnsubmit']))
 		{
-			$sql = "SELECT * FROM men_service_table WHERE id <> ? AND (id LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR createdby LIKE ? OR date_created LIKE ? OR date_updated LIKE ?) ORDER BY id";
+			$sql = "SELECT * FROM men_service_table WHERE id <> ? AND (id LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR createdby LIKE ? OR date_created LIKE ?) ORDER BY id";
 			if($stmt = mysqli_prepare($link, $sql))
 			{
 				$search = '%' . $_POST['txtsearch'] . '%';
-				mysqli_stmt_bind_param($stmt, "sssssssss", $_SESSION['id'], $search, $search, $search, $search, $search, $search, $search, $search);
+				mysqli_stmt_bind_param($stmt, "ssssssss", $_SESSION['id'], $search, $search, $search, $search, $search, $search, $search);
 				if(mysqli_stmt_execute($stmt))
 				{
 					$result = mysqli_stmt_get_result($stmt);
@@ -149,7 +153,7 @@
             unset($_SESSION['notify']);
         }
         ?>
-        <br><a href="index.php" class="button2">Return to Menu</a>
+        <br><a href="management.php" class="button2">Return to Dashboard</a>
         <div id="overlay"></div>
 	</body>
 </center>	
@@ -184,48 +188,48 @@
 				echo "<button> <a href = 'update-services.php?id=" . $row['id'] . "'>Update </a></button>";
 				if($row['status'] =="ACTIVE")
                 {
-                    echo "<button><a data-target = '#deactivate-account-id-" . $row['id'] . "'>Deactivate </a></button>";
+                    echo "<button><a data-target = '#deactivate-services-id-" . $row['id'] . "'>Deactivate </a></button>";
                 }
                 else if($row['status'] == "INACTIVE")
                 {
-                	echo "<button><a data-target = '#activate-account-id-" . $row['id'] . "'>Activate </a></button>";
+                	echo "<button><a data-target = '#activate-services-id-" . $row['id'] . "'>Activate </a></button>";
                 }
 				else
                 {
-                    echo "<button><a data-target = '#activate-account-id-" . $row['id'] . "'>Activate </a></button>";
+                    echo "<button><a data-target = '#activate-services-id-" . $row['id'] . "'>Activate </a></button>";
                 }
-				echo "<button><a data-target = '#delete-account-id-" . $row['id'] . "'>Delete </a></button>";
+				echo "<button><a data-target = '#delete-services-id-" . $row['id'] . "'>Delete </a></button>";
 				echo '
-					<div id = "activate-account-id-' . $row['id'] . '" class = "modal">
-							<div class = "modal-header">
-								ACTIVATE
-								<button data-close-button>&times;</button>
-							</div>
-							<div class = "modal-body">
-								Do you want to Activate this Account?<br>
-								<a href = "activate-account.php?id='.$row['id'].'"><br>Yes</a>
-							</div>
-						</div> 
-					<div id = "deactivate-account-id-' . $row['id'] . '" class = "modal">
-							<div class = "modal-header">
-								DEACTIVATE
-								<button data-close-button>&times;</button>
-							</div>
-							<div class = "modal-body">
-								Do you want to Deactivate this Account?<br>
-								<a href = "deactivate-account.php?id='.$row['id'].'"><br>Yes</a>
-							</div>
-						</div> 
-					<div id = "delete-account-id-' . $row['id'] . '" class = "modal">
-							<div class = "modal-header">
-								DELETE
-								<button data-close-button>&times;</button>
-							</div>
-							<div class = "modal-body">
-								Do you want to Delete this Account?<br>
-								<a href = "delete-account.php?id='.$row['id'].'"><br>Yes</a>
-							</div>
-						</div> 		
+					<div id = "activate-services-id-' . $row['id'] . '" class = "modal">
+						<div class = "modal-header">
+							ACTIVATE
+							<button data-close-button>&times;</button>
+						</div>
+					    <div class = "modal-body">
+							Do you want to Activate this Account?<br>
+							<a href = "activate-services.php?id='.$row['id'].'"><br>Yes</a>
+						</div>
+					</div> 
+					<div id = "deactivate-services-id-' . $row['id'] . '" class = "modal">
+						<div class = "modal-header">
+							DEACTIVATE
+							<button data-close-button>&times;</button>
+						</div>
+						<div class = "modal-body">
+							Do you want to Deactivate this Account?<br>
+							<a href = "deactivate-services.php?id='.$row['id'].'"><br>Yes</a>
+						</div>
+					</div> 
+					<div id = "delete-services-id-' . $row['id'] . '" class = "modal">
+						<div class = "modal-header">
+							DELETE
+							<button data-close-button>&times;</button>
+						</div>
+						<div class = "modal-body">
+							Do you want to Delete this Account?<br>
+							<a href = "delete-services.php?id='.$row['id'].'"><br>Yes</a>
+						</div>
+					</div> 		
 				';
 				echo "</td>";
  				echo "</tr>";
@@ -234,7 +238,7 @@
 		}		
 		else
 		{
-			echo "No User/s Found!";
+			echo "No Service/s Found!";
 		}
 	}
 ?>
