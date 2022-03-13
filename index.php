@@ -4,7 +4,6 @@
     session_start();
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-        print_r($_SESSION['usertype']);
     } else {
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
