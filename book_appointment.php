@@ -29,7 +29,6 @@
             <!-- CARD -->
             <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-8 ">
                 <div class="mt-5">
-                    <img src="images/salon.png" style="height:75px;" alt="">
                     <h5 class="fw-bold my-3">Book Appointment</h5>
                     <div class="card-body">
                     <!-- FORM -->
