@@ -19,81 +19,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/book_appointment.css">
+    <link rel="stylesheet" href="css/servicesfood.css">
 
     <title>Obaya Studio | Book Appointment</title>
 </head>
 <body>
-    <section id = firstPageMainBG>
-       
-    <section id="firstPage" class="container-fluid"> 
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="index.php">
-                <img src="images/logo3.png" style="height: 90px; margin-right: 2em;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-        
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li>
-                                <a class="dropdown-item" href="services_men.html">For Men</a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="services_women.html">For Women</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
-                            Book
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li>
-                                <a class="dropdown-item" href="verify_appointment.html">Book Appointment</a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Cancel Appointment</a>
-                            </li>
-                        </ul>
-                    </li>
-        
-                    <li class="nav-item">
-                        <a class="nav-link" href="food.html">Food</a>
-                    </li>
-        
-                    <li class="nav-item">
-                        <a class="nav-link" href="about_us.html">About Us</a>
-                    </li>
-
-                </ul>
+    <?php include "navbar/navbar.php"; ?>
+    <div class="container-fluid row">
+            <!-- CARD -->
+            <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-8 ">
+                <div class="mt-5">
+                    <img src="images/salon.png" style="height:75px;" alt="">
+                    <h5 class="fw-bold my-3">Book Appointment</h5>
+                    <div class="card-body">
+                    <!-- FORM -->
+                    <form action="" method="POST">
+                        <div class="row">
+                                <div class="mb-3 col-6">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <input type="date" class="form-control" name="date" id="inputDate">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <input type="time" class="form-control" name="time" id="inputTime">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <input type="text" class="form-control" id="inputContact" placeholder="Contact Number">
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Number of Clients</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <a href="book_appointment.php" class="btn btn-primary">Next</a>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link d-lg-none" href="login.php">
-                            Log-In
-                        </a>
-                        <a class="nav-link d-none d-lg-block" href="login.php">
-                            <img src="images/user.png" style="height:40px;" alt="">
-                        </a>
-                    </li>
-                </ul>
-            </div>  
-    </nav>
-
         <div class="marginTop">
             <h1>Book Appointment</h1>
             <form class="">

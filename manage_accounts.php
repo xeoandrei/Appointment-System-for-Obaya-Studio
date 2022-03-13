@@ -93,6 +93,7 @@ else
                 </div>  
         </nav>
 <?php
+include 'navbar/navbar-staffpage.php';
 if(isset($_SESSION['email'])){
 	?>
 	<div class="container-fluid">
