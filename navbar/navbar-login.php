@@ -32,7 +32,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="verify_appointment.php">Book Appointment</a>
+                                    <a class="dropdown-item" href="check_schedule.php">Book Appointment</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>

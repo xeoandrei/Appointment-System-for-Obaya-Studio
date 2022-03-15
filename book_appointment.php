@@ -19,7 +19,7 @@
             echo 'schedule available';
         }
     } else {
-        header('Location: verifyappt.php');
+        header('Location: check_schedule.php');
     }
 
 ?>

@@ -31,7 +31,7 @@ if($email == false && $password == false){
 <body>
 <?php
 include 'navbar/navbar-admin.php';
-$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.id";  
+$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId";  
 $result = mysqli_query($con, $sql); ?>
 <div class="container">                  
                 <div class="table-responsive">  
@@ -70,7 +70,7 @@ $result = mysqli_query($con, $sql); ?>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <?php
                                             if($row['status']=='Pending'){
-                                                echo '<li><a class="dropdown-item" href="#">Verify</a></li>';
+                                                echo '<li><a class="dropdown-item" href="verify_appointment.php?verify='<?php $row["appointmentId"]?> . '>Verify</a></li>';
                                             }
                                         ?>            
                                         <li><a class="dropdown-item" href="#">Delete</a></li>
