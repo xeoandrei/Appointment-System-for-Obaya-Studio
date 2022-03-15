@@ -45,9 +45,21 @@
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
             <div class="mt-5">
                 <h5 class="fw-bold">Book Appointment</h5>
+
                 <div class="card-body">
                     <!-- FORM -->
                     <form action="book_appointment.php" method="POST">
+                        <?php
+                        if(isset($_SESSION['schederror'])){
+                            echo   '<div class="alert alert-danger text-center">
+                                        ' . $_SESSION['schederror'] . 
+                                    '</div>';
+                        } elseif(isset($_SESSION['emailerror'])){
+                            echo   '<div class="alert alert-danger text-center">
+                                        ' . $_SESSION['emailerror'] . 
+                                    '</div>';
+                        }
+                        ?>
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" required>

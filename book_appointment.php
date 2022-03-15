@@ -1,7 +1,10 @@
 <?php
     include 'connection.php';
     session_start();
-    
+
+    unset($_SESSION['emailerror']);
+    unset($_SESSION['schederror']);
+
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
@@ -16,15 +19,20 @@
         $date = $_POST['date'];
         $_SESSION['datetime'] = $date . ' ' . $time;
         $datetime = $_SESSION['datetime'];
+        $email = $_SESSION["customerEmail"];
         $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime'";
+        $email_check = "SELECT * FROM customer WHERE email = '$email'";
         $res = mysqli_query($con, $datetime_check);
+        $res2 = mysqli_query($con, $email_check);
         
         if(mysqli_num_rows($res) > 0){
-            $errors['datetime'] = "Scheduled that you have selected is already taken.";
-            header('Location: verifyappt.php');
-        } else {
-            echo 'schedule available';
+            $_SESSION['schederror'] = "Scheduled that you have selected is already taken.";
+            header('Location: check_schedule.php');
+        } elseif(mysqli_num_rows($res2) > 0) {
+            $_SESSION['emailerror'] = "Email that you have entered is already taken.";
+            header('Location: check_schedule.php');
         }
+        
     } else {
         header('Location: check_schedule.php');
     }
