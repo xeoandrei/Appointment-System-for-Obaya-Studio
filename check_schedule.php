@@ -54,10 +54,12 @@
                             echo   '<div class="alert alert-danger text-center">
                                         ' . $_SESSION['schederror'] . 
                                     '</div>';
+                            unset($_SESSION['schederror']);
                         } elseif(isset($_SESSION['emailerror'])){
                             echo   '<div class="alert alert-danger text-center">
                                         ' . $_SESSION['emailerror'] . 
                                     '</div>';
+                            unset($_SESSION['emailerror']);
                         }
                         ?>
                         <div class="row">

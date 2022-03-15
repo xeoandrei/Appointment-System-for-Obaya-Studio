@@ -2,9 +2,6 @@
     include 'connection.php';
     session_start();
 
-    unset($_SESSION['emailerror']);
-    unset($_SESSION['schederror']);
-
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
@@ -32,7 +29,7 @@
             $_SESSION['emailerror'] = "Email that you have entered is already taken.";
             header('Location: check_schedule.php');
         }
-        
+
     } else {
         header('Location: check_schedule.php');
     }
