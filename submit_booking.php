@@ -10,8 +10,8 @@
 
         $service = $_POST['service'];
 
-        $query = "INSERT INTO appointment(datetime) ";
-        $query .= "VALUES ('$datetime')";
+        $query = "INSERT INTO appointment(datetime, status) ";
+        $query .= "VALUES ('$datetime', 'Pending')";
 
         $result = mysqli_query($con, $query);
         if(!$result){

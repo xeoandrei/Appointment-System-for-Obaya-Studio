@@ -13,7 +13,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Appointments</a>
+                            <a class="nav-link" href="manage_appointments.php">Appointments</a>
                         </li>
             
                         <li class="nav-item dropdown">
