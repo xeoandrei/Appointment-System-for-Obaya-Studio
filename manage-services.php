@@ -118,7 +118,7 @@ else{
 		<?php
 		if(isset($_POST['btnsubmit']))
 		{
-			$sql = "SELECT * FROM men_service_table WHERE id <> ? AND (id LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR createdby LIKE ? OR date_created LIKE ?) ORDER BY id";
+			$sql = "SELECT * FROM men_service_table WHERE id = ? OR (id LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR createdby LIKE ? OR date_created LIKE ?) ORDER BY id";
 			if($stmt = mysqli_prepare($link, $sql))
 			{
 				$search = '%' . $_POST['txtsearch'] . '%';

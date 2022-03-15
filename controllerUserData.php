@@ -86,6 +86,7 @@ if(isset($_POST['signup'])){
             if(password_verify($password, $fetch_pass)){
                 $_SESSION['email'] = $email;
                 $_SESSION['usertype'] = $fetch['usertype'];
+                $_SESSION['name'] = $fetch['name'];
                 $status = $fetch['status'];
                 if($status == 'verified'){
                   $_SESSION['email'] = $email;

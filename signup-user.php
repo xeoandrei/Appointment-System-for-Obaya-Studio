@@ -1,6 +1,4 @@
-  <?php
-require_once "config.php";
-session_start();
+<?php require_once "controllerUserData.php";
 //check if the session contains data
 if (($_SESSION['usertype'] == 'ADMINISTRATOR')){
     //display session data
@@ -13,7 +11,6 @@ else{
     header("location: management.php");
 }
 ?>
-<?php require_once "controllerUserData.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

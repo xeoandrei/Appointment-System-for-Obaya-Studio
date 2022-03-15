@@ -1,10 +1,6 @@
 <?php
 require_once "config.php";
-// session_start();
-// if(!isset($_SESSION['id']))
-// {
-// 	header("location: manage-services.php");
-// }
+include ("session-checker.php");
 if(isset($_POST['btnsubmit']))
 {
 	//commit update
@@ -19,7 +15,9 @@ if(isset($_POST['btnsubmit']))
 			{
 				$action = 'Update';
 				$module = 'Men-Services';
-				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $_GET['id'], $_SESSION['id'], $module);
+				$id = $_SESSION['usertype'];
+				$name = $_SESSION['name'];
+				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $id, $name, $module);
 				if(mysqli_stmt_execute($stmt))
 				{
 					$_SESSION['notify'] = 'Service was Successfully Updated!';
@@ -76,8 +74,6 @@ else
 	<center>
 	<br><p>Update Services</p>
 	<form action = "<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method = "POST">
-		<label class="form-controlthird">Service Id: <input type= "text" name = "txtId" class="form-controlsecond" 
-			value="<?php echo $men_service['id']; ?>"disabled><br>
 		<label class="form-controlthird">Service Name: <input type= "text" name = "txtName" class="form-controlsecond" 
 			value="<?php echo $men_service['name']; ?>"><br>
         <label class="form-controlthird">Description: </label><textarea rows = "6" cols = "70" name = "txtDescription" placeholder ="Enter description here...">
