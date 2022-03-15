@@ -1,3 +1,8 @@
+<?php 
+    include 'connection.php';
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,24 +45,33 @@
                     <form action="book_appointment.php" method="POST">
                         <div class="row">
                             <div class="mb-3 col-6">
-                                <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                                <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" required>
                             </div>
                             <div class="mb-3 col-6">
                                 <input type="date" class="form-control" name="date" id="inputDate" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <input type="time" class="form-control" name="time" id="inputTime" min="8:00"
-                                    max="16:00" required>
+                                <select name="time" id="">
+                                    <option value="8:00:00">8:00AM</option>
+                                    <option value="9:00:00">9:00AM</option>
+                                    <option value="10:00:00">10:00AM</option>
+                                    <option value="11:00:00">11:00AM</option>
+                                    <option value="12:00:00">12:00PM</option>
+                                    <option value="13:00:00">1:00PM</option>
+                                    <option value="14:00:00">2:00PM</option>
+                                    <option value="15:00:00">3:00PM</option>
+                                    <option value="16:00:00">4:00PM</option>
+                                    <option value="17:00:00">5:00PM</option>
+                                </select>
                             </div>
                             <div class="mb-3 col">
-                                <input type="text" class="form-control" id="inputContact" placeholder="Contact Number"
-                                    required>
+                                <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" name="contact" maxlength="11" required>
                             </div>
                             <div class="mb-3">
-                                <input class="form-control btn btn-success" type="submit" name="submit" value="Next">
+                                <input class="form-control btn btn-success" type="submit" name="verifyappt" value="Next">
                             </div>
                         </div>
                     </form>

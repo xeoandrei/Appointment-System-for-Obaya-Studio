@@ -1,3 +1,28 @@
+<?php
+    include 'connection.php';
+    session_start();
+    if(isset($_POST['verifyappt'])){
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['contact'] = $_POST['contact'];
+        $time = $_POST['time'];
+        $date = $_POST['date'];
+        $_SESSION['datetime'] = $date . ' ' . $time;
+        $datetime = $_SESSION['datetime'];
+        $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime'";
+        $res = mysqli_query($con, $datetime_check);
+        
+        if(mysqli_num_rows($res) > 0){
+            $errors['datetime'] = "Scheduled that you have selected is already taken.";
+            header('Location: verifyappt.php');
+        } else {
+            echo 'schedule available';
+        }
+    } else {
+        header('Location: verifyappt.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,133 +52,21 @@
     <?php include "navbar/navbar.php"; ?>
     <div class="container-fluid row">
             <!-- CARD -->
-            <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-8 ">
+            <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 ">
                 <div class="mt-5">
                     <h5 class="fw-bold my-3">Book Appointment</h5>
                     <div class="card-body">
                     <!-- FORM -->
-                    <form action="" method="POST">
-                        <div class="row">
-                                <div class="mb-3 col-6">
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <input type="date" class="form-control" name="date" id="inputDate">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <input type="time" class="form-control" name="time" id="inputTime">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <input type="text" class="form-control" id="inputContact" placeholder="Contact Number">
-                                </div>
-                                <div class="mb-3 col-6">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Number of Clients</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <a href="book_appointment.php" class="btn btn-primary">Next</a>
-                                </div>
+                        <form action="submit_booking.php" method="POST">
+                            <div class="row">
+                                <input type="text" class="form-control mb-3" name="service" placeholder="Service" required>
+                                <input type="submit" name="bookappt" class="form-control mb-3 btn btn-primary">
                             </div>
-                        </form>
-                        
+                        </form>    
                     </div>
                 </div>
             </div>
-        <div class="marginTop">
-            <h1>Book Appointment</h1>
-            <form class="">
-                <div class="row">
-                    <div class="col-lg-3"><h5>Number of Client</h5></div>
-                    <div class="col-lg-3"><h5>Services</h5></div>
-                    <div class="col-lg-3"><h5>Age</h5></div>
-                    <div class="col-lg-3 mb-3"><h5>Gender</h5></div>
 
-                    <div class="col-lg-3 mb-3"><h5>Client 1</h5></div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Haircut</option>
-                            <option value="2">Rebond</option>
-                            <option value="3">Lorem</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <input type="text" class="form-control" id="inputContact">
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-3 mb-3"><h5>Client 2</h5></div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Haircut</option>
-                            <option value="2">Rebond</option>
-                            <option value="3">Lorem</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <input type="text" class="form-control" id="inputContact">
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-3 mb-3"><h5>Client 3</h5></div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Haircut</option>
-                            <option value="2">Rebond</option>
-                            <option value="3">Lorem</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <input type="text" class="form-control" id="inputContact">
-                    </div>
-                    <div class="col-lg-3 mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <h5>Photo Reference (Optional):</h5>
-                        <button type="button" class="btn btn-secondary">Add Photo</button>
-                    </div>
-
-                    <div class="mb-3">
-                        <h5>Current Hair Photo (Optional):</h5>
-                        <button type="button" class="btn btn-secondary">Add Photo</button>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Confirm Appointment</button>
-                    </div>
-                </div>
-
-            </form>   
-        </div>
-
-    </section>
-    </section>
 
     
 </body>
