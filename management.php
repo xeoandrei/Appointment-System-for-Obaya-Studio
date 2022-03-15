@@ -56,7 +56,7 @@ if($email != false && $password != false){
     <body>
         <?php include 'navbar/navbar-admin.php'; ?>
         
-        <div class="container-fluid mt-2">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                   <div class="card shadow p-3 mb-5 bg-body rounded">

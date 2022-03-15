@@ -39,7 +39,7 @@ else
 include 'navbar/navbar-staffpage.php';
 if(isset($_SESSION['email'])){
 	?>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="col-lg-12 col-md-12">
 
 			<div class="card shadow p-3 mb-5 bg-body rounded">
