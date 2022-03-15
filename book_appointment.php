@@ -1,6 +1,13 @@
 <?php
     include 'connection.php';
     session_start();
+    
+    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+    }
+
     if(isset($_POST['verifyappt'])){
         $_SESSION['customerName'] = $_POST['name'];
         $_SESSION['customerEmail'] = $_POST['email'];

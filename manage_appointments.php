@@ -33,60 +33,68 @@ if($email == false && $password == false){
 include 'navbar/navbar-admin.php';
 $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId";  
 $result = mysqli_query($con, $sql); ?>
-<div class="container">                  
-                <div class="table-responsive">  
-                     <table class="table table-sm">  
-                          <tr>  
-                               <th>Customer ID</th>  
-                               <th>Name</th>
-                               <th>Email</th>  
-                               <th>Contact</th>
-                               <th>Service</th>  
-                               <th>Date Time</th>  
-                               <th>Appointment ID</th>    
-                               <th>Status</th>
-                               <th>Action</th>      
-                          </tr>  
-                          <?php  
-                          if(mysqli_num_rows($result) > 0)  
-                          {  
-                               while($row = mysqli_fetch_array($result))  
-                               {  
-                          ?>  
-                          <tr>  
-                               <td><?php echo $row["customerId"];?></td>  
-                               <td><?php echo $row["name"]; ?></td> 
-                               <td><?php echo $row["email"]; ?></td>  
-                               <td><?php echo $row["contact"]; ?></td>
-                               <td><?php echo $row["service"]; ?></td>
-                               <td><?php echo $row["datetime"]; ?></td>
-                               <td><?php echo $row["appointmentId"]; ?></td>   
-                               <td><?php echo $row["status"]; ?></td>
-                               <td>
-                               <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Action
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <?php
-                                            $apptId = $row["appointmentId"];
-                                            if($row['status']=='Pending'){
-                                                echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '">Verify</a></li>';
-                                            }
-                                        ?>            
-                                        <?php
-                                        echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '">Delete</a></li>';
+     <div class="container">
+          <div class="col-lg-12 col-md-12">
+               <div class="card shadow p-3 mb-5 bg-body rounded">
+                    <div class="card-header">
+                         <h3>Appointments</h3>
+                    </div>
+                    <div class="card-body"></div>
+                    <div class="table table-responsive">
+                         <table class="table table-sm">
+                              <tr>
+                                   <th>Customer ID</th>
+                                   <th>Name</th>
+                                   <th>Email</th>
+                                   <th>Contact</th>
+                                   <th>Service</th>
+                                   <th>Schedule</th>
+                                   <th>Appointment ID</th>
+                                   <th>Status</th>
+                                   <th>Action</th>
+                              </tr>
+                              <?php  
+                                        if(mysqli_num_rows($result) > 0)  
+                                        {  
+                                             while($row = mysqli_fetch_array($result))  
+                                             {  
                                         ?>
-                                    </ul>
-                                    </div>
-                               </td>
-                          </tr>  
-                          <?php  
-                               }  
-                          }  
-                          ?>  
-                     </table>  
-                </div>  
-           </div>
+                              <tr>
+                                   <td><?php echo $row["customerId"];?></td>
+                                   <td><?php echo $row["name"]; ?></td>
+                                   <td><?php echo $row["email"]; ?></td>
+                                   <td><?php echo $row["contact"]; ?></td>
+                                   <td><?php echo $row["service"]; ?></td>
+                                   <td><?php echo $row["datetime"]; ?></td>
+                                   <td><?php echo $row["appointmentId"]; ?></td>
+                                   <td><?php echo $row["status"]; ?></td>
+                                   <td>
+                                        <div class="dropdown">
+                                             <button class="btn btn-primary dropdown-toggle" type="button"
+                                                  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  Action
+                                             </button>
+                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                  <?php
+                                                       $apptId = $row["appointmentId"];
+                                                       if($row['status']=='Pending'){
+                                                            echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '">Verify</a></li>';
+                                                            echo '<li><hr class="dropdown-divider"></li>';
+                                                       }
+                                                       ?>
+                                                  <?php
+                                                       echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '">Delete</a></li>';
+                                                  }
+                                             }
+                                                       ?>
+                                             </ul>
+                                        </div>
+                                   </td>
+                              </tr>
+                         </table>
+                    </div>
+               </div>
+          </div>
+     </div>
 </body>
 </html>
