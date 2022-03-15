@@ -54,7 +54,7 @@
                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <select name="time" id="">
+                                <select name="time" class="form-select" id="">
                                     <option value="8:00:00">8:00AM</option>
                                     <option value="9:00:00">9:00AM</option>
                                     <option value="10:00:00">10:00AM</option>

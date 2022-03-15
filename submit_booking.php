@@ -28,8 +28,6 @@
             if(!$result){
                 die('QUERY FAILED! ' . mysql_error());
             } else {
-                session_unset();
-                session_destroy();
                 header('location: submit_success.php');
             }
         }
