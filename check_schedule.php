@@ -53,7 +53,8 @@
                                 <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <input type="date" class="form-control" name="date" id="inputDate" required>
+                                <!-- <input type="date" class="form-control" name="date" id="inputDate" required> -->
+                                <input type="date" class="form-control" name="date" min="<?php echo date("Y-m-d"); ?>">
                             </div>
                             <div class="mb-3 col-6">
                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
