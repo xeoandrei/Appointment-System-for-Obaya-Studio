@@ -1,17 +1,15 @@
 <?php
 include_once('connection.php');
  
-if( isset($_GET['verify']) )
-{
+if(isset($_GET['verify'])){
     $id = $_GET['verify'];
-    $sql= "UPDATE FROM appointment WHERE id='$id'";
-    $res= mysql_query($sql) or die("Failed".mysql_error());
-}
+    $sql= "UPDATE appointment SET status='Verified' WHERE appointmentId='$id'";
+    $result = mysqli_query($con, $sql);
 
-if( isset($_GET['verify']) )  
-{  
-$id = $_GET['verify'];  
-$res= mysql_query("SELECT * FROM appointment WHERE appointmentId='$id'");  
-$row= mysql_fetch_array($res);  
-}  
+    if(!$result){
+        die('Update failed.');
+    } else {
+        header('Location: manage_appointments.php');
+    }
+}
 ?>

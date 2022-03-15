@@ -69,11 +69,14 @@ $result = mysqli_query($con, $sql); ?>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <?php
+                                            $apptId = $row["appointmentId"];
                                             if($row['status']=='Pending'){
-                                                echo '<li><a class="dropdown-item" href="verify_appointment.php?verify='<?php $row["appointmentId"]?> . '>Verify</a></li>';
+                                                echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '">Verify</a></li>';
                                             }
                                         ?>            
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                                        <?php
+                                        echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '">Delete</a></li>';
+                                        ?>
                                     </ul>
                                     </div>
                                </td>

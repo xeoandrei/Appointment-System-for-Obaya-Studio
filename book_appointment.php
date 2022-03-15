@@ -2,8 +2,8 @@
     include 'connection.php';
     session_start();
     if(isset($_POST['verifyappt'])){
-        $_SESSION['name'] = $_POST['name'];
-        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['customerName'] = $_POST['name'];
+        $_SESSION['customerEmail'] = $_POST['email'];
         $_SESSION['contact'] = $_POST['contact'];
         $time = $_POST['time'];
         $date = $_POST['date'];

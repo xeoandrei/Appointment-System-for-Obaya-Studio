@@ -4,8 +4,8 @@
     if(isset($_POST['bookappt'])){
 
         $datetime = $_SESSION['datetime'];
-        $name = $_SESSION['name'];
-        $email = $_SESSION['email'];
+        $customerName = $_SESSION['customerName'];
+        $customerEmail = $_SESSION['customerEmail'];
         $contact = $_SESSION['contact'];
 
         $service = $_POST['service'];
@@ -17,13 +17,13 @@
         if(!$result){
             die('QUERY FAILED! ' . mysql_error());
         } else {
-            $result = mysqli_query($con, "SELECT id FROM appointment WHERE datetime = '$datetime'");
+            $result = mysqli_query($con, "SELECT appointmentId FROM appointment WHERE datetime = '$datetime'");
             while ($row = mysqli_fetch_array($result)) 
             {
-                $id_val = $row['id'];  
+                $id_val = $row['appointmentId'];  
             }
             $submitCustDetails = "INSERT INTO customer(name, email, contact, service, appointmentId) ";
-            $submitCustDetails .= "VALUES ('$name', '$email', '$contact', '$service', '$id_val')";
+            $submitCustDetails .= "VALUES ('$customerName', '$customerEmail', '$contact', '$service', '$id_val')";
             $result = mysqli_query($con, $submitCustDetails);
             if(!$result){
                 die('QUERY FAILED! ' . mysql_error());
