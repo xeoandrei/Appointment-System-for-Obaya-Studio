@@ -4,10 +4,10 @@ include ("session-checker.php");
 if(isset($_POST['btnsubmit']))
 {
 	//commit update
-	$sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ? WHERE id = ?";
+	$sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ? WHERE serviceId = ?";
 	if($stmt = mysqli_prepare($link, $sql))
 	{
-		mysqli_stmt_bind_param($stmt, "sssss", $_POST['txtName'], $_POST['txtDescription'], $_POST['txtCost'], $_POST['cmbStatus'], $_GET['id']);
+		mysqli_stmt_bind_param($stmt, "sssss", $_POST['txtName'], $_POST['txtDescription'], $_POST['txtCost'], $_POST['cmbStatus'], $_GET['serviceId']);
 		if(mysqli_stmt_execute($stmt))
 		{
 			$sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
@@ -15,9 +15,9 @@ if(isset($_POST['btnsubmit']))
 			{
 				$action = 'Update';
 				$module = 'Men-Services';
-				$id = $_SESSION['usertype'];
+				$usertype = $_SESSION['usertype'];
 				$name = $_SESSION['name'];
-				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $id, $name, $module);
+				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
 				if(mysqli_stmt_execute($stmt))
 				{
 					$_SESSION['notify'] = 'Service was Successfully Updated!';
@@ -39,12 +39,12 @@ if(isset($_POST['btnsubmit']))
 else
 {
 	//load service details on the update form
-	if(isset($_GET['id']) && !empty(trim($_GET['id'])))
+	if(isset($_GET['serviceId']) && !empty(trim($_GET['serviceId'])))
 	{
-		$sql = "SELECT * FROM men_service_table WHERE id = ?";
+		$sql = "SELECT * FROM men_service_table WHERE serviceId = ?";
 		if($stmt = mysqli_prepare($link, $sql))
 		{
-			mysqli_stmt_bind_param($stmt, "s", $_GET['id']);
+			mysqli_stmt_bind_param($stmt, "s", $_GET['serviceId']);
 			if(mysqli_stmt_execute($stmt))
 			{
 				$result = mysqli_stmt_get_result($stmt);
