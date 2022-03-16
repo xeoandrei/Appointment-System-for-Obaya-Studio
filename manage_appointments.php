@@ -35,10 +35,10 @@ $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId 
 $result = mysqli_query($con, $sql); ?>
      <div class="container">
           <div class="col-lg-12 col-md-12">
-               <div class="card shadow p-3 mb-5 bg-body rounded">
-                    <div class="card-header">
-                         <h3>Appointments</h3>
-                    </div>
+                  <div class="card shadow p-3 mb-5 bg-body rounded">
+                      <div class="card-header bg-dark text-white py-3">
+                          Appointments
+                      </div>
                     <div class="card-body"></div>
                     <div class="table table-responsive">
                          <table class="table table-sm">
