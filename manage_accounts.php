@@ -41,7 +41,6 @@ if(isset($_SESSION['email'])){
 	?>
 	<div class="container-fluid">
 		<div class="col-lg-12 col-md-12">
-
 			<div class="card shadow p-3 mb-5 bg-body rounded">
 				<div class="card-header bg-dark text-white">
 					<div class="float-start mt-2">
