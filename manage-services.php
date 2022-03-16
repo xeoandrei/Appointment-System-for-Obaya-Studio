@@ -109,7 +109,6 @@ include 'navbar/navbar-admin.php';
                             unset($_SESSION['notify']);
                         }
                     ?>
-                    <br><a href="management.php" class="button2">Return to Dashboard</a>
                     <div id="overlay"></div>
                     </div>
                 </div>
