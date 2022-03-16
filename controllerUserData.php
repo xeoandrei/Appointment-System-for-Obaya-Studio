@@ -176,7 +176,6 @@ if(isset($_POST['signup'])){
             }
         }
     }
-    
    //if login now button click
     if(isset($_POST['login-now'])){
         header('Location: login.php');
