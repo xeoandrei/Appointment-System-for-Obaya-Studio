@@ -36,7 +36,7 @@ else
 </head>
 <body>
 <?php
-include 'navbar/navbar-admin.php';
+include 'navbar/navbar-staffpage.php';
 if(isset($_SESSION['email'])){
 	?>
 	<div class="container">

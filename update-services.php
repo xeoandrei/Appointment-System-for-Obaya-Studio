@@ -7,7 +7,7 @@ if(isset($_POST['btnsubmit']))
 	$sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ? WHERE serviceId = ?";
 	if($stmt = mysqli_prepare($link, $sql))
 	{
-		mysqli_stmt_bind_param($stmt, "sssss", $_POST['txtName'], $_POST['txtDescription'], $_POST['txtCost'], $_POST['cmbStatus'], $_GET['serviceId']);
+		mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $_GET['serviceId']);
 		if(mysqli_stmt_execute($stmt))
 		{
 			$sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
@@ -74,17 +74,16 @@ else
 	<center>
 	<br><p>Update Services</p>
 	<form action = "<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method = "POST">
-		<label class="form-controlthird">Service Name: <input type= "text" name = "txtName" class="form-controlsecond" 
+		<label class="form-controlthird">Service Name: <input type= "text" name = "serviceName" class="form-controlsecond" 
 			value="<?php echo $men_service['name']; ?>"><br>
-        <label class="form-controlthird">Description: </label><textarea rows = "6" cols = "70" name = "txtDescription" placeholder ="Enter description here...">
+        <label class="form-controlthird">Description: </label><textarea rows = "6" cols = "70" name = "serviceDescription" placeholder ="Enter description here...">
             <?php echo $men_service['description']; ?></textarea><br>
-        <label class="form-controlthird">Cost: <input type= "number" name = "txtCost" class="form-controlsecond" 
+        <label class="form-controlthird">Cost: <input type= "number" name = "serviceCost" class="form-controlsecond" 
 			min="0" max="9999" value = "<?php echo $men_service['cost']; ?>"> 
 			<!--onKeyPress="if(this.value.length==4) return false;"> <br> -->
 		<label class="form-controlthird">Current Status: <?php echo $men_service['status']; ?><br>
 		<label class="form-controlthird">Change Status to:
-            <select name = "cmbStatus" id = "cmbStatus" class="form-controlsecond">
-			    <option value = "">--Select Service Type--</option>
+            <select name = "serviceStatus" id = "serviceStatus" class="form-controlsecond">
 			    <option value = "ACTIVE">Active</option>
 			    <option value = "INACTIVE">Inactive</option>
 		    </select><br>

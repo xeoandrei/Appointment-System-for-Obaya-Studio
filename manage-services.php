@@ -57,7 +57,8 @@ include 'navbar/navbar-admin.php';
 					<div class="float-end mt-2">
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="row">
                             <input class="form-control col me-2" type="text" placeholder="Search" name="txtsearch">
-                            <INPUT TYPE = "submit" NAME = "btnsubmit" VALUE = "Go" class= "btn btn-outline-success col-4 me-2"></h4>
+                            <INPUT TYPE = "submit" NAME = "btnsubmit" VALUE = "Go" class= "btn btn-outline-success col-4 me-2">
+							<a href="add_services.php" class=" btn btn-primary col me-2">Add Service</a>
 						</form>
 					</div>
 				</div>
@@ -65,11 +66,11 @@ include 'navbar/navbar-admin.php';
 		            <?php
 		                if(isset($_POST['btnsubmit']))
 		                {
-			                $sql = "SELECT * FROM men_service_table WHERE serviceId = ? OR (serviceId LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR createdby LIKE ? OR date_created LIKE ?) ORDER BY serviceId";
+			                $sql = "SELECT * FROM men_service_table WHERE serviceId = ? OR (serviceId LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR date_created LIKE ?) ORDER BY serviceId";
 			                if($stmt = mysqli_prepare($link, $sql))
 			                {
 				                $search = '%' . $_POST['txtsearch'] . '%';
-				                mysqli_stmt_bind_param($stmt, "ssssssss", $_SESSION['serviceId'], $search, $search, $search, $search, $search, $search, $search);
+				                mysqli_stmt_bind_param($stmt, "sssssss", $_SESSION['serviceId'], $search, $search, $search, $search, $search, $search);
 				                if(mysqli_stmt_execute($stmt))
 				                {
 					                $result = mysqli_stmt_get_result($stmt);
@@ -109,7 +110,6 @@ include 'navbar/navbar-admin.php';
                             unset($_SESSION['notify']);
                         }
                     ?>
-                    <br><a href="management.php" class="button2">Return to Dashboard</a>
                     <div id="overlay"></div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ include 'navbar/navbar-admin.php';
 			echo "<th scope='col'>Description</th>";
 			echo "<th scope='col'>Cost</th>";
             echo "<th scope='col'>Status</th>";
-            echo "<th scope='col'>Created By</th>";
+            // echo "<th scope='col'>Created By</th>";
             echo "<th scope='col'>Actions</th>";
 			echo "</tr>";
 		    echo "</thead>";
@@ -147,7 +147,7 @@ include 'navbar/navbar-admin.php';
 				echo "<td>" . $row['description'] . "</td>";
                 echo "<td>" . $row['cost'] . "</td>";
                 echo "<td>" . $row['status'] . "</td>";
-                echo "<td>" . $row['createdby'] . "</td>";
+                // echo "<td>" . $row['createdby'] . "</td>";
 				echo "<td>";
 				echo "<button> <a href = 'update-services.php?serviceId=" . $row['serviceId'] . "'>Update </a></button>";
 				if($row['status'] =="ACTIVE")
