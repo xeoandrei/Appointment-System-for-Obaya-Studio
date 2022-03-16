@@ -6,6 +6,8 @@
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
+    
+    $NewDate=Date('Y-m-d', strtotime('+1 days'));
 ?>
 
 <!DOCTYPE html>
@@ -67,15 +69,14 @@
                                 <input type="text" class="form-control" id="inputName" placeholder="Name" name="name" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <!-- <input type="date" class="form-control" name="date" id="inputDate" required> -->
-                                <input type="date" class="form-control" name="date" min="<?php echo date("Y-m-d"); ?>">
+                                <input type="date" class="form-control" name="date" min="<?php echo $NewDate; ?>" required>
                             </div>
                             <div class="mb-3 col-6">
                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
                             </div>
                             <div class="mb-3 col-6">
-                                <select name="time" class="form-select" id="">
-                                    <option selected="true" disabled="disabled">Select Time</option>  
+                                <select name="time" class="form-select" id="" required>
+                                    <option value="" selected="true" disabled="disabled">Select Time</option>  
                                     <option value="8:00:00">8:00AM</option>
                                     <option value="9:00:00">9:00AM</option>
                                     <option value="10:00:00">10:00AM</option>
@@ -92,11 +93,10 @@
                                 <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" name="contact" maxlength="11" required>
                             </div>
                             <div class="mb-3">
-                                <input class="form-control btn btn-success" type="submit" name="verifyappt" value="Next">
+                                <input class="form-control btn btn-success" type="submit" name="verifyappt" value="Next" o>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
