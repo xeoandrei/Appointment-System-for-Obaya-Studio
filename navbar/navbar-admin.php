@@ -52,9 +52,17 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+						<li class="nav-item my-3">
+                            <?php
+                            if(($_SESSION['usertype']) == 'ADMINISTRATOR') 
+                            {
+                                echo '<a href="signup-user.php" class="btn btn-primary">Create Account</a>';
+                            }
+                            ?>
+						</li>
+                        <li class="nav-item mx-3 my-3">
                             <a href="logout.php" class="btn btn-danger me-3">Logout</a>
                         </li>
                     </ul>
-                </div>  
+                </div>    
 </nav>
