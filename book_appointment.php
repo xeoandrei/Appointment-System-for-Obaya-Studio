@@ -18,7 +18,7 @@
         $datetime = $_SESSION['datetime'];
         $email = $_SESSION["customerEmail"];
         $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime' AND status='Verified'";
-        $email_check = "SELECT * FROM customer WHERE email = '$email'";
+        $email_check = "SELECT * FROM customer, appointment WHERE email = '$email' AND status='Verified'";
         $res = mysqli_query($con, $datetime_check);
         $res2 = mysqli_query($con, $email_check);
         
