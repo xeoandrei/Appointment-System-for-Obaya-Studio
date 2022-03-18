@@ -12,8 +12,26 @@
                             <a class="nav-link" href="management.php">Dashboard</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="manage_appointments.php">Appointments</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                Appointments
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="manage_appointments.php">All Appointments</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Verified Appointments</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Pending Appointments</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Finished Appointments</a>
+                                </li>
+
+                            </ul>
                         </li>
             
                         <li class="nav-item dropdown">
