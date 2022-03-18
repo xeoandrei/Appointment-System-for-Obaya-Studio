@@ -24,9 +24,11 @@
                                 <li>
                                     <a class="dropdown-item" href="#">Verified Appointments</a>
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="#">Pending Appointments</a>
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <a class="dropdown-item" href="#">Finished Appointments</a>
                                 </li>
