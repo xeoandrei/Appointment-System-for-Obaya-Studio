@@ -149,7 +149,7 @@ include 'navbar/navbar-admin.php';
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";
 				echo "<td>";
-				echo "<button> <a href = 'update-services.php?serviceId=" . $row['serviceId'] . "'>Update </a></button>";
+				echo "<button> <a href = 'update_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></button>";
 				if($row['status'] =="ACTIVE")
                 {
                     echo "<button><a data-target = '#deactivate-services-serviceId-" . $row['serviceId'] . "'>Deactivate </a></button>";
