@@ -16,7 +16,7 @@
 	box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 	font-family: 'Quicksand', sans-serif;
     font-weight: bold;
-    color: solid-black;
+    color: white;
 }
 .modal-header
 {
@@ -44,7 +44,7 @@
 	background-color: rgb(255,255,255,0.5);
 	height: 150px; 
 	font-size: 25px;
-	color: solid-black;
+	color: white;
 }
 #overlay
 {

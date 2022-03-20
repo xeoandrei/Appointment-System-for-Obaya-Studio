@@ -38,7 +38,6 @@ if($email == false && $password == false){
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/management.css">
-    <link rel="stylesheet" href="design.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <link rel="stylesheet" href="css/modals.css">
     <script src="modals.js" defer></script>
@@ -149,55 +148,67 @@ include 'navbar/navbar-admin.php';
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";
 				echo "<td>";
-				echo "<button> <a href = 'update_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></button>";
-				if($row['status'] =="ACTIVE")
-                {
-                    echo "<button><a data-target = '#deactivate-services-serviceId-" . $row['serviceId'] . "'>Deactivate </a></button>";
-                }
-                else if($row['status'] == "INACTIVE")
-                {
-                	echo "<button><a data-target = '#activate-services-serviceId-" . $row['serviceId'] . "'>Activate </a></button>";
-                }
-				else
-                {
-                    echo "<button><a data-target = '#activate-services-serviceId-" . $row['serviceId'] . "'>Activate </a></button>";
-                }
-				echo "<button><a data-target = '#delete-services-serviceId-" . $row['serviceId'] . "'>Delete </a></button>";
-				echo '
-					<div id = "activate-services-serviceId-' . $row['serviceId'] . '" class = "modal">
-						<div class = "modal-header">
-							ACTIVATE
-							<button data-close-button>&times;</button>
-						</div>
-					    <div class = "modal-body">
-							Do you want to Activate this Account?<br>
-							<a href = "activate-services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
-						</div>
-					</div> 
-					<div id = "deactivate-services-serviceId-' . $row['serviceId'] . '" class = "modal">
-						<div class = "modal-header">
-							DEACTIVATE
-							<button data-close-button>&times;</button>
-						</div>
-						<div class = "modal-body">
-							Do you want to Deactivate this Account?<br>
-							<a href = "deactivate-services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
-						</div>
-					</div> 
-					<div id = "delete-services-serviceId-' . $row['serviceId'] . '" class = "modal">
-						<div class = "modal-header">
-							DELETE
-							<button data-close-button>&times;</button>
-						</div>
-						<div class = "modal-body">
-							Do you want to Delete this Account?<br>
-							<a href = "delete-services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
-						</div>
-					</div> 		
-				';
-				echo "</td>";
- 				echo "</tr>";
-			}
+					echo '<div class="dropdown">';
+						echo '<button class="btn btn-primary dropdown-toggle" type="button"';
+							echo 'id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">';
+							echo 'Action';
+			   			echo '</button>';
+						echo  '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">';   
+							echo "<li><a class='dropdown-item' href = 'update_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
+							echo '<li><hr class="dropdown-divider"></li>';
+							if($row['status'] =="ACTIVE")
+                			{
+                    			echo "<li><a class='dropdown-item' data-target = '#deactivate_services-serviceId-" . $row['serviceId'] . "'>Deactivate </a></li>";
+								echo '<li><hr class="dropdown-divider"></li>';
+							}
+                			else if($row['status'] == "INACTIVE")
+                			{
+                				echo "<li><a class='dropdown-item' data-target = '#activate_services-serviceId-" . $row['serviceId'] . "'>Activate </a></li>";
+								echo '<li><hr class="dropdown-divider"></li>';
+							}
+							else
+                			{
+                    			echo "<li><a class='dropdown-item' data-target = '#activate_services-serviceId-" . $row['serviceId'] . "'>Activate </a></li>";
+								echo '<li><hr class="dropdown-divider"></li>';
+							}
+							echo "<li><a class='dropdown-item' data-target = '#delete_services-serviceId-" . $row['serviceId'] . "'>Delete </a></li>";
+							echo '
+								<div id = "activate_services-serviceId-' . $row['serviceId'] . '" class = "modal">
+									<div class = "modal-header">
+										ACTIVATE
+										<button data-close-button>&times;</button>
+									</div>
+					    			<div class = "modal-body">
+										Do you want to Activate this Service?<br>
+										<a href = "activate_services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
+									</div>
+								</div> 
+								<div id = "deactivate_services-serviceId-' . $row['serviceId'] . '" class = "modal">
+									<div class = "modal-header">
+										DEACTIVATE
+										<button data-close-button>&times;</button>
+									</div>
+									<div class = "modal-body">
+										Do you want to Deactivate this Service?<br>
+										<a href = "deactivate_services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
+									</div>
+								</div> 
+								<div id = "delete_services-serviceId-' . $row['serviceId'] . '" class = "modal">
+									<div class = "modal-header">
+										DELETE
+										<button data-close-button>&times;</button>
+									</div>
+									<div class = "modal-body">
+										Do you want to Delete this Service?<br>
+										<a href = "delete_services.php?serviceId='.$row['serviceId'].'"><br>Yes</a>
+									</div>
+									</div>
+						<ul>			 		
+					</div>
+					';
+					echo "</td>";
+ 					echo "</tr>";
+					}
 			echo "</tbody>";
 		    echo "</table>";
 	    	echo "</div>";

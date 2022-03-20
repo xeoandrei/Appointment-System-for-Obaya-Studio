@@ -2,6 +2,11 @@
 	include("session-checker.php");
 	require_once "config.php";
     include "connection.php";
+	if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+    }
 	if(isset($_POST['btnsubmit']))
 	{
         // $serviceId = mysqli_real_escape_string($con, $_POST['serviceId']);
@@ -50,30 +55,66 @@
 	}
 ?>
 <html>
-<strong>
 <head>
-	<link rel="stylesheet" href="design.css">
-	<title>Add Service</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/e54d8b55e8.js" crossorigin="anonymous"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu&display=swap"
+    rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/servicesfood.css">
+
+    <title>Obaya Studio | Add Services</title>
 </head>
 <body>
-<center>
-	<br><br><p>Add Service</p>
-	<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
-		<label class="form-controlthird">Service Name: <input type = "text" name = "serviceName" class="form-controlsecond" required> <br>
-		<label class="form-controlthird">Description: <textarea rows = "6" cols = "70" name = "serviceDescription" 
-        placeholder ="Enter description here..."></textarea><br>
-        <label class="form-controlthird">Cost: <input type= "number" name = "serviceCost" class="form-controlsecond" 
-        min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required> <br>
-		<label class="form-controlthird">Status: <select name = "serviceStatus" id = "service" class="form-controlsecond black" required>
-			<option value = "ACTIVE">ACTIVE</option>
-			<option value = "INACTIVE">INACTIVE</option>
-		</select><br>
-		<div class = "work">
-		<input type = "submit" name = "btnsubmit" value = "Save" class= "submitZZ">
-		<a href = "manage_services.php" class="submitZZ">Cancel</a>
-		</div>
-	</form>	
-	</center>
+<?php include "navbar/navbar-admin.php"; ?>
+	<div class="container-fluid row">	
+            <!-- CARD -->
+			<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
+				<div class="mt-5">
+                    <h5 class="fw-bold my-3">Add Services</h5>
+					<div class="card-body">
+						<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
+							<div class="row">
+                            	<div class="mb-3 col-6">
+									<input type="text" class="form-control" placeholder="Service Name" name="serviceName" required>
+								</div>	 
+								<div class="mb-3 col-6">
+        							<input type= "number" class="form-control" placeholder="Service Cost" name = "serviceCost" min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required>
+								</div>	
+								<div class="mb-3 col-6">
+									<select name="serviceStatus" class="form-select" id="" required>
+										<option value = "" selected="true" disabled="disabled">Select Status</option>  
+										<option value = "ACTIVE">ACTIVE</option>
+										<option value = "INACTIVE">INACTIVE</option>
+									</select>
+								</div>	
+								<div class="mb-3 col-6">
+									<textarea class="form-control" rows = "4" placeholder="Enter description here..." name="serviceDescription" required></textarea>
+								</div>
+								<div class = "mb-3 col-6">
+									<input type = "submit" class= "form-control btn btn-primary" name = "btnsubmit" value = "Save">
+								</div>	
+								<div class = "mb-3 col-6">
+									<a href = "manage_services.php" class="form-control btn btn-dark">Cancel</a>
+								</div>	
+							</div>						
+						</form>
+					</div>		
+				</div>
+			</div>	
+	</div>	
 </body>
-</strong>
 </html>
