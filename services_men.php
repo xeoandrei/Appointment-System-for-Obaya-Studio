@@ -30,7 +30,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/servicesfood.css">
 
-    <title>Obaya Studio | Services for Men</title>
+    <title>Obaya Studio | Services for Women</title>
 </head>
 <body>
 <?php
@@ -45,19 +45,25 @@ $result = mysqli_query($con, $sql); ?>
                     {
                       while($row = mysqli_fetch_array($result))
                       {  
-                        echo "<div class='col-lg-4 col-sm-6'>";
-                          echo "<div class='card'>";
-                            echo "<img src='images/service1.jpg' class='card-img-top'>";
-                            echo "<div class='card-body'>";
-                              echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
-                              echo "<p class='card-text'>" . $row["description"] . "</p>";
-                              echo "<a href='#' class='btn btn-dark'>Book Now</a>";
+                        $serviceStatus = $row["status"];
+                        if($serviceStatus == 'ACTIVE')
+                        {
+                          echo "<div class='col-lg-4 col-sm-6'>";
+                            echo "<div class='card'>";
+                              echo "<img src='images/service1.jpg' class='card-img-top'>";
+                              echo "<div class='card-body'>";
+                                echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
+                                echo "<p class='card-text'>" . $row["description"] . "</p>";
+                                echo "<a href='#' class='btn btn-dark'>Book Now</a>";
+                              echo "</div>";
                             echo "</div>";
-                          echo "</div>";
-                        echo "</div>";
+                          echo "</div>";  
+                        }
+                        else{
+                        }
+                      }
                     }
-                  }
-                ?>
+                  ?>
                   </div>
                 </div>
         </section>
