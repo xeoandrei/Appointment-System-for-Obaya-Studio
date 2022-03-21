@@ -30,7 +30,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/servicesfood.css">
 
-    <title>Obaya Studio | Services for Women</title>
+    <title>Obaya Studio | Services for Men</title>
 </head>
 <body>
 <?php
