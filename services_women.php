@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-
 <?php
+  require_once "connection.php";
     session_start();
-    if(isset($_SESSION['email'])){
+    if(($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } else {
-
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
 ?>
 
@@ -34,80 +33,34 @@
     <title>Obaya Studio | Services for Men</title>
 </head>
 <body>
-    <?php include "navbar/navbar.php"; ?>
+<?php
+include 'navbar/navbar.php';
+$sql = "SELECT * FROM men_service_table";  
+$result = mysqli_query($con, $sql); ?>
         <section id="services">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service1.jpg" class="card-img-top">
-                                <div class="card-body">
-                                  <h5 class="card-title">Men's Haircut</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
-                                </div>
-                              </div>
-                        </div>
-    
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">Men's Hair Color</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
-                                </div>
-                              </div>
-                        </div>
-    
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service3.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">L'OREAL Hair Spa Treatment</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">View All Services</a>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card">
-                                    <img src="images/service1.jpg" class="card-img-top">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Men's Haircut with Shampoo</h5>
-                                      <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                      <a href="#" class="btn btn-dark">Book Now</a>
-                                    </div>
-                                  </div>
-                            </div>
-                    
-                    <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">Obaya TreatMENt Day</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
-                                </div>
-                              </div>
-                        </div>
-                        
-                    <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">The Gentleman's Package by Obaya</h5>
-                                  <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                  <a href="#" class="btn btn-dark">Book Now</a>
-                                </div>
-                              </div>
-                    </div>     
-        </div>
+                  <div class="row">
+                    <?php  
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                      while($row = mysqli_fetch_array($result))
+                      {  
+                        echo "<div class='col-lg-4 col-sm-6'>";
+                          echo "<div class='card'>";
+                            echo "<img src='images/service2.jpg' class='card-img-top'>";
+                            echo "<div class='card-body'>";
+                              echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
+                              echo "<p class='card-text'>" . $row["description"] . "</p>";
+                              echo "<a href='#' class='btn btn-dark'>Book Now</a>";
+                            echo "</div>";
+                          echo "</div>";
+                        echo "</div>";
+                    }
+                  }
+                ?>
+                  </div>
+                </div>
         </section>
-        <?php include "footer/footer.php" ?>
+      <?php include "footer/footer.php" ?>
 </body>
 </html>
