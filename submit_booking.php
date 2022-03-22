@@ -9,9 +9,19 @@
         $contact = $_SESSION['contact'];
 
         $service = $_POST['service'];
+        
+        $tokenId = sprintf("%06d", mt_rand(1, 999999));
+        $tokenId_check = "SELECT * FROM appointment WHERE appointmentId = '$tokenId'";
+        $tokenId_checkResult = mysqli_query($con, $tokenId_check);
 
-        $query = "INSERT INTO appointment(datetime, status) ";
-        $query .= "VALUES ('$datetime', 'Pending')";
+        if(mysqli_num_rows($tokenId_checkResult) > 0){
+            $tokenId = sprintf("%06d", mt_rand(1, 999999));
+        }
+
+        $_SESSION['tokenId'] = $tokenId;
+
+        $query = "INSERT INTO appointment(appointmentId, datetime, status) ";
+        $query .= "VALUES ('$tokenId', '$datetime', 'Pending')";
 
         $result = mysqli_query($con, $query);
         if(!$result){

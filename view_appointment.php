@@ -38,12 +38,18 @@
     <div class="container-fluid row">
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-xl-6 col-lg-8">
             <div class="card-body">
-                <div class="my-4">
-                    <img src="images/check.png" style="height:75px;" alt="">
-                </div>
-                <h6 class="mt-3">Your token id is: <?php echo $_SESSION['tokenId']; ?></h6>
-                <h5 class="my-3">Please wait for your booking to be approved within 24 hours.</h5>
-                <p>Click this <a href="#">link</a> to check your appointment details.</p>
+                <form action="appointment_details.php" method="post">
+                    <div class="mt-5">
+                        <img src="images/salon.png" style="height:75px;" alt="">
+                        <h5 class="fw-bold my-3">View Appointment</h5>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="tokenId" placeholder="Token Id" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control btn btn-success" type="submit" name="submitToken" value="Submit">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

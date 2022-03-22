@@ -1,13 +1,14 @@
 <?php 
     include 'connection.php';
     session_start();
+    unset($_SESSION['tokenId']); //remove Token ID from session.
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
     
-    $NewDate=Date('Y-m-d', strtotime('+1 days'));
+    $NewDate=Date('Y-m-d', strtotime('+1 days')); //Set date available 1 day from today.
 ?>
 
 <!DOCTYPE html>

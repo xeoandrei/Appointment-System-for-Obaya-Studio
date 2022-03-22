@@ -36,7 +36,7 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Cancel Appointment</a>
+                                    <a class="dropdown-item" href="view_appointment.php">View Appointment</a>
                                 </li>
                             </ul>
                         </li>
