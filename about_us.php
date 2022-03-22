@@ -38,7 +38,7 @@
             <h1 class="firstPageText">About Us!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in incidunt inventore. Voluptas modi excepturi, asperiores corporis consequuntur esse sunt impedit mollitia, expedita debitis aliquid odio harum accusamus nulla quae.</p>
             <form>
-                <a href="feedback_verify.html" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i>
+                <a href="feedback_verify.php" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i>
                     Send Feedback
                 </a>
             </form>
