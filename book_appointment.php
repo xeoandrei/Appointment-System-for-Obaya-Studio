@@ -9,6 +9,7 @@
     }
 
     if(isset($_POST['verifyappt'])){
+
         $_SESSION['customerName'] = $_POST['name'];
         $_SESSION['customerEmail'] = $_POST['email'];
         $_SESSION['contact'] = $_POST['contact'];
@@ -17,16 +18,24 @@
         $_SESSION['datetime'] = $date . ' ' . $time;
         $datetime = $_SESSION['datetime'];
         $email = $_SESSION["customerEmail"];
+        $contact = $_SESSION['contact'];
+
+        //VERIFY IF DATE&TIME, EMAIL, CONTACT NUMBER IS ALREADY TAKEN IN DATABASE ONLY IF STATUS IS VERIFIED.
         $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime' AND status='Verified'";
         $email_check = "SELECT * FROM customer, appointment WHERE email = '$email' AND status='Verified'";
+        $contactNum_check = "SELECT * FROM customer, appointment WHERE contact = '$contact' AND status='Verified'";
         $res = mysqli_query($con, $datetime_check);
         $res2 = mysqli_query($con, $email_check);
+        $res3 = mysqli_query($con, $contactNum_check);
         
         if(mysqli_num_rows($res) > 0){
             $_SESSION['schederror'] = "Scheduled that you have selected is already taken.";
             header('Location: check_schedule.php');
         } elseif(mysqli_num_rows($res2) > 0) {
             $_SESSION['emailerror'] = "Email that you have entered is already taken.";
+            header('Location: check_schedule.php');
+        } elseif(mysqli_num_rows($res3) > 0) {
+            $_SESSION['emailerror'] = "Contact number that you have entered is already taken.";
             header('Location: check_schedule.php');
         }
 

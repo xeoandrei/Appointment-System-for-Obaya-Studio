@@ -63,6 +63,11 @@
                                         ' . $_SESSION['emailerror'] . 
                                     '</div>';
                             unset($_SESSION['emailerror']);
+                        } elseif(isset($_SESSION['contactnumerror'])){
+                            echo   '<div class="alert alert-danger text-center">
+                                        ' . $_SESSION['contactnumerror'] . 
+                                    '</div>';
+                            unset($_SESSION['emailerror']);
                         }
                         ?>
                         <div class="row">
