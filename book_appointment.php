@@ -43,6 +43,12 @@
         header('Location: check_schedule.php');
     }
 
+    $selectServices = "SELECT * FROM men_service_table WHERE status = 'ACTIVE'";
+    $res4 = mysqli_query($con, $selectServices);
+    if(!$res4){
+        die('Query FAILED!' . mysqli_error());
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +88,18 @@
                         <div id="showItem">
                             <div class="row">
                                 <div class="col-lg-10 mb-3">
-                                    <input type="text" class="form-control" name="service" id="service" placeholder="Service"  required>
+                                    <select class="form-select" name="service" id="service">
+                                        <option value='' selected="true" disabled="disabled">Select Service</option>
+                                        <option value='' disabled="disabled">----------Men's Services----------</option>
+                                        <?php
+                                            while($row = mysqli_fetch_assoc($res4)){
+                                                $service = $row['name'];
+                                                echo "<option value='$service'>$service</option>";
+                                            }
+                                        ?>
+                                        <option value='' disabled="disabled">----------Women's Services----------</option>
+                                    </select>
+                                    <!-- <input type="text" class="form-control" name="service" id="service" placeholder="Service"  required> -->
                                 </div>
                                 <div class="col-lg-2 d-grid mb-3">
                                     <a class="btn btn-primary addClient">Add Client</a>                                        
