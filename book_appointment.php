@@ -10,6 +10,7 @@
 
     if(isset($_POST['verifyappt'])){
 
+        //SETS SESSION AND POST VALUES
         $_SESSION['customerName'] = $_POST['name'];
         $_SESSION['customerEmail'] = $_POST['email'];
         $_SESSION['contact'] = $_POST['contact'];
@@ -43,6 +44,7 @@
         header('Location: check_schedule.php');
     }
 
+    //SELECT SERVICE NAME IN DATABASE
     $selectServices = "SELECT * FROM men_service_table WHERE status = 'ACTIVE'";
     $res4 = mysqli_query($con, $selectServices);
     if(!$res4){
