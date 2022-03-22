@@ -11,7 +11,7 @@ if($email == false && $password == false){
 ?>
 <html>
 <head>
-	<title>Accounts Management</title>
+	<title>Appointment Management</title>
 	<!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/e54d8b55e8.js" crossorigin="anonymous"></script>
     

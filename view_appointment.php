@@ -35,7 +35,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/login.css">
 
-    <title>Obaya Studio | Home</title>
+    <title>Obaya Studio | View Appointment</title>
 </head>
 
 <body>
