@@ -1,6 +1,12 @@
 <?php
     include 'connection.php';
     session_start();
+
+    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+    } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
+        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +49,7 @@
                 </div>
                 <h6 class="mt-3">Your token id is: <?php echo $_SESSION['tokenId']; ?></h6>
                 <h5 class="my-3">Please wait for your booking to be approved within 24 hours.</h5>
-                <p>Click this <a href="#">link</a> to check your appointment details.</p>
+                <p>Click this <a href="view_appointment.php">link</a> to check your appointment details.</p>
             </div>
         </div>
     </div>

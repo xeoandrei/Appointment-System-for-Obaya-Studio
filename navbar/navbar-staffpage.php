@@ -22,13 +22,15 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Verified Appointments</a>
+                                    <a class="dropdown-item" href="manage_appointments_verified.php">Verified Appointments</a>
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Pending Appointments</a>
+                                    <a class="dropdown-item" href="manage_appointments_pending.php">Pending Appointments</a>
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Finished Appointments</a>
+                                    <a class="dropdown-item" href="manage_appointments_finished.php">Finished Appointments</a>
                                 </li>
 
                             </ul>

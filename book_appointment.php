@@ -71,24 +71,31 @@
 </head>
 <body>
     <?php include "navbar/navbar.php"; ?>
-    <div class="container-fluid row">
-            <!-- CARD -->
-            <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 ">
-                <div class="mt-5">
-                    <h5 class="fw-bold my-3">Book Appointment</h5>
-                    <div class="card-body">
-                    <!-- FORM -->
-                        <form action="submit_booking.php" method="POST">
+    <div class="container-fluid">
+        <!-- CARD -->
+        <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 ">
+        <div class="mt-5">
+                <h5 class="fw-bold my-3">Book Appointment</h5>
+                <div class="card-body p-4">
+                <!-- FORM -->
+                    <form action="submit_booking.php" method="POST" id="addServiceForm">
+                        <div id="showItem">
                             <div class="row">
-                                <input type="text" class="form-control mb-3" name="service" placeholder="Service" required>
-                                <input type="submit" name="bookappt" class="form-control mb-3 btn btn-primary">
+                                <div class="col-lg-10 mb-3">
+                                    <input type="text" class="form-control" name="service" id="service" placeholder="Service"  required>
+                                </div>
+                                <div class="col-lg-2 d-grid mb-3">
+                                    <a class="btn btn-primary addClient">Add Client</a>                                        
+                                </div>
                             </div>
-                        </form>    
-                    </div>
+                        </div>
+                        <div>
+                            <input type="submit" name="bookappt" id="submitButtonService" class="form-control mb-3 btn btn-primary">
+                        </div>
+                    </form>    
                 </div>
             </div>
-
-
-    
+        </div>
+    </div>
 </body>
 </html>
