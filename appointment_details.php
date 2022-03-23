@@ -1,9 +1,21 @@
 <?php
     include 'connection.php';
     session_start();
-    $token = $_POST['tokenId'];
-    $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId WHERE appointment.appointmentId = '$token'";
-    $result = mysqli_query($con, $sql);  
+    if(isset($_POST['viewAppointmentSubmit'])){
+        $token = $_POST['tokenId'];
+        //Check if token id exists
+        $tokenId_check = "SELECT * FROM appointment WHERE appointmentId = '$token'";
+        $tokenId_checkResult = mysqli_query($con, $tokenId_check);
+        if(mysqli_num_rows($tokenId_checkResult) <= 0){
+            $_SESSION['invalidTokenId'] = 'Token ID invalid.';
+            header('Location: appointment_details.php');
+        }
+
+        $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId WHERE appointment.appointmentId = '$token'";
+        $result = mysqli_query($con, $sql);  
+    } else {
+        header('Location: view_appointment.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>

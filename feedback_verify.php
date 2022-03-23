@@ -46,7 +46,6 @@
             <div class="card-body">
                 <form action="submit_feedback.php" method="post">
                     <div class="mt-5">
-                        <img src="images/salon.png" style="height:75px;" alt="">
                         <h5 class="fw-bold my-3">Feedback</h5>
                     </div>
                     <div class="mb-3">

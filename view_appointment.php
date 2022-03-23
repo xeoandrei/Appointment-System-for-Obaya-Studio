@@ -46,14 +46,21 @@
             <div class="card-body">
                 <form action="appointment_details.php" method="post">
                     <div class="mt-5">
-                        <img src="images/salon.png" style="height:75px;" alt="">
                         <h5 class="fw-bold my-3">View Appointment</h5>
                     </div>
+                    <?php
+                        if(isset($_SESSION['invalidTokenId'])){
+                            echo   '<div class="alert alert-danger text-center">
+                                        ' . $_SESSION['invalidTokenId'] . 
+                                    '</div>';
+                            unset($_SESSION['invalidTokenId']);
+                        }
+                    ?>
                     <div class="mb-3">
                         <input class="form-control" type="text" name="tokenId" placeholder="Token Id" required>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control btn btn-success" type="submit" name="submitToken" value="Submit">
+                        <input class="form-control btn btn-success" type="submit" name="viewAppointmentSubmit" value="Submit">
                     </div>
                 </form>
             </div>
