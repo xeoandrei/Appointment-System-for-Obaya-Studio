@@ -7,7 +7,7 @@
         $tokenId_check = "SELECT * FROM appointment WHERE appointmentId = '$tokenId'";
         $tokenId_checkResult = mysqli_query($con, $tokenId_check);
         if(mysqli_num_rows($tokenId_checkResult) <= 0){
-            $_SESSION['invalidTokenId'] = 'Token ID invalid.';
+            $_SESSION['tokeniderror'] = 'Token ID invalid.';
             header('Location: appointment_details.php');
         }
 

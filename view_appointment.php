@@ -51,9 +51,9 @@
                     <?php
                         if(isset($_SESSION['invalidTokenId'])){
                             echo   '<div class="alert alert-danger text-center">
-                                        ' . $_SESSION['invalidTokenId'] . 
+                                        ' . $_SESSION['tokeniderror'] . 
                                     '</div>';
-                            unset($_SESSION['invalidTokenId']);
+                            unset($_SESSION['tokeniderror']);
                         }
                     ?>
                     <div class="mb-3">
