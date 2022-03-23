@@ -80,6 +80,9 @@ $result = mysqli_query($con, $sql); ?>
                                                        if($row['status']=='Pending'){
                                                             echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '">Verify</a></li>';
                                                             echo '<li><hr class="dropdown-divider"></li>';
+                                                       }elseif($row['status']=='Verified'){
+                                                            echo '<li><a class="dropdown-item" href="done_appointment.php?done=' . $row["appointmentId"] . '">Done</a></li>';
+                                                            echo '<li><hr class="dropdown-divider"></li>';
                                                        }
                                                        ?>
                                                   <?php
