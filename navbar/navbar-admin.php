@@ -42,11 +42,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="manage_services.php">For Men</a>
+                                    <a class="dropdown-item" href="manage_men_services.php">For Men</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="manage_services.php">For Women</a>
+                                    <a class="dropdown-item" href="manage_men_services.php">For Women</a>
                                 </li>
                             </ul>
                         </li>

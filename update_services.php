@@ -21,7 +21,7 @@ if(isset($_POST['btnsubmit']))
 				if(mysqli_stmt_execute($stmt))
 				{
 					$_SESSION['notify'] = 'Service was Successfully Updated!';
-					header("location: manage_services.php");
+					header("location: manage_men_services.php");
 					exit();
 				}
 				else
@@ -121,7 +121,7 @@ else
 									<input type = "submit" class= "form-control btn btn-primary" name = "btnsubmit" value = "Save">
 								</div>	
 								<div class = "mb-3 col-6">
-									<a href = "manage_services.php" class="form-control btn btn-dark">Cancel</a>
+									<a href = "manage_men_services.php" class="form-control btn btn-dark">Cancel</a>
 								</div>	
 							</div>						
 						</form>

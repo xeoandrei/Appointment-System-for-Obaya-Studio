@@ -1,11 +1,11 @@
 <?php
   require_once "connection.php";
     session_start();
-    if(($_SESSION['usertype'] == 'ADMINISTRATOR')){
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-    } else {
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
-    }
+    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
+      echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+  } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
+      echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+  }
 ?>
 
 <html lang="en">
