@@ -22,7 +22,7 @@
         $tokenId_checkResult = mysqli_query($con, $tokenId_check);
 
         if(mysqli_num_rows($tokenId_checkResult) > 0){
-            $tokenId = generateCode(11);
+            $tokenId = generateCode(12);
         }
 
         $_SESSION['tokenId'] = $tokenId;
