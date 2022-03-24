@@ -57,7 +57,7 @@ include 'navbar/navbar-admin.php';
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="row">
                             <input class="form-control col me-2" type="text" placeholder="Search" name="txtsearch">
                             <INPUT TYPE = "submit" NAME = "btnsubmit" VALUE = "Go" class= "btn btn-outline-success col-4 me-2">
-							<a href="add_services.php" class=" btn btn-primary col me-2">Add Service</a>
+							<a href="add_men_services.php" class=" btn btn-primary col me-2">Add Service</a>
 						</form>
 					</div>
 				</div>
@@ -91,30 +91,30 @@ include 'navbar/navbar-admin.php';
                             }
                         }
 		            ?>	
-		            <?php
-                        if (isset($_SESSION['notify'])) 
-                        {
-                            echo '
-                                <div class = "modal active">
-                                    <div class = "modal-header">
-                                        NOTIFICATION!
-                                    <button data-close-button>&times;</button>
-                                    </div>
-                                    <div class = "modal-body">
-                                        <br>'.$_SESSION["notify"].'
-                                    </div>
-                                </div> 
-                                <div id="overlay" class="active"></div>
-                                ';
-                            unset($_SESSION['notify']);
-                        }
-                    ?>
-                    <div id="overlay"></div>
                     </div>
                 </div>
             </div> 
         </div>
-    </div>                                   
+    </div>
+	<?php
+    if (isset($_SESSION['notify'])) 
+	{
+        echo '
+        	<div class = "modal active">
+            	<div class = "modal-header">
+                	NOTIFICATION!
+            	<button data-close-button>&times;</button>
+        		</div>
+                <div class = "modal-body">
+                    <br>'.$_SESSION["notify"].'
+                </div>
+            </div> 
+    		<div id="overlay" class="active"></div>
+            ';
+            unset($_SESSION['notify']);
+    }
+?>
+<div id="overlay"></div>	                                   
 <?php
 	function build_table($result)
 	{
@@ -154,7 +154,7 @@ include 'navbar/navbar-admin.php';
 							echo 'Action';
 			   			echo '</button>';
 						echo  '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">';   
-							echo "<li><a class='dropdown-item' href = 'update_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
+							echo "<li><a class='dropdown-item' href = 'update_men_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
 							echo '<li><hr class="dropdown-divider"></li>';
 							if($row['status'] =="ACTIVE")
                 			{

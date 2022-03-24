@@ -98,7 +98,7 @@ else
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Update Services</h5>
 					<div class="card-body">
-						<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
+						<form action = "<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method = "post">
 							<div class="row">
                             	<div class="mb-3 col-6">
 									<input type="text" class="form-control" value="<?php echo $men_service['name'];?>" name="serviceName" required>
@@ -107,9 +107,8 @@ else
         							<input type= "number" class="form-control" value = "<?php echo $men_service['cost'];?>" name = "serviceCost" min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required>
 								</div>	
 								<div class="mb-3 col-6">
-									<?php echo $men_service['status'];?>
-									<select name="serviceStatus" value = "<?php echo $men_service['status'];?>" class="form-select" id="" required>
-										<option value = "<?php echo $men_service['status'];?>" selected="true" disabled="disabled">Select Status</option>  
+									<select name="serviceStatus" id = "serviceStatus" class="form-select" id="" required>
+										<option value = "">Select Status</option>  
 										<option value = "ACTIVE">ACTIVE</option>
 										<option value = "INACTIVE">INACTIVE</option>
 									</select>
