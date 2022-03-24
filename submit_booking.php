@@ -1,6 +1,13 @@
 <?php
     include 'connection.php';
     session_start();
+
+    function generateCode($limit){
+        $code = '';
+        for($i = 0; $i < $limit; $i++) { $code .= mt_rand(0, 9); }
+        return $code;
+        }
+
     if(isset($_POST['bookappt'])){
 
         $datetime = $_SESSION['datetime'];
@@ -10,12 +17,12 @@
 
         $service = $_POST['service'];
         
-        $tokenId = sprintf("%06d", mt_rand(1, 999999));
+        $tokenId = generateCode(12);
         $tokenId_check = "SELECT * FROM appointment WHERE appointmentId = '$tokenId'";
         $tokenId_checkResult = mysqli_query($con, $tokenId_check);
 
         if(mysqli_num_rows($tokenId_checkResult) > 0){
-            $tokenId = sprintf("%06d", mt_rand(1, 999999));
+            $tokenId = generateCode(11);
         }
 
         $_SESSION['tokenId'] = $tokenId;
