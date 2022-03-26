@@ -52,7 +52,7 @@ $result = mysqli_query($con, $sql); ?>
                             echo "<div class='card'>";
                               // echo "<img src='images/service1.jpg' class='card-img-top'>";
                               //echo "<img src='ServicesImages/'". $row['image'] . "class='card-img-top'>";
-                              $image = 'MenServicesImages/'.$row["image"];
+                              $image = 'images/MenServicesImages/'.$row["image"];
                               echo "<img src=$image class='card-img-top '>";
                               echo "<div class='card-body'>";
                                 echo "<h5 class='card-title'>" . $row["name"] . "</h5>";

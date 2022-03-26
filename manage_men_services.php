@@ -149,7 +149,7 @@ include 'navbar/navbar-admin.php';
 				//for image filename only
 				//echo "<td>" . $row['image'] . "</td>";
 				//fetching image from menservicesimages folder
-				$image = 'MenServicesImages/'.$row["image"];
+				$image = 'images/MenServicesImages/'.$row["image"];
 				echo "<td>" ."<img src=$image height = '100px' width = '100px'". "</td>";
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";

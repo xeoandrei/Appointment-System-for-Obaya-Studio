@@ -40,7 +40,7 @@
 					else
 					{
 					//check if services image filename is existing
-						if(file_exists("MenServicesImages/" . $_FILES['serviceImage']['name']))
+						if(file_exists("images/MenServicesImages/" . $_FILES['serviceImage']['name']))
 						{
 							$filename = $_FILES['serviceImage']['name'];
 							echo 'Image Already exists';
@@ -54,7 +54,7 @@
 								mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $_FILES['serviceImage']['name']);
 								if(mysqli_stmt_execute($stmt))
 								{
-									move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "MenServicesImages/".$_FILES["serviceImage"]["name"]);
+									move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$_FILES["serviceImage"]["name"]);
 									$_SESSION['notify'] = 'A New Service is Successfully Created!';
 									header("location: manage_men_services.php");
 									exit();
