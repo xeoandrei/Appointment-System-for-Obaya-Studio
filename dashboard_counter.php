@@ -1,5 +1,17 @@
 <?php
 
+    //Count # of services.
+    $sql = "SELECT * from men_service_table";
+
+    if ($result = mysqli_query($con, $sql)) {
+
+        // Return the number of rows in result set
+        $serviceRow = mysqli_num_rows( $result );
+        
+    } else {
+        $serviceRow = 0;
+    }
+
     //Count # of appointments.
     $sql = "SELECT * from appointment";
 
