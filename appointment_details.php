@@ -67,7 +67,7 @@
                                    <th>Email</th>
                                    <th>Service</th>
                                    <th>Schedule</th>
-                                   <th>Appointment ID</th>
+                                   <th>Token ID</th>
                                    <th>Status</th>
                               </tr>
                               <?php  
