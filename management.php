@@ -1,34 +1,28 @@
-<?php require_once "controllerUserData.php"; ?>
-<?php 
-$email = $_SESSION['email'];
-$password = $_SESSION['password'];
-if($email != false && $password != false){
-    $sql = "SELECT * FROM usertable WHERE email = '$email'";
-    $run_Sql = mysqli_query($con, $sql);
-    if($run_Sql){
-        $fetch_info = mysqli_fetch_assoc($run_Sql);
-        $status = $fetch_info['status'];
-        $code = $fetch_info['code'];
-        if($status == "verified"){
-            if($code != 0){
-                header('Location: reset-code.php');
+<?php require_once "controllerUserData.php";
+    include 'dashboard_counter.php';
+
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    if($email != false && $password != false){
+        $sql = "SELECT * FROM usertable WHERE email = '$email'";
+        $run_Sql = mysqli_query($con, $sql);
+        if($run_Sql){
+            $fetch_info = mysqli_fetch_assoc($run_Sql);
+            $status = $fetch_info['status'];
+            $code = $fetch_info['code'];
+            if($status == "verified"){
+                if($code != 0){
+                    header('Location: reset-code.php');
+                }
+            }else{
+                header('Location: user-otp.php');
             }
-        }else{
-            header('Location: user-otp.php');
         }
-    }
-}else{
-    header('Location: login.php');
-}
-?>
-<!-- <?php
-    include "config.php";
-    if(($_SESSION['usertype'] == 'ADMINISTRATOR')){
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } else {
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+        header('Location: login.php');
     }
-?> -->
+
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -82,28 +76,28 @@ if($email != false && $password != false){
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Total Appointments <i class="fas fa-book-open"></i></h4>
-                                    <h3>4</h3>
+                                    <h3><?php echo $appointmentRow; ?></h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Pending Appointments <i class="fas fa-book-open"></i></h4>
-                                    <h3>4</h3>
+                                    <h3><?php echo $pendingAppointmentRow; ?></h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Verified Appointments <i class="fas fa-book-open"></i></h4>
-                                    <h3>4</h3>
+                                    <h3><?php echo $verifiedAppointmentRow; ?></h3>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>Staff <i class="fas fa-users"></i></h4>
-                                    <h3>4</h3>
+                                    <h3><?php echo $userRow; ?></h3>
                                 </div>
                             </div>
                         </div>
