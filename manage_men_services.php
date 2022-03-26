@@ -130,6 +130,7 @@ include 'navbar/navbar-admin.php';
 			echo "<th scope='col'>Service</th>";
 			echo "<th scope='col'>Description</th>";
 			echo "<th scope='col'>Cost</th>";
+			echo "<th scope='col'>Image</th>";
             echo "<th scope='col'>Status</th>";
             // echo "<th scope='col'>Created By</th>";
             echo "<th scope='col'>Actions</th>";
@@ -145,21 +146,26 @@ include 'navbar/navbar-admin.php';
 				echo "<td>" . $row['name'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
                 echo "<td>" . $row['cost'] . "</td>";
+				//for image filename only
+				//echo "<td>" . $row['image'] . "</td>";
+				//fetching image from menservicesimages folder
+				$image = 'MenServicesImages/'.$row["image"];
+				echo "<td>" ."<img src=$image height = '100px' width = '100px'". "</td>";
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";
 				echo "<td>";
-					echo '<div class="dropdown">';
-						echo '<button class="btn btn-primary dropdown-toggle" type="button"';
-							echo 'id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">';
-							echo 'Action';
-			   			echo '</button>';
-						echo  '<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">';   
+					echo "<div class='dropdown'>";
+						echo "<button class='btn btn-primary dropdown-toggle' type='button'";
+							echo "id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>";
+							echo "Action";
+			   			echo "</button>";
+						echo  "<ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";   
 							echo "<li><a class='dropdown-item' href = 'update_men_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
-							echo '<li><hr class="dropdown-divider"></li>';
+							echo "<li><hr class='dropdown-divider'></li>";
 							if($row['status'] =="ACTIVE")
                 			{
                     			echo "<li><a class='dropdown-item' data-target = '#deactivate_services-serviceId-" . $row['serviceId'] . "'>Deactivate </a></li>";
-								echo '<li><hr class="dropdown-divider"></li>';
+								echo "<li><hr class='dropdown-divider'></li>";
 							}
                 			else if($row['status'] == "INACTIVE")
                 			{

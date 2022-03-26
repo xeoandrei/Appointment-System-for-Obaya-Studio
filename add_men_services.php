@@ -15,6 +15,8 @@
         $serviceDescription = mysqli_real_escape_string($con, $_POST['serviceDescription']);
         $serviceCost = mysqli_real_escape_string($con, $_POST['serviceCost']);
         $serviceStatus = mysqli_real_escape_string($con, $_POST['serviceStatus']);
+		$serviceImage = $_FILES['serviceImage']['name'];
+
 		//check if the id is existing
 		$sql = " SELECT * FROM men_Service_table WHERE serviceId = ?";
 		if($stmt = mysqli_prepare($link, $sql))
@@ -25,26 +27,49 @@
 				$result = mysqli_stmt_get_result($stmt);
 				if(mysqli_num_rows($result) != 1)
 				{
-					//insert
-					$sql = "INSERT INTO men_service_table (name, description, cost, status) VALUES (?, ?, ?, ?)";
-					if($stmt = mysqli_prepare($link, $sql))
+					
+					//check for allowed services image formats
+					$allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
+					$filename = $_FILES['serviceImage']['name'];
+					$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+					if (!in_array($file_extension, $allowed_extension))
 					{
-						mysqli_stmt_bind_param($stmt, "ssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus']);
-						if(mysqli_stmt_execute($stmt))
+						echo 'You are allowed to only save images with only jpg, png, jpeg and gif formats';
+					}
+					else
+					{
+					//check if services image filename is existing
+						if(file_exists("MenServicesImages/" . $_FILES['serviceImage']['name']))
 						{
-							$_SESSION['notify'] = 'A New Account is Successfully Created!';
-							header("location: manage_men_services.php");
-							exit();
+							$filename = $_FILES['serviceImage']['name'];
+							echo 'Image Already exists';
 						}
 						else
 						{
-							echo "Error on insert statement";
+							//insert
+							$sql = "INSERT INTO men_service_table (name, description, cost, status, image) VALUES (?, ?, ?, ?, ?)";
+							if($stmt = mysqli_prepare($link, $sql))
+							{
+								mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $_FILES['serviceImage']['name']);
+								if(mysqli_stmt_execute($stmt))
+								{
+									move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "MenServicesImages/".$_FILES["serviceImage"]["name"]);
+									$_SESSION['notify'] = 'A New Service is Successfully Created!';
+									header("location: manage_men_services.php");
+									exit();
+								}
+								else
+								{
+									echo "Error on insert statement";
+								}
+							}
 						}
-					}
+					}		
 				}
 				else
 				{
-					echo "Username is already in use";
+					echo "Service is already in use";
 				}
 			}
 			else
@@ -86,14 +111,16 @@
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Add Services</h5>
 					<div class="card-body">
-						<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
+						<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" enctype = "multipart/form-data">
 							<div class="row">
                             	<div class="mb-3 col-6">
 									<input type="text" class="form-control" placeholder="Service Name" name="serviceName" required>
 								</div>	 
+
 								<div class="mb-3 col-6">
         							<input type= "number" class="form-control" placeholder="Service Cost" name = "serviceCost" min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required>
 								</div>	
+
 								<div class="mb-3 col-6">
 									<select name="serviceStatus" class="form-select" id="" required>
 										<option value = "" selected="true" disabled="disabled">Select Status</option>  
@@ -101,14 +128,23 @@
 										<option value = "INACTIVE">INACTIVE</option>
 									</select>
 								</div>	
+
+								<div class="mb-3 col-6">
+									<input type="file" class="form-control" placeholder="Service Image" name="serviceImage" required>
+								</div>
+
 								<div class="mb-3 col-6">
 									<textarea class="form-control" rows = "4" placeholder="Enter description here..." name="serviceDescription" required></textarea>
 								</div>
-								<div class = "mb-3 col-6">
-									<input type = "submit" class= "form-control btn btn-primary" name = "btnsubmit" value = "Save">
-								</div>	
-								<div class = "mb-3 col-6">
-									<a href = "manage_men_services.php" class="form-control btn btn-dark">Cancel</a>
+
+								<div class = "row">
+									<div class = "mb-3 col-6">
+										<input type = "submit" class= "form-control btn btn-primary" name = "btnsubmit" value = "Save">
+									</div>	
+
+									<div class = "mb-3 col-6">
+										<a href = "manage_men_services.php" class="form-control btn btn-dark">Cancel</a>
+									</div>	
 								</div>	
 							</div>						
 						</form>
