@@ -4,10 +4,18 @@ body{
     color: black;
 }
 
+
+
 /* Margin */
+
+.card{
+    margin-top: 3%;
+}
+
 .marginTop{
     margin-top: 10%;
 }
+
 
 /* Navbar */
 .custom-navbar {
