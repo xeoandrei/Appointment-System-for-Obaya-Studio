@@ -38,9 +38,7 @@ elseif (($_SESSION['usertype'] == 'STAFF'))
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/management.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-    <link rel="stylesheet" href="css/modals.css">
-    <script src="modals.js" defer></script>
+	
 </head>
 <body>
 <?php 
