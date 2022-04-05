@@ -54,11 +54,14 @@ $result = mysqli_query($link, $sql); ?>
                         {
                           echo "<div class='col-lg-4 col-sm-6'>";
                             echo "<div class='card'>";
-                              echo "<img src='images/service2.jpg' class='card-img-top'>";
+                              // echo "<img src='images/service1.jpg' class='card-img-top'>";
+                              //echo "<img src='ServicesImages/'". $row['image'] . "class='card-img-top'>";
+                              $image = 'images/WomenServicesImages/'.$row["image"];
+                              echo "<img src=$image class='card-img-top '>";
                               echo "<div class='card-body'>";
                                 echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
                                 echo "<p class='card-text'>" . $row["description"] . "</p>";
-                                echo "<a href='#' class='btn btn-dark'>Book Now</a>";
+                                echo "<a href='check_schedule.php' class='btn btn-dark'>Book Now</a>";
                               echo "</div>";
                             echo "</div>";
                           echo "</div>";  
