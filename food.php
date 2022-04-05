@@ -41,7 +41,7 @@ elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF'))
 include 'navbar/navbar.php';
 $sql = "SELECT * FROM food";  
 $result = mysqli_query($link, $sql); ?>
-        <section id="foods">
+        <section id="services">
                 <div class="container">
                   <div class="row">
                     <?php  
