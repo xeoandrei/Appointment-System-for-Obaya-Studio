@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-
 <?php
-    session_start();
-    if(isset($_SESSION['email'])){
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-    } else {
+include "config.php";
+session_start();
 
-    }
+if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR'))
+{
+  echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+} 
+elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) 
+{
+  echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+}
 ?>
 
 <html lang="en">
@@ -31,89 +34,46 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/servicesfood.css">
 
-    <title>Obaya Studio | Food</title>
+    <title>Obaya Studio | Food Menu</title>
 </head>
 <body>
-    <?php include "navbar/navbar.php"; ?>
-            <section id="services">
+<?php
+include 'navbar/navbar.php';
+$sql = "SELECT * FROM food";  
+$result = mysqli_query($link, $sql); ?>
+        <section id="foods">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service1.jpg" class="card-img-top">
-                                <div class="card-body">
-                                  <h5 class="card-title">Food 1</h5>
-                                </div>
-                              </div>
-                        </div>
-    
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">Food2</h5>
-                                </div>
-                              </div>
-                        </div>
-    
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service3.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">food3</h5>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="card">
-                                    <img src="images/service1.jpg" class="card-img-top">
-                                    <div class="card-body">
-                                      <h5 class="card-title">food4</h5>
-                                    </div>
-                                  </div>
-                            </div>
-                    
-                    <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">food5</h5>
-                                </div>
-                              </div>
-                        </div>
-                        
-                    <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <img src="images/service2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">food6</h5>
-                                </div>
-                              </div>
-                        </div>
-            
-                    <div class="container" style="margin-top: 3rem;">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6">
-
-                            </div>
-                    
-                    <div class="col-lg-4 col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                  <h5 class="card-title">Grab/Food Panda Link</h5>
-                                </div>
-                              </div>
-                        </div>
-                        
-                    <div class="col-lg-4 col-sm-6">
-                        
-                    </div>
-            </div>               
+                  <div class="row">
+                    <?php  
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                      while($row = mysqli_fetch_array($result))
+                      {  
+                        $foodStatus = $row["status"];
+                        if($foodStatus == 'ACTIVE')
+                        {
+                          echo "<div class='col-lg-4 col-sm-6'>";
+                            echo "<div class='card'>";
+                              // echo "<img src='images/food.jpg' class='card-img-top'>";
+                              //echo "<img src='FoodImages/'". $row['image'] . "class='card-img-top'>";
+                              $image = 'images/FoodImages/'.$row["image"];
+                              echo "<img src=$image class='card-img-top '>";
+                              echo "<div class='card-body'>";
+                                echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
+                                echo "<p class='card-text'>" . $row["description"] . "</p>";
+                                echo "<a href='check_schedule.php' class='btn btn-dark'>Book Now</a>";
+                              echo "</div>";
+                            echo "</div>";
+                          echo "</div>";  
+                        }
+                        else{
+                        }
+                      }
+                    }
+                  ?>
+                  </div>
+                </div>
         </section>
-        <?php include "footer/footer.php"; ?>
-    </body>
-    </html>
+      <?php include "footer/footer.php" ?>
+</body>
+</html>

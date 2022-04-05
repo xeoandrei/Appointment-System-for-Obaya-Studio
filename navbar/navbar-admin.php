@@ -52,7 +52,7 @@
                         </li>
     
                         <li class="nav-item">
-                            <a class="nav-link" href="food.php">Food</a>
+                            <a class="nav-link" href="manage_food.php">Food</a>
                         </li>
             
                         <li class="nav-item">
