@@ -60,7 +60,7 @@ if(isset($_POST['btnUpdate']))
     }   
     else
     {
-        if(file_exists("images/MenServicesImages/" . $_FILES['serviceImage']['name']))
+        if(file_exists("images/WomenServicesImages/" . $_FILES['serviceImage']['name']))
         {
             $filename = $_FILES['serviceImage']['name'];
             echo "Image already exists";
