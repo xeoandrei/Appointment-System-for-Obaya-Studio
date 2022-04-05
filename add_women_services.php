@@ -21,7 +21,7 @@ if(isset($_POST['btnAdd']))
 	$serviceImage = $_FILES['serviceImage']['name'];
 
 	//check if the id is existing
-	$sql = " SELECT * FROM men_service_table WHERE serviceId = ?";
+	$sql = " SELECT * FROM women_service_table WHERE serviceId = ?";
 	if($stmt = mysqli_prepare($link, $sql))
 	{
 		mysqli_stmt_bind_param($stmt, "s", $_POST['serviceId']);
@@ -42,7 +42,7 @@ if(isset($_POST['btnAdd']))
 				else
 				{
 					//check if services image filename is existing
-					if(file_exists("images/MenServicesImages/" . $_FILES['serviceImage']['name']))
+					if(file_exists("images/WomenServicesImages/" . $_FILES['serviceImage']['name']))
 					{
 						$filename = $_FILES['serviceImage']['name'];
 						echo 'Image Already exists';
@@ -50,7 +50,7 @@ if(isset($_POST['btnAdd']))
 					else
 					{
 						//insert
-						$sql = "INSERT INTO men_service_table (name, description, cost, status, image) VALUES (?, ?, ?, ?, ?)";
+						$sql = "INSERT INTO women_service_table (name, description, cost, status, image) VALUES (?, ?, ?, ?, ?)";
 						if($stmt = mysqli_prepare($link, $sql))
 						{
 							mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $_FILES['serviceImage']['name']);
@@ -60,15 +60,15 @@ if(isset($_POST['btnAdd']))
                         		if($stmt = mysqli_prepare($link, $sql))
 								{
 									$action = 'Create';
-                            		$module = 'Men-Services';
+                            		$module = 'Women-Services';
                             		$usertype = $_SESSION['usertype'];
                             		$name = $_SESSION['name'];
                             		mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                             		if(mysqli_stmt_execute($stmt))
                             		{
-										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$_FILES["serviceImage"]["name"]);
+										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/WomenServicesImages/".$_FILES["serviceImage"]["name"]);
 										$_SESSION['notify'] = 'A New Service is Successfully Created!';
-										header("location: manage_men_services.php");
+										header("location: manage_women_services.php");
 										exit();
                             		}
                             		else
@@ -173,7 +173,7 @@ rel="stylesheet">
 								</div>	
 
 								<div class = "mb-3 col-6">
-									<a href = "manage_men_services.php" class="form-control btn btn-dark">Cancel</a>
+									<a href = "manage_women_services.php" class="form-control btn btn-dark">Cancel</a>
 								</div>	
 							</div>	
 						</div>						

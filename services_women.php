@@ -1,11 +1,15 @@
 <?php
-  require_once "connection.php";
-    session_start();
-    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
-      echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-  } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
-      echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
-  }
+include "config.php";
+session_start();
+
+if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR'))
+{
+  echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
+} 
+elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) 
+{
+  echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
+}
 ?>
 
 <html lang="en">
@@ -35,8 +39,8 @@
 <body>
 <?php
 include 'navbar/navbar.php';
-$sql = "SELECT * FROM men_service_table";  
-$result = mysqli_query($con, $sql); ?>
+$sql = "SELECT * FROM women_service_table";  
+$result = mysqli_query($link, $sql); ?>
         <section id="services">
                 <div class="container">
                   <div class="row">

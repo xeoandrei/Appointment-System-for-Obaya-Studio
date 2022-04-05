@@ -46,7 +46,7 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a class="dropdown-item" href="manage_men_services.php">For Women</a>
+                                    <a class="dropdown-item" href="manage_women_services.php">For Women</a>
                                 </li>
                             </ul>
                         </li>

@@ -22,7 +22,7 @@ elseif (($_SESSION['usertype'] == 'STAFF'))
 ?>
 <html>
 <head>
-	<title>Manage Men Services</title>
+	<title>Manage Women Services</title>
 	<!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/e54d8b55e8.js" crossorigin="anonymous"></script>
     
@@ -57,7 +57,7 @@ include 'navbar/navbar-admin.php';
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="row">
                             <input class="form-control col me-2" type="text" placeholder="Search" name="txtsearch">
                             <INPUT TYPE = "submit" NAME = "btnsubmit" VALUE = "Go" class= "btn btn-outline-success col-4 me-2">
-							<a href="add_men_services.php" class=" btn btn-primary col me-2">Add Service</a>
+							<a href="add_women_services.php" class=" btn btn-primary col me-2">Add Service</a>
 						</form>
 					</div>
 				</div>
@@ -65,7 +65,7 @@ include 'navbar/navbar-admin.php';
 		            <?php
 		                if(isset($_POST['btnsubmit']))
 		                {
-			                $sql = "SELECT * FROM men_service_table WHERE serviceId = ? OR (serviceId LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR date_created LIKE ?) ORDER BY serviceId";
+			                $sql = "SELECT * FROM women_service_table WHERE serviceId = ? OR (serviceId LIKE ? OR name LIKE ? OR description LIKE ? OR cost LIKE ? OR status LIKE ? OR date_created LIKE ?) ORDER BY serviceId";
 			                if($stmt = mysqli_prepare($link, $sql))
 			                {
 				                $search = '%' . $_POST['txtsearch'] . '%';
@@ -84,7 +84,7 @@ include 'navbar/navbar-admin.php';
 		                //loading accounts data from the database
 		                else 
                         {
-                            $select = 'SELECT * FROM men_service_table ORDER BY serviceId'; 
+                            $select = 'SELECT * FROM women_service_table ORDER BY serviceId'; 
                             if ($result = mysqli_query($link, $select)) 
                             {
                                 build_table($result);
@@ -129,8 +129,8 @@ include 'navbar/navbar-admin.php';
                 echo "<td>" . $row['cost'] . "</td>";
 				//for image filename only
 				//echo "<td>" . $row['image'] . "</td>";
-				//fetching image from menservicesimages folder
-				$image = 'images/MenServicesImages/'.$row["image"];
+				//fetching image from womenservicesimages folder
+				$image = 'images/WomenServicesImages/'.$row["image"];
 				echo "<td>" ."<img src=$image height = '92px' width = '92px'". "</td>";
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";
@@ -141,20 +141,20 @@ include 'navbar/navbar-admin.php';
 							echo "Action";
 			   			echo "</button>";
 						echo  "<ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>";   
-							echo "<li><a class='dropdown-item' href = 'update_men_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
+							echo "<li><a class='dropdown-item' href = 'update_women_services.php?serviceId=" . $row['serviceId'] . "'>Update </a></li>";
 							echo "<li><hr class='dropdown-divider'></li>";
 							$serviceId = $row["serviceId"];
 							if($row['status'] =="ACTIVE")
                 			{
-                    			echo "<li><a class='dropdown-item' href = 'deactivate_men_services.php?deactivate=" . $row['serviceId'] . "'>Deactivate </a></li>";
+                    			echo "<li><a class='dropdown-item' href = 'deactivate_women_services.php?deactivate=" . $row['serviceId'] . "'>Deactivate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
                 			else if($row['status'] == "INACTIVE")
                 			{
-								echo "<li><a class='dropdown-item' href = 'activate_men_services.php?activate=" . $row['serviceId'] . "'>Activate </a></li>";
+								echo "<li><a class='dropdown-item' href = 'activate_women_services.php?activate=" . $row['serviceId'] . "'>Activate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
-							echo "<li><a class='dropdown-item' href = 'delete_men_services.php?delete=" . $row['serviceId'] . "'>Delete </a></li>";
+							echo "<li><a class='dropdown-item' href = 'delete_women_services.php?delete=" . $row['serviceId'] . "'>Delete </a></li>";
 							echo "
 								<ul>			 		
 							</div>";

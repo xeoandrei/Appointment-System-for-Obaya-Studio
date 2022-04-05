@@ -6,7 +6,7 @@ $id = $_GET['serviceId'];
 if(isset($_GET['serviceId']))
 {
     trim($_GET['serviceId']);
-    $sql = "SELECT * FROM men_service_table WHERE serviceId = ?";
+    $sql = "SELECT * FROM women_service_table WHERE serviceId = ?";
     if($stmt = mysqli_prepare($link, $sql))
     {
         mysqli_stmt_bind_param($stmt, "s", $_GET['serviceId']);
@@ -15,7 +15,7 @@ if(isset($_GET['serviceId']))
             $result = mysqli_stmt_get_result($stmt);
             if(mysqli_num_rows($result) > 0)
             {
-                $men_service = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $women_service = mysqli_fetch_array($result, MYSQLI_ASSOC);
             }
             else
             {
@@ -77,7 +77,7 @@ if(isset($_POST['btnUpdate']))
             }
             else
             {
-                $sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE serviceId = ?";
+                $sql = "UPDATE women_service_table SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE serviceId = ?";
                 if($stmt = mysqli_prepare($link, $sql))
                 {
                     mysqli_stmt_bind_param($stmt, "ssssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $serviceImageUpdateFN, $_GET['serviceId']);
@@ -104,7 +104,7 @@ if(isset($_POST['btnUpdate']))
                             if(mysqli_stmt_execute($stmt))
                             {
                                 $_SESSION['notify'] = 'Service was Successfully Updated!';
-                                header("location: manage_men_services.php");
+                                header("location: manage_women_services.php");
                                 exit();
                             }
                             else
@@ -167,11 +167,11 @@ if(isset($_POST['btnUpdate']))
 							<div class="row">
 
                             	<div class="mb-3 col-6">
-									<input type="text" class="form-control" value="<?php echo $men_service['name'];?>" name="serviceName" required>
+									<input type="text" class="form-control" value="<?php echo $women_service['name'];?>" name="serviceName" required>
 								</div>	 
 
 								<div class="mb-3 col-6">
-        							<input type= "number" class="form-control" value = "<?php echo $men_service['cost'];?>" name = "serviceCost" min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required>
+        							<input type= "number" class="form-control" value = "<?php echo $women_service['cost'];?>" name = "serviceCost" min="0" max="9999" onKeyPress="if(this.value.length==4) return false;" required>
 								</div>	
 
 								<div class="mb-3 col-6">
@@ -183,12 +183,12 @@ if(isset($_POST['btnUpdate']))
 								</div>	
 
 								<div class="mb-3 col-6">
-									<input type="file" class="form-control" name="serviceImage" value = "<?php echo $men_service['image'];?>">
-									<input type="hidden" class="form-control" name="serviceImageOld" value = "<?php echo $men_service['image'];?>">
+									<input type="file" class="form-control" name="serviceImage" value = "<?php echo $women_service['image'];?>">
+									<input type="hidden" class="form-control" name="serviceImageOld" value = "<?php echo $women_service['image'];?>">
 								</div>
 
 								<div class="mb-3 col-6">
-									<textarea class="form-control" rows = "4" name="serviceDescription" required><?php echo $men_service['description'];?></textarea>
+									<textarea class="form-control" rows = "4" name="serviceDescription" required><?php echo $women_service['description'];?></textarea>
 								</div>
 
 								<div class = "row">
@@ -197,7 +197,7 @@ if(isset($_POST['btnUpdate']))
 									</div>	
 
 									<div class = "mb-3 col-6">
-										<a href = "manage_men_services.php" class="form-control btn btn-dark">Cancel</a>
+										<a href = "manage_women_services.php" class="form-control btn btn-dark">Cancel</a>
 									</div>	
 								</div>
 							</div>						
