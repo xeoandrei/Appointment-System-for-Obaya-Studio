@@ -62,14 +62,21 @@
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>All Services <i class="fas fa-bars"></i></h4>
-                                    <h3><?php echo $serviceRow; ?></h3>
+                                    <h3><?php echo $serviceRowMen; ?></h3>
                                 </div>
                             </div>
+                            
+                            <!-- <div class="col-md-4">
+                                <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
+                                    <h4>All Services <i class="fas fa-bars"></i></h4>
+                                    <h3><?php echo $serviceRowWomen; ?></h3>
+                                </div>
+                            </div> -->
 
                             <div class="col-md-4">
                                 <div class="card text-center shadow-sm p-4 mb-5 bg-body rounded">
                                     <h4>All Food <i class="fas fa-pizza-slice"></i></h4>
-                                    <h3>4</h3>
+                                    <h3><?php echo $foodRow; ?></h3>
                                 </div>
                             </div>
 

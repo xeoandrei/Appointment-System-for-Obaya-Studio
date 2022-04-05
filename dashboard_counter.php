@@ -1,15 +1,39 @@
 <?php
 
-    //Count # of services.
+    //Count # of services for men.
     $sql = "SELECT * from men_service_table";
 
     if ($result = mysqli_query($con, $sql)) {
 
         // Return the number of rows in result set
-        $serviceRow = mysqli_num_rows( $result );
+        $serviceRowMen = mysqli_num_rows( $result );
         
     } else {
-        $serviceRow = 0;
+        $serviceRowMen = 0;
+    }
+
+    //Count # of services for women.
+    $sql = "SELECT * from women_service_table";
+
+    if ($result = mysqli_query($con, $sql)) {
+
+        // Return the number of rows in result set
+        $serviceRowWomen = mysqli_num_rows( $result );
+        
+    } else {
+        $serviceRowWomen = 0;
+    }
+
+    //Count # of food items.
+    $sql = "SELECT * from food";
+
+    if ($result = mysqli_query($con, $sql)) {
+
+        // Return the number of rows in result set
+        $foodRow = mysqli_num_rows( $result );
+        
+    } else {
+        $foodRow = 0;
     }
 
     //Count # of appointments.
