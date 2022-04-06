@@ -19,6 +19,7 @@ if(isset($_POST['btnAdd']))
 	$foodCost = mysqli_real_escape_string($link, $_POST['foodCost']);
 	$foodStatus = mysqli_real_escape_string($link, $_POST['foodStatus']);
 	$foodImage = $_FILES['foodImage']['name'];
+	$image = str_replace(' ', '', $foodImage);
 
 	//check if the id is existing
 	$sql = " SELECT * FROM food WHERE foodId = ?";
@@ -32,9 +33,8 @@ if(isset($_POST['btnAdd']))
 			{
 				//check for allowed food image formats
 				$allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-				$filename = $_FILES['foodImage']['name'];
+				$filename = $image;
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-
 				if (!in_array($file_extension, $allowed_extension))
 				{
 					echo 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
@@ -42,9 +42,9 @@ if(isset($_POST['btnAdd']))
 				else
 				{
 					//check if food image filename is existing
-					if(file_exists("images/FoodImages/" . $_FILES['foodImage']['name']))
+					if(file_exists("images/FoodImages/" . $image))
 					{
-						$filename = $_FILES['foodImage']['name'];
+						$filename = $image;
 						echo 'Image Already exists';
 					}
 					else
@@ -53,7 +53,7 @@ if(isset($_POST['btnAdd']))
 						$sql = "INSERT INTO food (name, description, cost, status, image) VALUES (?, ?, ?, ?, ?)";
 						if($stmt = mysqli_prepare($link, $sql))
 						{
-							mysqli_stmt_bind_param($stmt, "sssss", $_POST['foodName'], $_POST['foodDescription'], $_POST['foodCost'], $_POST['foodStatus'], $_FILES['foodImage']['name']);
+							mysqli_stmt_bind_param($stmt, "sssss", $_POST['foodName'], $_POST['foodDescription'], $_POST['foodCost'], $_POST['foodStatus'], $image);
 							if(mysqli_stmt_execute($stmt))
 							{
 								$sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
@@ -66,7 +66,7 @@ if(isset($_POST['btnAdd']))
                             		mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                             		if(mysqli_stmt_execute($stmt))
                             		{
-										move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$_FILES["foodImage"]["name"]);
+										move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$image);
 										$_SESSION['notify'] = 'A New Food Item is Successfully Created!';
 										header("location: manage_food.php");
 										exit();
