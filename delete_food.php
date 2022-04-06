@@ -4,15 +4,16 @@ include("session-checker.php");
 
 if(isset($_GET['delete']))
 {
-    $id = $_GET['delete'];
+    $id = $_GET['id'];
+	$delImage = $_GET['image'];
+
 	$sql= "DELETE FROM food WHERE foodId = ?";
-    $foodImage = $_FILES['foodImage']['name'];
 	
 	if($stmt = mysqli_prepare($link, $sql))
 	{
 		mysqli_stmt_bind_param($stmt, "s", $id);
-        unlink("images/FoodImages/".$foodImage);
-        
+        unlink("images/FoodImages/".$delImage);
+		
 		if(mysqli_stmt_execute($stmt))
 		{
 			$sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";

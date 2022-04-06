@@ -152,7 +152,9 @@ include 'navbar/navbar-admin.php';
 								echo "<li><a class='dropdown-item' href = 'activate_food.php?activate=" . $row['foodId'] . "'>Activate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
-							echo "<li><a class='dropdown-item' href = 'delete_food.php?delete=" . $row['foodId'] . "'>Delete </a></li>";
+							echo "<li><a class='dropdown-item' href = 'delete_food.php?delete=" . "delete" . "&" . "id" . "=" . $row['foodId'] . "&" . "image" . "=" . $row["image"] . "'>Delete </a></li>";
+							$del_image = $row["image"];
+							echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
 							echo "
 								<ul>			 		
 							</div>";

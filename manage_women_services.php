@@ -152,7 +152,9 @@ include 'navbar/navbar-admin.php';
 								echo "<li><a class='dropdown-item' href = 'activate_women_services.php?activate=" . $row['serviceId'] . "'>Activate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
-							echo "<li><a class='dropdown-item' href = 'delete_women_services.php?delete=" . $row['serviceId'] . "'>Delete </a></li>";
+							echo "<li><a class='dropdown-item' href = 'delete_women_services.php?delete=" . "delete" . "&" . "id" . "=" . $row['serviceId'] . "&" . "image" . "=" . $row["image"] . "'>Delete </a></li>";
+							$del_image = $row["image"];
+							echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
 							echo "
 								<ul>			 		
 							</div>";
