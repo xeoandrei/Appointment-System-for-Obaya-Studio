@@ -6,7 +6,7 @@ if (($_SESSION['usertype'] == 'ADMINISTRATOR')){
 	    <h3><?php echo "Welcome, " . $_SESSION['username']."!"; ?></h3>
 	    <h3> <?php echo "User type right now is: " . $_SESSION['usertype']; ?> </h3> 
 	    <?php
-	*/} 
+	*/}
 else{
     header("location: management.php");
 }

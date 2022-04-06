@@ -1,16 +1,6 @@
-<html>
-	<title>Delete account</title>
-	<body>
-		<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
-			<input type = "hidden" name = "name" value = "<?php echo trim($_GET["name"]); ?>" />
-			<p> Are you sure you want to delete this account? </p><br>
-			<input type = "submit" name = "btnsubmit" value = "Yes">
-			<a href = "manage_accounts.php">No</a>
-		</form>
-	</body>
-</html>
 <?php
 require_once "config.php";
+include("session-checker.php");
 if(isset($_POST['btnsubmit'])){
 	$sql = "DELETE FROM usertable WHERE name = ?";
 	if($stmt = mysqli_prepare($link, $sql)){
@@ -26,3 +16,14 @@ if(isset($_POST['btnsubmit'])){
 	}
 }
 ?>
+
+	<body>
+		<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post">
+			<input type = "hidden" name = "name" value = "<?php echo trim($_GET["name"]); ?>" />
+			<p> Are you sure you want to delete this account? </p><br>
+			<input type = "submit" name = "btnsubmit" value = "Yes">
+			<a href = "manage_accounts.php">No</a>
+		</form>
+	</body>
+
+
