@@ -43,8 +43,8 @@
                 <h1 class="firstPageText">Here to serve you good looks and good coffee!</h1>
                 
                 <form>
-                    <a href="book_appointment.html" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i> Book Now</a>
-                    <a href="about_us.html" class="btn btn-outline-light btn-lg myButton2"><i class="fas fa-info-circle"></i> About Us</a>
+                    <a href="check_schedule.php" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i> Book Now</a>
+                    <a href="about_us.php" class="btn btn-outline-light btn-lg myButton2"><i class="fas fa-info-circle"></i> About Us</a>
                 </form>           
             </div>
             <div class="col-lg-6 mobMargin">
