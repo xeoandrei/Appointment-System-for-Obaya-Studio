@@ -151,6 +151,7 @@
         while($row = mysqli_fetch_array($res5)) {
             $servicesWomen[] = $row['name'];
         }
+    ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>

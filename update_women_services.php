@@ -91,14 +91,14 @@ if(isset($_POST['btnUpdate']))
                             {
                                 move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/WomenServicesImages/".$image);
                                 //delete images from image directory
-                                unlink("images/MenServicesImages/".$serviceImageOld);
+                                unlink("images/WomenServicesImages/".$serviceImageOld);
                             }
                             else
                             {
                                 echo "Error on moving uploaded files.";
                             }
                             $action = 'Update';
-                            $module = 'Men-Services';
+                            $module = 'Women-Services';
                             $usertype = $_SESSION['usertype'];
                             $name = $_SESSION['name'];
                             mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);

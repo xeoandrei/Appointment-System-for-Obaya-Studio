@@ -64,7 +64,7 @@ if(isset($_POST['btnUpdate']))
         if(file_exists("images/MenServicesImages/" . $image))
         {
             $filename = $image;
-            echo "Image already exists";
+            $_SESSION['update-error'] = "Image already exists";
         }
         else
         {
@@ -74,7 +74,7 @@ if(isset($_POST['btnUpdate']))
             $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
             if (!in_array($file_extension, $allowed_extension))
             {
-                echo 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
+                $_SESSION['update-error'] =  'You are allowed to only update images with only jpg, png, jpeg and gif formats';
             }
             else
             {
@@ -104,7 +104,7 @@ if(isset($_POST['btnUpdate']))
                             mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                             if(mysqli_stmt_execute($stmt))
                             {
-                                $_SESSION['notify'] = 'Service was Successfully Updated!';
+                                $_SESSION['update-success'] = 'Service was Successfully Updated!';
                                 header("location: manage_men_services.php");
                                 exit();
                             }
@@ -163,6 +163,15 @@ if(isset($_POST['btnUpdate']))
 			<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Update Services</h5>
+                    <?php 
+                        if(isset($_SESSION['update-error']))
+                        {
+                            echo'<div class="alert alert-danger text-center">
+                                ' . $_SESSION['update-error'] . 
+                            '</div>';
+                            unset($_SESSION['update-error']);
+                        }
+                    ?>
 					<div class="card-body">
 						<form action = "<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method = "post" enctype = "multipart/form-data">
 							<div class="row">
