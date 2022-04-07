@@ -1,18 +1,23 @@
 <?php
 session_start();
-require "connection.php";
-    if(isset($_POST['rating'])){
-       $name = $_POST['name'];
-       $rating = $_POST['rating'];
-       $feedback = $_POST['feedback'];
-       $query ="Insert into feedback (rating, feedback, name) VALUES(?, ?, ?)";
-       $stmt = $con->prepare($query);
-       $stmt->bind_param('iss', $rating, $feedback, $name);
-       $stmt->execute();
-       $msg="<div class='alert alert-success'>Rating Successfully Added</div>";
-       $stmt->close();
-       $con->close();
+include "connection.php";
+$token=$_SESSION['feedbackTokenId'];  
+        if(isset($_POST['rating'])){    
+            $name = $_POST['name'];
+            $rating = $_POST['rating'];
+            $feedback = $_POST['feedback'];
+            $tokenId = $_POST['tokenId'];
+            $query ="Insert into feedback (rating, feedback, name,appointmentId) VALUES( ?, ?, ?, ?)";
+            unset($_SESSION['feedbackTokenId']);
+            $stmt = $con->prepare($query);
+            $stmt->bind_param('isss', $rating, $feedback, $name, $token);
+            $stmt->execute();
+            header('Location: success_feedback.php');
+            $stmt->close();
+            $con->close();
     }
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -41,48 +46,8 @@ require "connection.php";
     <title>Obaya Studio | Feedback</title>
 </head>
 <body>
-<section id="firstPage" class="container-fluid"> 
-        <?php include "navbar/navbar-index.php"; ?>
-</section>
-        
-    <div class="container-fluid row">
-        <div class="card mx-auto shadow p-3 mb-5 bg-body rounded">
-            <div class="card-body">
-                <h2>Rate our Services</h2>
-                <?php if(isset($msg)){echo $msg; } ?>
-            <form action="" method="post">
-                        <div class="form-group">
-                            <label for="">Rating</label>
-                            <div class="container" id="rateYo"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Name(Optional)</label>
-                            <input type="text" class="form-control" name="name">
-                        </div>
-                        <div class="form-group">
-                        <label for="">Feedback</label>
-                            <input type="textarea" class="form-control" name="feedback">
-                            <input type="hidden" name="rating" id="rating">
-                        </div>
-                        <button class="form-control btn btn-success">Submit</button>
-            </form>
-            </div>
-        </div>
-</div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrap.cdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-        <script>
-             $(function () {
- 
-                $("#rateYo").rateYo({
-                fullStar: true,
-                onSet: function(rating, rateYoInstance){
-                    $("#rating").val(rating);
-                }
-                });
 
-                });
-        </script>
-<?php include "footer/footer-nobg.php"; ?>
-        </body>
+        
+  
+</body>
+</html>
