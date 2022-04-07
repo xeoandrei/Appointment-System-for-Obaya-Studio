@@ -1,7 +1,6 @@
 <?php
     include 'connection.php';
     session_start();
-
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
@@ -49,11 +48,16 @@
                         <h5 class="fw-bold my-3">View Appointment</h5>
                     </div>
                     <?php
-                        if(isset($_SESSION['invalidTokenId'])){
+                        if(isset($_SESSION['tokeniderror'])){
                             echo   '<div class="alert alert-danger text-center">
                                         ' . $_SESSION['tokeniderror'] . 
                                     '</div>';
                             unset($_SESSION['tokeniderror']);
+                        } elseif(isset($_SESSION['cancelapptmsg'])){
+                            echo   '<div class="alert alert-success text-center">
+                                        ' . $_SESSION['cancelapptmsg'] . 
+                                    '</div>';
+                            unset($_SESSION['cancelapptmsg']);
                         }
                     ?>
                     <div class="mb-3">

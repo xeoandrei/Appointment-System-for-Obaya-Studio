@@ -15,7 +15,7 @@
         $tokenId_checkResult = mysqli_query($con, $tokenId_check);
         if(mysqli_num_rows($tokenId_checkResult) <= 0){
             $_SESSION['tokeniderror'] = 'Token ID invalid.';
-            header('Location: appointment_details.php');
+            header('Location: view_appointment.php');
         }
 
         $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId WHERE appointment.appointmentId = '$tokenId'";
@@ -69,6 +69,7 @@
                                    <th>Schedule</th>
                                    <th>Token ID</th>
                                    <th>Status</th>
+                                   <th>Action</th>
                               </tr>
                               <?php  
                                         if(mysqli_num_rows($result) > 0)  
@@ -82,7 +83,16 @@
                                    <td><?php echo $row["service"]; ?></td>
                                    <td><?php echo $row["datetime"]; ?></td>
                                    <td><?php echo $row["appointmentId"]; ?></td>
-                                   <td><?php echo $row["status"]; }}?></td>
+                                   <td><?php echo $row["status"];?></td>
+                                   <td>
+                                   <?php
+                                    if($row['status']!='Cancelled'){
+                                        echo '<a class="btn btn-danger" href="cancel_appointment_customer.php?cancelcus=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a>';
+                                    }
+                                }
+                            } 
+                                    ?>
+                                   </td>
                               </tr>
                          </table>
                     </div>

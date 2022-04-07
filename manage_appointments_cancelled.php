@@ -11,7 +11,7 @@ if($email == false && $password == false){
 ?>
 <html>
 <head>
-	<title>Accounts Management</title>
+	<title>Appointment Management</title>
 	<!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/e54d8b55e8.js" crossorigin="anonymous"></script>
     
@@ -31,13 +31,13 @@ if($email == false && $password == false){
 <body>
 <?php
 include 'navbar/navbar-admin.php';
-$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId";  
+$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId WHERE status = 'Cancelled'";  
 $result = mysqli_query($con, $sql); ?>
      <div class="container">
           <div class="col-lg-12 col-md-12">
                   <div class="card shadow p-3 mb-5 bg-body rounded">
                       <div class="card-header bg-dark text-white py-3">
-                          Appointments
+                          Verified Appointments
                       </div>
                     <div class="card-body"></div>
                     <div class="table table-responsive">

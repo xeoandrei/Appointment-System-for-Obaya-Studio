@@ -75,18 +75,21 @@ $result = mysqli_query($con, $sql); ?>
                                                   Action
                                              </button>
                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                  <?php
+                                             <?php
                                                        $apptId = $row["appointmentId"];
                                                        if($row['status']=='Pending'){
-                                                            echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '">Verify</a></li>';
+                                                            echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Verified?\')">Verify</a></li>';
                                                             echo '<li><hr class="dropdown-divider"></li>';
+                                                       }elseif($row['status']=='Verified'){
+                                                            echo '<li><a class="dropdown-item" href="done_appointment.php?done=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Finished?\')">Done</a></li>';
+                                                            echo '<li><hr class="dropdown-divider"></li>';
+                                                       }elseif($row['status']!='Cancelled'){
+                                                       echo '<li><a class="dropdown-item" href="cancel_appointment.php?cancel=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a></li>';
                                                        }
-                                                       ?>
-                                                  <?php
-                                                       echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '">Delete</a></li>';
+                                                       echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
                                                   }
                                              }
-                                                       ?>
+                                             ?>
                                              </ul>
                                         </div>
                                    </td>

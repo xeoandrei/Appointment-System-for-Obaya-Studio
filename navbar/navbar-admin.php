@@ -32,6 +32,10 @@
                                 <li>
                                     <a class="dropdown-item" href="manage_appointments_finished.php">Finished Appointments</a>
                                 </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="manage_appointments_cancelled.php">Cancelled Appointments</a>
+                                </li>
 
                             </ul>
                         </li>
