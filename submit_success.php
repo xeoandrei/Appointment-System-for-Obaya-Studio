@@ -7,6 +7,10 @@
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
     }
+
+    if(!isset($_SESSION['tokenId'])) {
+        header('location: check_schedule.php');
+    }
 ?>
 <!DOCTYPE html>
 <html>
