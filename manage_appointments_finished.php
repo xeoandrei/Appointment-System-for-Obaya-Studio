@@ -84,8 +84,11 @@ $result = mysqli_query($con, $sql); ?>
                                                             echo '<li><a class="dropdown-item" href="done_appointment.php?done=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Finished?\')">Done</a></li>';
                                                             echo '<li><hr class="dropdown-divider"></li>';
                                                        }elseif($row['status']!='Cancelled'){
-                                                       echo '<li><a class="dropdown-item" href="cancel_appointment.php?cancel=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a></li>';
+                                                            echo '<li><a class="dropdown-item" href="cancel_appointment.php?cancel=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a></li>';
+                                                            echo '<li><hr class="dropdown-divider"></li>';
                                                        }
+                                                       echo '<li><a class="dropdown-item" href="update_appointment.php?update=' . $row['appointmentId'] . '">Update Status</a></li>';
+                                                       echo '<li><hr class="dropdown-divider"></li>';
                                                        echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
                                                   }
                                              }
