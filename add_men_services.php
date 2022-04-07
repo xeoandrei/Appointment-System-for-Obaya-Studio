@@ -19,6 +19,7 @@ if(isset($_POST['btnAdd']))
 	$serviceCost = mysqli_real_escape_string($link, $_POST['serviceCost']);
 	$serviceStatus = mysqli_real_escape_string($link, $_POST['serviceStatus']);
 	$serviceImage = $_FILES['serviceImage']['name'];
+	$image = str_replace(' ', '', $serviceImage);
 
 	//check if the id is existing
 	$sql = " SELECT * FROM men_service_table WHERE serviceId = ?";
@@ -32,9 +33,8 @@ if(isset($_POST['btnAdd']))
 			{
 				//check for allowed services image formats
 				$allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-				$filename = $_FILES['serviceImage']['name'];
+				$filename = $image;
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-
 				if (!in_array($file_extension, $allowed_extension))
 				{
 					echo 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
@@ -42,9 +42,9 @@ if(isset($_POST['btnAdd']))
 				else
 				{
 					//check if services image filename is existing
-					if(file_exists("images/MenServicesImages/" . $_FILES['serviceImage']['name']))
+					if(file_exists("images/MenServicesImages/" . $image))
 					{
-						$filename = $_FILES['serviceImage']['name'];
+						$filename = $image;
 						echo 'Image Already exists';
 					}
 					else
@@ -53,7 +53,7 @@ if(isset($_POST['btnAdd']))
 						$sql = "INSERT INTO men_service_table (name, description, cost, status, image) VALUES (?, ?, ?, ?, ?)";
 						if($stmt = mysqli_prepare($link, $sql))
 						{
-							mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $_FILES['serviceImage']['name']);
+							mysqli_stmt_bind_param($stmt, "sssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $image);
 							if(mysqli_stmt_execute($stmt))
 							{
 								$sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
@@ -66,7 +66,7 @@ if(isset($_POST['btnAdd']))
                             		mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                             		if(mysqli_stmt_execute($stmt))
                             		{
-										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$_FILES["serviceImage"]["name"]);
+										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$image);
 										$_SESSION['notify'] = 'A New Service is Successfully Created!';
 										header("location: manage_men_services.php");
 										exit();

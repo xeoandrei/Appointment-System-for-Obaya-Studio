@@ -43,33 +43,34 @@ else
 if(isset($_POST['btnUpdate']))
 {
     $serviceImageNew = $_FILES['serviceImage']['name'];
+    $image = str_replace(' ', '', $serviceImageNew);
     $serviceImageOld = $_POST['serviceImageOld'];
 	//commit update
     if($serviceImageNew != '')
     {
-        $serviceImageUpdateFN = $_FILES['serviceImage']['name'];
+        $serviceImageUpdateFN = $image;
     }
     else
     {
         $serviceImageUpdateFN = $serviceImageOld;
     }
 
-    if($_FILES['serviceImage']['name'] == '')
+    if($image == '')
     {
         echo "Select an image file";
     }   
     else
     {
-        if(file_exists("images/WomenServicesImages/" . $_FILES['serviceImage']['name']))
+        if(file_exists("images/WomenServicesImages/" . $image))
         {
-            $filename = $_FILES['serviceImage']['name'];
+            $filename = $image;
             echo "Image already exists";
         }
         else
         {
             //check for allowed services image formats
             $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-            $filename = $_FILES['serviceImage']['name'];
+            $filename = $image;
             $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
             if (!in_array($file_extension, $allowed_extension))
             {
@@ -86,9 +87,9 @@ if(isset($_POST['btnUpdate']))
                         $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
                         if($stmt = mysqli_prepare($link, $sql))
                         {
-                            if($_FILES['serviceImage']['name'] != '')
+                            if($image != '')
                             {
-                                move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$_FILES["serviceImage"]["name"]);
+                                move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/WomenServicesImages/".$image);
                                 //delete images from image directory
                                 unlink("images/MenServicesImages/".$serviceImageOld);
                             }

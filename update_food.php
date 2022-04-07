@@ -44,33 +44,34 @@ else
 if(isset($_POST['btnUpdate']))
 {
     $foodImageNew = $_FILES['foodImage']['name'];
+    $image = str_replace(' ', '', $foodImageNew);
     $foodImageOld = $_POST['foodImageOld'];
 	//commit update
     if($foodImageNew != '')
     {
-        $foodImageUpdateFN = $_FILES['foodImage']['name'];
+        $foodImageUpdateFN = $image;
     }
     else
     {
         $foodImageUpdateFN = $foodImageOld;
     }
 
-    if($_FILES['foodImage']['name'] == '')
+    if($image == '')
     {
         echo "Select an image file";
     }   
     else
     {
-        if(file_exists("images/FoodImages/" . $_FILES['foodImage']['name']))
+        if(file_exists("images/FoodImages/" . $image))
         {
-            $filename = $_FILES['foodImage']['name'];
+            $filename = $image;
             echo "Image already exists";
         }
         else
         {
             //check for allowed food image formats
             $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-            $filename = $_FILES['foodImage']['name'];
+            $filename = $image;
             $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
             if (!in_array($file_extension, $allowed_extension))
             {
@@ -87,10 +88,10 @@ if(isset($_POST['btnUpdate']))
                         $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
                         if($stmt = mysqli_prepare($link, $sql))
                         {
-                            if($_FILES['foodImage']['name'] != '')
+                            if($image != '')
                             {
-                                move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$_FILES["foodImage"]["name"]);
-                                //delete images from image directory
+                                move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$image);
+                                //delete old images from image directory
                                 unlink("images/FoodImages/".$foodImageOld);
                             }
                             else

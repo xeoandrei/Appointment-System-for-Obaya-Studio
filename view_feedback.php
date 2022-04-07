@@ -13,6 +13,7 @@ require "connection.php";
        $stmt->close();
        $con->close();
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -60,13 +61,12 @@ require "connection.php";
                     ?> 
                     
                      <div class="card flex-row">
-                        <div class="card-left">
-                            <a href="#">
-                            <img class="img-fluid" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xN2ZhZDA4OWQwOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE3ZmFkMDg5ZDA5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNCIgeT0iMzYuOCI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="card-title h5 h4-sm"><div class='rateYo-<?php echo $row['id']; ?>'></div></h4>
+
+                        <div class="me-auto">
+                        <br><h5 class="media-left" style="float: left"><i><?php echo $row['name']; ?></i></h5>
+                        <br><h5 class="media-left" style="float: left"><i>TokenId: <?php echo $row['appointmentId']; ?></i></h5>
+                        <br><br>
+                        <h4 class="card-title h5 h4-sm"><div class='rateYo-<?php echo $row['id']; ?>'></div></h4>
                                 <script>
                                     $(function () {
                         
@@ -77,8 +77,8 @@ require "connection.php";
 
                                         });
                                 </script>
-                            <?php echo $row['feedback'] ?><br>
-                            by <i><?php echo $row['name']; ?></i><br>
+                            <h6 class="media-left" style="float: left"><?php echo $row['feedback'] ?></h6><br>
+                            
                             <br>
                         </div>
                     </div>

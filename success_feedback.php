@@ -1,13 +1,5 @@
 <?php
-    include 'connection.php';
-    session_start();
 
-    if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-    } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
-        echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
-    }
- 
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +28,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/login.css">
 
-    <title>Obaya Studio | Feedback</title>
+    <title>Obaya Studio | Home</title>
 </head>
 
 <body>
@@ -45,32 +37,15 @@
     <div class="container-fluid row">
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-xl-6 col-lg-8">
             <div class="card-body">
-                <form action="submit_feedback.php" method="post">
+                <form action="" method="post">
                     <div class="mt-5">
-                        <h5 class="fw-bold my-3">Feedback</h5>
-                    </div>
-                    <?php
-                        if(isset($_SESSION['tokeniderror'])){
-                            echo   '<div class="alert alert-danger text-center">
-                                        ' . $_SESSION['tokeniderror'] . 
-                                    '</div>';
-                            unset($_SESSION['tokeniderror']);
-                        }
-                    ?>
-                
-                    <div class="mb-3">
-                        <input class="form-control" type="text" name="tokenId" placeholder="Token Id" required>
-                    </div>
-                    <div class="mb-3">
-                        <input class="form-control btn btn-success" type="submit" name="submitFbTokenId" value="Submit">
+                        <h5 class="fw-bold my-3">Successfully Submitted Feedback</h5>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     </div>
-
     <?php include "footer/footer-nobg.php"; ?>
 </body>
-
 </html>
