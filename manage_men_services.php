@@ -9,16 +9,6 @@ if($email == false && $password == false)
 {
     header('Location: index.php');
 }
-//if session usertype is admin or staff
-if (($_SESSION['usertype'] == 'ADMINISTRATOR'))
-{
-    echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
-} 
-elseif (($_SESSION['usertype'] == 'STAFF'))
-{
-    echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Staff Panel</a>';
-}
-
 ?>
 <html>
 <head>

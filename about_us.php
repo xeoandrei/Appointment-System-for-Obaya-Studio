@@ -36,9 +36,18 @@
     <?php include "navbar/navbar.php"; ?>
         <div class="mt-5">
             <h1 class="firstPageText">About Us!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in incidunt inventore. Voluptas modi excepturi, asperiores corporis consequuntur esse sunt impedit mollitia, expedita debitis aliquid odio harum accusamus nulla quae.</p>
+            <div class="container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra suspendisse potenti nullam ac tortor. Massa sapien faucibus et molestie ac feugiat sed lectus. Morbi non arcu risus quis varius quam quisque id diam. Integer eget aliquet nibh praesent tristique. Et egestas quis ipsum suspendisse. Eget nunc lobortis mattis aliquam faucibus purus in massa. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Mattis vulputate enim nulla aliquet porttitor lacus. Mauris pharetra et ultrices neque. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Ridiculus mus mauris vitae ultricies leo integer. Cras tincidunt lobortis feugiat vivamus at. Urna porttitor rhoncus dolor purus non enim praesent. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Eget arcu dictum varius duis at consectetur. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula. Etiam erat velit scelerisque in.
+
+Lobortis elementum nibh tellus molestie nunc non blandit massa. Libero enim sed faucibus turpis in eu mi bibendum neque. Massa placerat duis ultricies lacus sed. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Amet porttitor eget dolor morbi non arcu risus quis. Sem fringilla ut morbi tincidunt. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Aliquam ut porttitor leo a diam sollicitudin tempor. Commodo viverra maecenas accumsan lacus vel facilisis.
+
+Eu augue ut lectus arcu bibendum. In nulla posuere sollicitudin aliquam ultrices sagittis orci a. Lobortis feugiat vivamus at augue eget arcu dictum. Justo donec enim diam vulputate ut pharetra sit amet. Venenatis cras sed felis eget. Et netus et malesuada fames ac turpis. Libero enim sed faucibus turpis in eu mi. Placerat duis ultricies lacus sed turpis tincidunt id aliquet. Diam volutpat commodo sed egestas egestas fringilla phasellus. Tristique senectus et netus et malesuada fames. Cras sed felis eget velit. Neque ornare aenean euismod elementum nisi quis eleifend. Aliquet eget sit amet tellus cras adipiscing enim. Et netus et malesuada fames ac.
+
+Est placerat in egestas erat imperdiet sed. Nulla at volutpat diam ut. Dis parturient montes nascetur ridiculus. Quis commodo odio aenean sed adipiscing diam donec adipiscing tristique.</p>
+            </div>
+            
             <form>
-                <a href="feedback_verify.php" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i>
+                <a href="feedback_verify.php" class="btn btn-outline-dark btn-lg my-5"><i class="fas fa-book"></i>
                     Send Feedback
                 </a>
             </form>
