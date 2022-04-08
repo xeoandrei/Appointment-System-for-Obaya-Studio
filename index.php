@@ -52,9 +52,9 @@
             </div>
         </div>
     </section>
-
+<!-- 
     <section id="services">
-        <h1>Services</h2>
+        <h1>Featured Services</h2>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-sm-6">
@@ -93,6 +93,47 @@
                 
             </div>
     </section>
+
+    <section id="food">
+        <h1>Featured Food</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="card">
+                            <img src="images/service1.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Haircut</h5>
+                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                              <a href="#" class="btn btn-dark">Book Now</a>
+                            </div>
+                          </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="card">
+                            <img src="images/service2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Rebond</h5>
+                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                              <a href="#" class="btn btn-dark">Book Now</a>
+                            </div>
+                          </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="card">
+                            <img src="images/service3.jpeg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Lorem</h5>
+                              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                              <a href="#" class="btn btn-dark">View All Services</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                
+            </div>
+    </section> -->
 
     <?php include "footer/footer.php" ?>  
 </body>

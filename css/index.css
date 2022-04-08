@@ -42,20 +42,6 @@ body{
 .titlePic{
     width: 100%;
 }
-.firstPageMainBG{
-    background-color: #2a2b33;
-    text-align: left;
-    padding-bottom: 10%;
-}
-#firstPage{
-    /* background-color: #fff; */
-    padding-bottom: 2rem;
-    background: #2a2b33;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: left;
-    padding-bottom: 10%;
-}
 
 .firstPageText{
     color: white;
@@ -91,6 +77,23 @@ body{
 .card{
     margin-top: 3%;
 }
+
+/* Food */
+
+#food{
+    padding: 3% 4%;
+    color: black;
+}
+
+#food > h1 {
+    font-weight: bold;
+}
+
+.card{
+    margin-top: 3%;
+}
+
+/* Footer */
 
 #footer{
     background-color: #2a2b33;
