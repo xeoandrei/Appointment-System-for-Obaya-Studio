@@ -56,7 +56,7 @@
 										<option value = "" selected="true" disabled="disabled">Select Status</option> 
 										<option value = "Pending">Pending</option>
 										<option value = "Verified">Verified</option>
-                                        <option value = "Done">Done</option>
+                                        <option value = "Finished">Done</option>
                                         <option value = "Cancelled">Cancelled</option>
 									</select>
 								</div>	
