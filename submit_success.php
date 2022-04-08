@@ -43,7 +43,9 @@
 </head>
 
 <body>
-    <?php include "navbar/navbar.php"; ?>
+    <?php include "navbar/navbar.php";
+    $customerEmail = $_SESSION['customerEmail'];
+    ?>
     <div class="container-fluid row">
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-xl-6 col-lg-8">
             <div class="card-body">
@@ -55,7 +57,9 @@
                             echo "$tokenId"; 
                         ?>
                     </h6>
-                    <h5 class="my-3">Please wait for your booking to be approved within 24 hours.</h5>
+                    <h5 class="my-3">We have sent an email to <?php echo $customerEmail; ?>.</h5>
+                    <h5 class="my-3">Please wait for your booking to be approved within the day.</h5>
+
                     <p>Click this <a href="view_appointment.php">link</a> to check your appointment details.</p>
                     <?php
                         $tokenId = $_SESSION['tokenId'];
