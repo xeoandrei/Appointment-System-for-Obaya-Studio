@@ -25,17 +25,17 @@ if(isset($_GET['serviceId']))
         }
         else
         {
-            echo "Error on select statement";
+            $_SESSION['update-women-error'] = "Error on select statement";
         }
     }
     else
     {
-        echo "Error on fetching form details.";
+        $_SESSION['update-women-error'] = "Error on fetching form details.";
     }
 }
 else
 {
-    echo "Error on retrieving Get serviceId";
+    $_SESSION['update-women-error'] = "Error on retrieving Get serviceId";
 }
 ?>
 
@@ -58,7 +58,7 @@ if(isset($_POST['btnUpdate']))
     if(file_exists("images/WomenServicesImages/" . $image))
     {
         $filename = $image;
-        echo "Image already exists";
+        $_SESSION['update-women-error'] = "Image already exists";
     }
     else
     {
@@ -68,7 +68,7 @@ if(isset($_POST['btnUpdate']))
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
         if (!in_array($file_extension, $allowed_extension))
         {
-            echo 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
+            $_SESSION['update-women-error'] = 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
         }
         else
         {
@@ -89,7 +89,7 @@ if(isset($_POST['btnUpdate']))
                         }
                         else
                         {
-                            echo "Error on moving uploaded files.";
+                            $_SESSION['update-women-error'] = "Error on moving uploaded files.";
                         }
                         $action = 'Update';
                         $module = 'Women-Services';
@@ -98,28 +98,28 @@ if(isset($_POST['btnUpdate']))
                         mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                         if(mysqli_stmt_execute($stmt))
                         {
-                            $_SESSION['notify'] = 'Service was Successfully Updated!';
+                            $_SESSION['update-women-success'] = 'Women\'s Service was Successfully Updated!';
                             header("location: manage_women_services.php");
                             exit();
                         }
                         else
                         {
-                            echo "Error on inserting logs";
+                            $_SESSION['update-women-error'] = "Error on inserting logs";
                         }
                     }
                     else
                     {
-                        echo "Error before inserting logs";
+                        $_SESSION['update-women-error'] = "Error before inserting logs";
                     }
                 }
                 else
                 {
-                    echo "Error on update statement";
+                    $_SESSION['update-women-error'] = "Error on update statement";
                 }
             }
             else
             {
-                echo "Error before update statement";
+                $_SESSION['update-women-error'] = "Error before update statement";
             }
         }
     }
@@ -156,6 +156,15 @@ if(isset($_POST['btnUpdate']))
 			<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Update Services</h5>
+                    <?php 
+                        if(isset($_SESSION['update-women-error']))
+                        {
+                            echo'<div class="alert alert-danger text-center">
+                                ' . $_SESSION['update-women-error'] . 
+                            '</div>';
+                            unset($_SESSION['update-women-error']);
+                        }
+                    ?>
 					<div class="card-body">
 						<form action = "<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method = "post" enctype = "multipart/form-data">
 							<div class="row">

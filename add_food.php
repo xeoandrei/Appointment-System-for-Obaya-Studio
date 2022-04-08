@@ -37,7 +37,7 @@ if(isset($_POST['btnAdd']))
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
 				if (!in_array($file_extension, $allowed_extension))
 				{
-					echo 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
+					$_SESSION['add-food-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
 				}
 				else
 				{
@@ -45,7 +45,7 @@ if(isset($_POST['btnAdd']))
 					if(file_exists("images/FoodImages/" . $image))
 					{
 						$filename = $image;
-						echo 'Image Already exists';
+						$_SESSION['add-food-error'] = 'Image Already exists';
 					}
 					else
 					{
@@ -67,45 +67,45 @@ if(isset($_POST['btnAdd']))
                             		if(mysqli_stmt_execute($stmt))
                             		{
 										move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$image);
-										$_SESSION['notify'] = 'A New Food Item is Successfully Created!';
+										$_SESSION['add-food-success'] = 'A New Food Item is Successfully Created!';
 										header("location: manage_food.php");
 										exit();
                             		}
                             		else
                             		{
-                                		echo "Error on inserting logs";
+                                		$_SESSION['add-food-error'] = "Error on inserting logs";
                             		}	
 								}
 								else
 								{
-									echo "Error on before inserting logs";
+									$_SESSION['add-food-error'] = "Error on before inserting logs";
 								}
 							}
 							else
 							{
-								echo "Error on insert food item statement";
+								$_SESSION['add-food-error'] = "Error on insert food item statement";
 							}
 						}
 						else
 						{
-							echo "Error on before inserting food item";
+							$_SESSION['add-food-error'] = "Error on before inserting food item";
 						}
 					}
 				}		
 			}
 			else
 			{
-				echo "Food item is already in use";
+				$_SESSION['add-food-error'] = "Food item is already in use";
 			}
 		}
 		else
 		{
-			echo "Error on select statment";
+			$_SESSION['add-food-error'] = "Error on select statment";
 		}
 	}
 	else
 	{
-		echo "Error on prepare statment";
+		$_SESSION['add-food-error'] = "Error on prepare statment";
 	}
 }
 ?>
@@ -140,6 +140,15 @@ rel="stylesheet">
 		<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
 			<div class="mt-5">
 				<h5 class="fw-bold my-3">Add Food Items</h5>
+				<?php
+					if(isset($_SESSION['add-food-error']))
+					{
+						echo'<div class="alert alert-danger text-center">
+                                ' . $_SESSION['add-food-error'] . 
+                            '</div>';
+                            unset($_SESSION['add-food-error']);
+					}
+				?>
 				<div class="card-body">
 					<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" enctype = "multipart/form-data">
 						<div class="row">

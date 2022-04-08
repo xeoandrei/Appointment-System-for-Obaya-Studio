@@ -98,7 +98,7 @@ if(isset($_POST['btnUpdate']))
                         mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                         if(mysqli_stmt_execute($stmt))
                         {
-                            $_SESSION['update-men-success'] = 'Service was Successfully Updated!';
+                            $_SESSION['update-men-success'] = 'Men\'s Service was Successfully Updated!';
                             header("location: manage_men_services.php");
                             exit();
                         }

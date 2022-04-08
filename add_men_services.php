@@ -67,7 +67,7 @@ if(isset($_POST['btnAdd']))
                             		if(mysqli_stmt_execute($stmt))
                             		{
 										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$image);
-										$_SESSION['add-men-success'] = 'A New Service is Successfully Created!';
+										$_SESSION['add-men-success'] = 'A New Men\'s Service is Successfully Created!';
 										header("location: manage_men_services.php");
 										exit();
                             		}

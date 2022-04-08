@@ -77,7 +77,6 @@ include 'navbar/navbar-admin.php';
 							unset($_SESSION['update-women-success']);
 						}
 
-
 						elseif(isset($_SESSION['activate-women-success']))
 						{
 							echo'<div class="alert alert-success text-center">
@@ -125,6 +124,14 @@ include 'navbar/navbar-admin.php';
 							'</div>';
 							unset($_SESSION['delete-women-error']);
 						}
+
+						elseif(isset($_SESSION['search-women']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['search-women'] . 
+							'</div>';
+							unset($_SESSION['search-women']);
+						}
 					?>
 		            <?php
 		                if(isset($_POST['btnsubmit']))
@@ -141,7 +148,7 @@ include 'navbar/navbar-admin.php';
 				                }
 				                else
 				                {
-					                echo "Error on search button";
+					                $_SESSION['search-women'] =  "Error on search button";
 				                }
 			                }
 		                }

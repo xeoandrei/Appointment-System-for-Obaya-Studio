@@ -60,13 +60,15 @@ require "connection.php";
                                 
                     ?> 
                     
-                     <div class="card flex-row">
+                     <div class="card shadow p-3 mb-5  rounded">
 
-                        <div class="me-auto">
-                        <br><h5 class="media-left" style="float: left"><i><?php echo $row['name']; ?></i></h5>
-                        <br><h5 class="media-left" style="float: left"><i>TokenId: <?php echo $row['appointmentId']; ?></i></h5>
-                        <br><br>
-                        <h4 class="card-title h5 h4-sm"><div class='rateYo-<?php echo $row['id']; ?>'></div></h4>
+                        <div class="card-body">
+                            
+                            <h5 class="float-start mt-2" style="float: left"><i>By: <?php echo $row['name']; ?> | <i>TokenId: <?php echo $row['appointmentId']; ?></i> </i></h5>
+                        
+                            <br><br>
+                            
+                        <h5 class="float-start mt-2" style="float: left"><div class='rateYo-<?php echo $row['id']; ?>'></div></h5>
                                 <script>
                                     $(function () {
                         
@@ -77,9 +79,11 @@ require "connection.php";
 
                                         });
                                 </script>
-                            <h6 class="media-left" style="float: left"><?php echo $row['feedback'] ?></h6><br>
+                        <br><br>
+                        <h6 class="card-body" style="float: left"><?php echo $row['feedback'] ?></h6><br>
                             
                             <br>
+                                    
                         </div>
                     </div>
                                

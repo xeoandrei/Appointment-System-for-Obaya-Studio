@@ -26,28 +26,28 @@ if(isset($_GET['delete']))
 				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
 				if(mysqli_stmt_execute($stmt))
 				{
-					$_SESSION['notify'] = 'Food Item is now Deleted!';
+					$_SESSION['delete-food-success'] = 'Food Item is now Deleted!';
 					header("location: manage_food.php");
 					exit();
 				}
 				else
 				{
-					echo "Error on inserting logs";
+					$_SESSION['delete-food-error'] = "Error on inserting logs";
 				}
 			}
 			else
 			{
-				echo "Error on log statement";
+				$_SESSION['delete-food-error'] = "Error on log statement";
 			}
 		}
 		else
 		{
-			echo "Error on delete statement";
+			$_SESSION['delete-food-error'] = "Error on delete statement";
 		}	
 	}
 	else
 	{
-		echo "Error on prepare statement";
+		$_SESSION['delete-food-error'] = "Error on prepare statement";
 	}
 }
 ?>
