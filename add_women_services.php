@@ -37,7 +37,7 @@ if(isset($_POST['btnAdd']))
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
 				if (!in_array($file_extension, $allowed_extension))
 				{
-					echo 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
+					$_SESSION['add-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
 				}
 				else
 				{
@@ -45,7 +45,7 @@ if(isset($_POST['btnAdd']))
 					if(file_exists("images/WomenServicesImages/" . $image))
 					{
 						$filename = $image;
-						echo 'Image Already exists';
+						$_SESSION['add-error'] = 'Image Already exists';
 					}
 					else
 					{
@@ -67,45 +67,45 @@ if(isset($_POST['btnAdd']))
                             		if(mysqli_stmt_execute($stmt))
                             		{
 										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/WomenServicesImages/".$image);
-										$_SESSION['notify'] = 'A New Service is Successfully Created!';
+										$_SESSION['add-success'] = 'A New Service is Successfully Created!';
 										header("location: manage_women_services.php");
 										exit();
                             		}
                             		else
                             		{
-                                		echo "Error on inserting logs";
+                                		$_SESSION['add-error'] = "Error on inserting logs";
                             		}	
 								}
 								else
 								{
-									echo "Error on before inserting logs";
+									$_SESSION['add-error'] = "Error on before inserting logs";
 								}
 							}
 							else
 							{
-								echo "Error on insert service statement";
+								$_SESSION['add-error'] = "Error on insert service statement";
 							}
 						}
 						else
 						{
-							echo "Error on before inserting service";
+							$_SESSION['add-error'] = "Error on before inserting service";
 						}
 					}
 				}		
 			}
 			else
 			{
-				echo "Service is already in use";
+				$_SESSION['add-error'] = "Service is already in use";
 			}
 		}
 		else
 		{
-			echo "Error on select statment";
+			$_SESSION['add-error'] = "Error on select statment";
 		}
 	}
 	else
 	{
-		echo "Error on prepare statment";
+		$_SESSION['add-error'] = "Error on prepare statment";
 	}
 }
 ?>

@@ -51,36 +51,69 @@ include 'navbar/navbar-admin.php';
 				</div>
 				<div class="card-body">
 				<?php
-						if(isset($_SESSION['update-success']))
+						if(isset($_SESSION['add-men-success']))
 						{
 							echo'<div class="alert alert-success text-center">
-								' . $_SESSION['update-success'] . 
+								' . $_SESSION['add-men-success'] . 
 							'</div>';
-							unset($_SESSION['update-success']);
+							unset($_SESSION['add-men-success']);
 						}
 
-						elseif(isset($_SESSION['add-success']))
+						elseif(isset($_SESSION['update-men-success']))
 						{
 							echo'<div class="alert alert-success text-center">
-								' . $_SESSION['add-success'] . 
+								' . $_SESSION['update-men-success'] . 
 							'</div>';
-							unset($_SESSION['add-success']);
+							unset($_SESSION['update-men-success']);
 						}
 
-						elseif(isset($_SESSION['delete-success']))
+
+						elseif(isset($_SESSION['activate-men-success']))
 						{
 							echo'<div class="alert alert-success text-center">
-								' . $_SESSION['delete-success'] . 
+								' . $_SESSION['activate-men-success'] . 
 							'</div>';
-							unset($_SESSION['delete-success']);
+							unset($_SESSION['activate-men-success']);
 						}
 
-						elseif(isset($_SESSION['delete-error']))
+						elseif(isset($_SESSION['deactivate-men-success']))
 						{
 							echo'<div class="alert alert-success text-center">
-								' . $_SESSION['delete-error'] . 
+								' . $_SESSION['deactivate-men-success'] . 
 							'</div>';
-							unset($_SESSION['delete-error']);
+							unset($_SESSION['deactivate-men-success']);
+						}
+
+						elseif(isset($_SESSION['delete-men-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['delete-men-success'] . 
+							'</div>';
+							unset($_SESSION['delete-men-success']);
+						}
+
+						elseif(isset($_SESSION['activate-men-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['activate-men-error'] . 
+							'</div>';
+							unset($_SESSION['activate-men-error']);
+						}
+
+						elseif(isset($_SESSION['deactivate-men-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['deactivate-men-error'] . 
+							'</div>';
+							unset($_SESSION['deactivate-men-error']);
+						}
+
+						elseif(isset($_SESSION['delete-men-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['delete-men-error'] . 
+							'</div>';
+							unset($_SESSION['delete-men-error']);
 						}
 					?>
 		            <?php

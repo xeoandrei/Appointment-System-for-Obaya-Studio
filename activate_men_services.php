@@ -22,28 +22,28 @@ if(isset($_GET['activate']))
 				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
 				if(mysqli_stmt_execute($stmt))
 				{
-					$_SESSION['activate-success'] = 'Service is now Activated!';
+					$_SESSION['activate-men-success'] = 'Service is now Activated!';
 					header("location: manage_men_services.php");
 					exit();
 				}
 				else
 				{
-					$_SESSION['activate-error'] = "Error on inserting logs";
+					$_SESSION['activate-men-error'] = "Error on inserting logs";
 				}
 			}
 			else
 			{
-				$_SESSION['activate-error'] = "Error on log statement";
+				$_SESSION['activate-men-error'] = "Error on log statement";
 			}
 		}
 		else
 		{
-			$_SESSION['activate-error'] = "Error on activate statement";
+			$_SESSION['activate-men-error'] = "Error on activate statement";
 		}	
 	}
 	else
 	{
-		$_SESSION['activate-error'] = "Error on prepare statement";
+		$_SESSION['activate-men-error'] = "Error on prepare statement";
 	}
 }
 ?>
