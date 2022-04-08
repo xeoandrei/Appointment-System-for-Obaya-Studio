@@ -25,17 +25,17 @@ if(isset($_GET['serviceId']))
         }
         else
         {
-            $_SESSION['update-error'] = "Error on select statement";
+            $_SESSION['update-men-error'] = "Error on select statement";
         }
     }
     else
     {
-        $_SESSION['update-error'] = "Error on fetching form details.";
+        $_SESSION['update-men-error'] = "Error on fetching form details.";
     }
 }
 else
 {
-    $_SESSION['update-error'] = "Error on retrieving Get serviceId";
+    $_SESSION['update-men-error'] = "Error on retrieving Get serviceId";
 }
 ?>
 
@@ -68,7 +68,7 @@ if(isset($_POST['btnUpdate']))
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
         if (!in_array($file_extension, $allowed_extension))
         {
-            $_SESSION['update-error'] =  'You are allowed to only update images with only jpg, png, jpeg and gif formats';
+            $_SESSION['update-men-error'] =  'You are allowed to only update images with only jpg, png, jpeg and gif formats';
         }
         else
         {
@@ -89,7 +89,7 @@ if(isset($_POST['btnUpdate']))
                         }
                         else
                         {
-                            $_SESSION['update-error'] = "Error on moving uploaded files.";
+                            $_SESSION['update-men-error'] = "Error on moving uploaded files.";
                         }
                         $action = 'Update';
                         $module = 'Men-Services';
@@ -98,28 +98,28 @@ if(isset($_POST['btnUpdate']))
                         mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                         if(mysqli_stmt_execute($stmt))
                         {
-                            $_SESSION['update-success'] = 'Service was Successfully Updated!';
+                            $_SESSION['update-men-success'] = 'Service was Successfully Updated!';
                             header("location: manage_men_services.php");
                             exit();
                         }
                         else
                         {
-                            $_SESSION['update-error'] = "Error on inserting logs";
+                            $_SESSION['update-men-error'] = "Error on inserting logs";
                         }
                     }
                     else
                     {
-                        $_SESSION['update-error'] =  "Error before inserting logs";
+                        $_SESSION['update-men-error'] =  "Error before inserting logs";
                     }
                 }
                 else
                 {
-                    $_SESSION['update-error'] = "Error on update statement";
+                    $_SESSION['update-men-error'] = "Error on update statement";
                 }
             }
             else
             {
-                $_SESSION['update-error'] =  "Error before update statement";
+                $_SESSION['update-men-error'] =  "Error before update statement";
             }
         }
     }
@@ -157,12 +157,12 @@ if(isset($_POST['btnUpdate']))
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Update Services</h5>
                     <?php 
-                        if(isset($_SESSION['update-error']))
+                        if(isset($_SESSION['update-men-error']))
                         {
                             echo'<div class="alert alert-danger text-center">
-                                ' . $_SESSION['update-error'] . 
+                                ' . $_SESSION['update-men-error'] . 
                             '</div>';
-                            unset($_SESSION['update-error']);
+                            unset($_SESSION['update-men-error']);
                         }
                     ?>
 					<div class="card-body">

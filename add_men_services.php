@@ -37,7 +37,7 @@ if(isset($_POST['btnAdd']))
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
 				if (!in_array($file_extension, $allowed_extension))
 				{
-					$_SESSION['add-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
+					$_SESSION['add-men-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
 				}
 				else
 				{
@@ -45,7 +45,7 @@ if(isset($_POST['btnAdd']))
 					if(file_exists("images/MenServicesImages/" . $image))
 					{
 						$filename = $image;
-						$_SESSION['add-error'] = 'Image Already exists';
+						$_SESSION['add-men-error'] = 'Image Already exists';
 					}
 					else
 					{
@@ -67,45 +67,45 @@ if(isset($_POST['btnAdd']))
                             		if(mysqli_stmt_execute($stmt))
                             		{
 										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$image);
-										$_SESSION['add-success'] = 'A New Service is Successfully Created!';
+										$_SESSION['add-men-success'] = 'A New Service is Successfully Created!';
 										header("location: manage_men_services.php");
 										exit();
                             		}
                             		else
                             		{
-                                		$_SESSION['add-error'] = "Error on inserting logs";
+                                		$_SESSION['add-men-error'] = "Error on inserting logs";
                             		}	
 								}
 								else
 								{
-									$_SESSION['add-error'] = "Error on before inserting logs";
+									$_SESSION['add-men-error'] = "Error on before inserting logs";
 								}
 							}
 							else
 							{
-								$_SESSION['add-error'] = "Error on insert service statement";
+								$_SESSION['add-men-error'] = "Error on insert service statement";
 							}
 						}
 						else
 						{
-							$_SESSION['add-error'] = "Error on before inserting service";
+							$_SESSION['add-men-error'] = "Error on before inserting service";
 						}
 					}
 				}		
 			}
 			else
 			{
-				$_SESSION['add-error'] = "Service is already in use";
+				$_SESSION['add-men-error'] = "Service is already in use";
 			}
 		}
 		else
 		{
-			$_SESSION['add-error'] = "Error on select statment";
+			$_SESSION['add-men-error'] = "Error on select statment";
 		}
 	}
 	else
 	{
-		$_SESSION['add-error'] = "Error on prepare statment";
+		$_SESSION['add-men-error'] = "Error on prepare statment";
 	}
 }
 ?>
@@ -141,12 +141,12 @@ rel="stylesheet">
 			<div class="mt-5">
 				<h5 class="fw-bold my-3">Add Services</h5>
 				<?php
-					if(isset($_SESSION['add-error']))
+					if(isset($_SESSION['add-men-error']))
 					{
 						echo'<div class="alert alert-danger text-center">
-                                ' . $_SESSION['add-error'] . 
+                                ' . $_SESSION['add-men-error'] . 
                             '</div>';
-                            unset($_SESSION['add-error']);
+                            unset($_SESSION['add-men-error']);
 					}
 				?>
 				<div class="card-body">

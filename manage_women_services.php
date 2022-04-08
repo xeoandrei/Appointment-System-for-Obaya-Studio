@@ -59,7 +59,73 @@ include 'navbar/navbar-admin.php';
 						</form>
 					</div>
 				</div>
-				<div class="card-body"></div>
+				<div class="card-body">
+				<?php
+						if(isset($_SESSION['add-women-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['add-women-success'] . 
+							'</div>';
+							unset($_SESSION['add-women-success']);
+						}
+
+						elseif(isset($_SESSION['update-women-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['update-women-success'] . 
+							'</div>';
+							unset($_SESSION['update-women-success']);
+						}
+
+
+						elseif(isset($_SESSION['activate-women-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['activate-women-success'] . 
+							'</div>';
+							unset($_SESSION['activate-women-success']);
+						}
+
+						elseif(isset($_SESSION['deactivate-women-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['deactivate-women-success'] . 
+							'</div>';
+							unset($_SESSION['deactivate-women-success']);
+						}
+
+						elseif(isset($_SESSION['delete-women-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['delete-women-success'] . 
+							'</div>';
+							unset($_SESSION['delete-women-success']);
+						}
+
+						elseif(isset($_SESSION['activate-women-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['activate-women-error'] . 
+							'</div>';
+							unset($_SESSION['activate-women-error']);
+						}
+
+						elseif(isset($_SESSION['deactivate-women-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['deactivate-women-error'] . 
+							'</div>';
+							unset($_SESSION['deactivate-women-error']);
+						}
+
+						elseif(isset($_SESSION['delete-women-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['delete-women-error'] . 
+							'</div>';
+							unset($_SESSION['delete-women-error']);
+						}
+					?>
 		            <?php
 		                if(isset($_POST['btnsubmit']))
 		                {
@@ -88,7 +154,8 @@ include 'navbar/navbar-admin.php';
                                 build_table($result);
                             }
                         }
-		            ?>	
+		            ?>
+					</div>	
                     </div>
                 </div>
             </div> 
