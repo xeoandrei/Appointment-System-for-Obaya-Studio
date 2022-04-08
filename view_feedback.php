@@ -60,17 +60,6 @@ require "connection.php";
                                 
                     ?> 
                     
-<<<<<<< HEAD
-                     <div class="card shadow p-3 mb-5  rounded">
-
-                        <div class="card-body">
-                            
-                            <h5 class="float-start mt-2" style="float: left"><i>By: <?php echo $row['name']; ?> | <i>TokenId: <?php echo $row['appointmentId']; ?></i> </i></h5>
-                        
-                            <br><br>
-                            
-                        <h5 class="float-start mt-2" style="float: left"><div class='rateYo-<?php echo $row['id']; ?>'></div></h5>
-=======
                      <div class="card shadow p-3 mb-5 rounded">
                         <div class="card-header">
                             <div class="float-start mt-2">
@@ -83,7 +72,6 @@ require "connection.php";
                         <div class="card-body">
                         <div class='rateYo-<?php echo $row['id']; ?>'>
                         </div>
->>>>>>> a0aeb449d9fa20494085de1bede4a4b580b281b7
                                 <script>
                                     $(function () {
                         
@@ -94,18 +82,10 @@ require "connection.php";
 
                                         });
                                 </script>
-<<<<<<< HEAD
-                        <br><br>
-                        <h6 class="card-body" style="float: left"><?php echo $row['feedback'] ?></h6><br>
-                            
-                            <br>
-                                    
-=======
                                 <div class="float-start mt-4">
                                     <h6><?php echo $row['feedback'] ?></h6>   
                                 </div>
                             
->>>>>>> a0aeb449d9fa20494085de1bede4a4b580b281b7
                         </div>
                     </div>
                                
