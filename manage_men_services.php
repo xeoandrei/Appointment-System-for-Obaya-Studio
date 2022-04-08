@@ -49,7 +49,7 @@ include 'navbar/navbar-admin.php';
 			<div class="card shadow p-3 mb-5 bg-body rounded">
 				<div class="card-header bg-dark text-white">
                     <div class="float-start mt-2">
-						Services List | User: <?php echo $_SESSION['name'];?>  
+						Men Services List | User: <?php echo $_SESSION['name'];?>  
 					</div>
 					<div class="float-end mt-2">
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="row">
@@ -59,7 +59,40 @@ include 'navbar/navbar-admin.php';
 						</form>
 					</div>
 				</div>
-				<div class="card-body"></div>
+				<div class="card-body">
+				<?php
+						if(isset($_SESSION['update-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['update-success'] . 
+							'</div>';
+							unset($_SESSION['update-success']);
+						}
+
+						elseif(isset($_SESSION['add-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['add-success'] . 
+							'</div>';
+							unset($_SESSION['add-success']);
+						}
+
+						elseif(isset($_SESSION['delete-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['delete-success'] . 
+							'</div>';
+							unset($_SESSION['delete-success']);
+						}
+
+						elseif(isset($_SESSION['delete-error']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['delete-error'] . 
+							'</div>';
+							unset($_SESSION['delete-error']);
+						}
+					?>
 		            <?php
 		                if(isset($_POST['btnsubmit']))
 		                {
@@ -89,6 +122,7 @@ include 'navbar/navbar-admin.php';
                             }
                         }
 		            ?>	
+					</div>
                     </div>
                 </div>
             </div> 
@@ -124,7 +158,7 @@ include 'navbar/navbar-admin.php';
 				echo "<td>" . $row['date_created'] . "</td>";
 				echo "<td>" . $row['name'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
-                echo "<td>" . $row['cost'] . "</td>";
+                echo "<td>" . "₱". $row['cost'] . "</td>";
 				//for image filename only
 				//echo "<td>" . $row['image'] . "</td>";
 				//fetching image from menservicesimages folder
@@ -144,17 +178,17 @@ include 'navbar/navbar-admin.php';
 							$serviceId = $row["serviceId"];
 							if($row['status'] =="ACTIVE")
                 			{
-                    			echo "<li><a class='dropdown-item' href = 'deactivate_men_services.php?deactivate=" . $row['serviceId'] . "'>Deactivate </a></li>";
+                    			echo "<li><a class='dropdown-item' href = 'deactivate_men_services.php?deactivate=" . $row['serviceId'] . "' onclick='return confirm(\"Do you want to Deactivate the current service?\")'>Deactivate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
                 			else if($row['status'] == "INACTIVE")
                 			{
-								echo "<li><a class='dropdown-item' href = 'activate_men_services.php?activate=" . $row['serviceId'] . "'>Activate </a></li>";
+								echo "<li><a class='dropdown-item' href = 'activate_men_services.php?activate=" . $row['serviceId'] . "' onclick='return confirm(\"Do you want to Activate the current service?\")'>Activate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
-							echo "<li><a class='dropdown-item' href = 'delete_men_services.php?delete=" . "delete" . "&" . "id" . "=" . $row['serviceId'] . "&" . "image" . "=" . $row["image"] . "'>Delete </a></li>";
-							$del_image = $row["image"];
-							echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
+							echo "<li><a class='dropdown-item' href = 'delete_men_services.php?delete=" . "delete" . "&" . "id" . "=" . $row['serviceId'] . "&" . "image" . "=" . $row["image"] . "' onclick='return confirm(\"Do you want to Delete the current service?\")'>Delete </a></li>";
+							// $del_image = $row["image"];
+							// echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
 							echo "
 								<ul>			 		
 							</div>";

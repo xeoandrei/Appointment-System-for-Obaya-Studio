@@ -26,28 +26,28 @@ if(isset($_GET['delete']))
 				mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
 				if(mysqli_stmt_execute($stmt))
 				{
-					$_SESSION['notify'] = 'Service is now Deleted!';
+					$_SESSION['delete-success'] = 'Service is now Deleted!';
 					header("location: manage_men_services.php");
 					exit();
 				}
 				else
 				{
-					echo "Error on inserting logs";
+					$_SESSION['delete-error'] = "Error on inserting logs";
 				}
 			}
 			else
 			{
-				echo "Error on log statement";
+				$_SESSION['delete-error'] = "Error on log statement";
 			}
 		}
 		else
 		{
-			echo "Error on delete statement";
+			$_SESSION['delete-error'] = "Error on delete statement";
 		}	
 	}
 	else
 	{
-		echo "Error on prepare statement";
+		$_SESSION['delete-error'] = "Error on prepare statement";
 	}
 }
 ?>

@@ -59,9 +59,9 @@ $result = mysqli_query($link, $sql); ?>
                               $image = 'images/FoodImages/'.$row["image"];
                               echo "<img src=$image class='card-img-top '>";
                               echo "<div class='card-body'>";
-                                echo "<h5 class='card-title'>" . $row["name"] . "</h5>";
+                              echo "<h5 class='card-title'>" . $row["name"] . " - ₱" . $row["cost"] . "</h5>";
                                 echo "<p class='card-text'>" . $row["description"] . "</p>";
-                                echo "<a href='check_schedule.php' class='btn btn-dark'>Book Now</a>";
+                                echo "<a href='https://www.foodpanda.ph/restaurant/zbcz/obaya-coffee-bar-mabiga' class='btn btn-outline-danger'>FoodPanda</a>";
                               echo "</div>";
                             echo "</div>";
                           echo "</div>";  

@@ -124,7 +124,7 @@ include 'navbar/navbar-admin.php';
 				echo "<td>" . $row['date_created'] . "</td>";
 				echo "<td>" . $row['name'] . "</td>";
 				echo "<td>" . $row['description'] . "</td>";
-                echo "<td>" . $row['cost'] . "</td>";
+                echo "<td>" . "₱" . $row['cost'] . "</td>";
 				//for image filename only
 				//echo "<td>" . $row['image'] . "</td>";
 				//fetching image from foodimages folder
@@ -144,17 +144,17 @@ include 'navbar/navbar-admin.php';
 							$foodId = $row["foodId"];
 							if($row['status'] =="ACTIVE")
                 			{
-                    			echo "<li><a class='dropdown-item' href = 'deactivate_food.php?deactivate=" . $row['foodId'] . "'>Deactivate </a></li>";
+                    			echo "<li><a class='dropdown-item' href = 'deactivate_food.php?deactivate=" . $row['foodId'] . "' onclick='return confirm(\"Do you want to Deactivate the current food item?\")'>Deactivate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
                 			else if($row['status'] == "INACTIVE")
                 			{
-								echo "<li><a class='dropdown-item' href = 'activate_food.php?activate=" . $row['foodId'] . "'>Activate </a></li>";
+								echo "<li><a class='dropdown-item' href = 'activate_food.php?activate=" . $row['foodId'] . "' onclick='return confirm(\"Do you want to Activate the current food item?\")'>Activate </a></li>";
 								echo "<li><hr class='dropdown-divider'></li>";
 							}
-							echo "<li><a class='dropdown-item' href = 'delete_food.php?delete=" . "delete" . "&" . "id" . "=" . $row['foodId'] . "&" . "image" . "=" . $row["image"] . "'>Delete </a></li>";
-							$del_image = $row["image"];
-							echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
+							echo "<li><a class='dropdown-item' href = 'delete_food.php?delete=" . "delete" . "&" . "id" . "=" . $row['foodId'] . "&" . "image" . "=" . $row["image"] . "' onclick='return confirm(\"Do you want to Delete the current food item?\")'>Delete </a></li>";
+							// $del_image = $row["image"];
+							// echo "<input type = 'hidden' name = 'delImage' value = '$del_image'";
 							echo "
 								<ul>			 		
 							</div>";

@@ -44,16 +44,38 @@
 
 <body>
     <?php include "navbar/navbar.php"; ?>
-
     <div class="container-fluid row">
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-xl-6 col-lg-8">
             <div class="card-body">
                 <div class="my-4">
                     <img src="images/check.png" style="height:75px;" alt="">
+                    <h6 class="mt-3">Your token id is: 
+                        <?php 
+                            $tokenId = $_SESSION['tokenId'];
+                            echo "$tokenId"; 
+                        ?>
+                    </h6>
+                    <h5 class="my-3">Please wait for your booking to be approved within 24 hours.</h5>
+                    <p>Click this <a href="view_appointment.php">link</a> to check your appointment details.</p>
+                    <?php
+                        $tokenId = $_SESSION['tokenId'];
+                        $customerEmail = $_SESSION['customerEmail'];
+                        $subject = "Obaya Booked Appointment Token Id";
+                        $message = "Your Token Id is $tokenId";
+                        $sender = "From: sammygarma26@gmail.com";
+                        if(mail($customerEmail, $subject, $message, $sender)){
+                            $info = "Please wait for your booking to be approved within 24 hours - $customerEmail";
+                            $_SESSION['info'] = $info;
+                            $_SESSION['customerEmail'] = $customerEmail;
+                            // header('location: .php');
+                            exit();
+                        }
+                        else
+                        {
+                            $errors['otp-error'] = "Failed while sending code!";
+                        }
+                    ?>
                 </div>
-                <h6 class="mt-3">Your token id is: <?php echo $_SESSION['tokenId']; ?></h6>
-                <h5 class="my-3">Please wait for your booking to be approved within 24 hours.</h5>
-                <p>Click this <a href="view_appointment.php">link</a> to check your appointment details.</p>
             </div>
         </div>
     </div>

@@ -25,17 +25,17 @@ if(isset($_GET['serviceId']))
         }
         else
         {
-            echo "Error on select statement";
+            $_SESSION['update-error'] = "Error on select statement";
         }
     }
     else
     {
-        echo "Error on fetching form details.";
+        $_SESSION['update-error'] = "Error on fetching form details.";
     }
 }
 else
 {
-    echo "Error on retrieving Get serviceId";
+    $_SESSION['update-error'] = "Error on retrieving Get serviceId";
 }
 ?>
 
@@ -55,78 +55,71 @@ if(isset($_POST['btnUpdate']))
         $serviceImageUpdateFN = $serviceImageOld;
     }
 
-    if($image == '')
+    if(file_exists("images/MenServicesImages/" . $image))
     {
-        echo "Select an image file";
-    }   
+        $filename = $image;
+        $_SESSION['update-error'] = "Image already exists";
+    }
     else
     {
-        if(file_exists("images/MenServicesImages/" . $image))
+        //check for allowed services image formats
+        $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
+        $filename = $image;
+        $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+        if (!in_array($file_extension, $allowed_extension))
         {
-            $filename = $image;
-            $_SESSION['update-error'] = "Image already exists";
+            $_SESSION['update-error'] =  'You are allowed to only update images with only jpg, png, jpeg and gif formats';
         }
         else
         {
-            //check for allowed services image formats
-            $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-            $filename = $image;
-            $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-            if (!in_array($file_extension, $allowed_extension))
+            $sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE serviceId = ?";
+            if($stmt = mysqli_prepare($link, $sql))
             {
-                $_SESSION['update-error'] =  'You are allowed to only update images with only jpg, png, jpeg and gif formats';
-            }
-            else
-            {
-                $sql = "UPDATE men_service_table SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE serviceId = ?";
-                if($stmt = mysqli_prepare($link, $sql))
+                mysqli_stmt_bind_param($stmt, "ssssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $serviceImageUpdateFN, $_GET['serviceId']);
+                if(mysqli_stmt_execute($stmt))
                 {
-                    mysqli_stmt_bind_param($stmt, "ssssss", $_POST['serviceName'], $_POST['serviceDescription'], $_POST['serviceCost'], $_POST['serviceStatus'], $serviceImageUpdateFN, $_GET['serviceId']);
-                    if(mysqli_stmt_execute($stmt))
+                    $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
+                    if($stmt = mysqli_prepare($link, $sql))
                     {
-                        $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
-                        if($stmt = mysqli_prepare($link, $sql))
+                        if($image != '')
                         {
-                            if($image != '')
-                            {
-                                move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$image);
-                                //delete images from image directory
-                                unlink("images/MenServicesImages/".$serviceImageOld);
-                            }
-                            else
-                            {
-                                echo "Error on moving uploaded files.";
-                            }
-                            $action = 'Update';
-                            $module = 'Men-Services';
-                            $usertype = $_SESSION['usertype'];
-                            $name = $_SESSION['name'];
-                            mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
-                            if(mysqli_stmt_execute($stmt))
-                            {
-                                $_SESSION['update-success'] = 'Service was Successfully Updated!';
-                                header("location: manage_men_services.php");
-                                exit();
-                            }
-                            else
-                            {
-                                echo "Error on inserting logs";
-                            }
+                            move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/MenServicesImages/".$image);
+                            //delete images from image directory
+                            unlink("images/MenServicesImages/".$serviceImageOld);
                         }
                         else
                         {
-                            echo "Error before inserting logs";
+                            $_SESSION['update-error'] = "Error on moving uploaded files.";
+                        }
+                        $action = 'Update';
+                        $module = 'Men-Services';
+                        $usertype = $_SESSION['usertype'];
+                        $name = $_SESSION['name'];
+                        mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
+                        if(mysqli_stmt_execute($stmt))
+                        {
+                            $_SESSION['update-success'] = 'Service was Successfully Updated!';
+                            header("location: manage_men_services.php");
+                            exit();
+                        }
+                        else
+                        {
+                            $_SESSION['update-error'] = "Error on inserting logs";
                         }
                     }
                     else
                     {
-                        echo "Error on update statement";
+                        $_SESSION['update-error'] =  "Error before inserting logs";
                     }
                 }
                 else
                 {
-                    echo "Error before update statement";
+                    $_SESSION['update-error'] = "Error on update statement";
                 }
+            }
+            else
+            {
+                $_SESSION['update-error'] =  "Error before update statement";
             }
         }
     }
@@ -193,7 +186,7 @@ if(isset($_POST['btnUpdate']))
 								</div>	
 
 								<div class="mb-3 col-6">
-									<input type="file" class="form-control" name="serviceImage" value = "<?php echo $men_service['image'];?>">
+									<input type="file" class="form-control" name="serviceImage" value = "<?php echo $men_service['image'];?>" required>
 									<input type="hidden" class="form-control" name="serviceImageOld" value = "<?php echo $men_service['image'];?>">
 								</div>
 

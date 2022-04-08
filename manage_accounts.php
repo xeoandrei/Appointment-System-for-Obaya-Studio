@@ -55,6 +55,22 @@ if(isset($_SESSION['email'])){
 				</div>
 				<div class="card-body"></div>
 					<?php 
+                        if(isset($_SESSION['delete-account']))
+                        {
+                            echo'<div class="alert alert-success text-center">
+                                ' . $_SESSION['delete-account'] . 
+                            '</div>';
+                            unset($_SESSION['delete-account']);
+                        }
+						elseif(isset($_SESSION['delete-account-failed']))
+                        {
+                            echo'<div class="alert alert-success text-center">
+                                ' . $_SESSION['delete-account-failed'] . 
+                            '</div>';
+                            unset($_SESSION['delete-account-failed']);
+                        }
+                    ?>
+					<?php 
 					require_once "config.php";
 					//search button
 					// if(isset($_POST['btnsubmit'])){
@@ -125,7 +141,7 @@ function build_table($result){
 			echo "<td>" . $row['usertype'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
-			echo "<a href='delete_account.php?name=" . $row['name'] . "'>Delete</a> ";
+			echo "<a class='btn btn-danger' href='delete_account.php?name=" . $row['name'] . "' onclick='return confirm(\"Do you want to Delete this Account?\")'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
 		}

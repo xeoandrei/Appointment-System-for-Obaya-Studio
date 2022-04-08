@@ -56,78 +56,71 @@ if(isset($_POST['btnUpdate']))
         $foodImageUpdateFN = $foodImageOld;
     }
 
-    if($image == '')
+    if(file_exists("images/FoodImages/" . $image))
     {
-        echo "Select an image file";
-    }   
+        $filename = $image;
+        echo "Image already exists";
+    }
     else
     {
-        if(file_exists("images/FoodImages/" . $image))
+        //check for allowed food image formats
+        $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
+        $filename = $image;
+        $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+        if (!in_array($file_extension, $allowed_extension))
         {
-            $filename = $image;
-            echo "Image already exists";
+            echo 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
         }
         else
         {
-            //check for allowed food image formats
-            $allowed_extension = array('gif', 'png', 'jpg', 'jpeg');
-            $filename = $image;
-            $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-            if (!in_array($file_extension, $allowed_extension))
+            $sql = "UPDATE food SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE foodId = ?";
+            if($stmt = mysqli_prepare($link, $sql))
             {
-                echo 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
-            }
-            else
-            {
-                $sql = "UPDATE food SET name = ?, description = ?, cost = ?, status = ?, image = ? WHERE foodId = ?";
-                if($stmt = mysqli_prepare($link, $sql))
+                mysqli_stmt_bind_param($stmt, "ssssss", $_POST['foodName'], $_POST['foodDescription'], $_POST['foodCost'], $_POST['foodStatus'], $foodImageUpdateFN, $_GET['foodId']);
+                if(mysqli_stmt_execute($stmt))
                 {
-                    mysqli_stmt_bind_param($stmt, "ssssss", $_POST['foodName'], $_POST['foodDescription'], $_POST['foodCost'], $_POST['foodStatus'], $foodImageUpdateFN, $_GET['foodId']);
-                    if(mysqli_stmt_execute($stmt))
+                    $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
+                    if($stmt = mysqli_prepare($link, $sql))
                     {
-                        $sql = "INSERT INTO tbl_logs VALUES (?, ?, ?, ?, ?, ?)";
-                        if($stmt = mysqli_prepare($link, $sql))
+                        if($image != '')
                         {
-                            if($image != '')
-                            {
-                                move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$image);
-                                //delete old images from image directory
-                                unlink("images/FoodImages/".$foodImageOld);
-                            }
-                            else
-                            {
-                                echo "Error on moving uploaded files.";
-                            }
-                            $action = 'Update';
-                            $module = 'Foods';
-                            $usertype = $_SESSION['usertype'];
-                            $name = $_SESSION['name'];
-                            mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
-                            if(mysqli_stmt_execute($stmt))
-                            {
-                                $_SESSION['notify'] = 'Food Item was Successfully Updated!';
-                                header("location: manage_food.php");
-                                exit();
-                            }
-                            else
-                            {
-                                echo "Error on inserting logs";
-                            }
+                            move_uploaded_file($_FILES["foodImage"]["tmp_name"], "images/FoodImages/".$image);
+                            //delete old images from image directory
+                            unlink("images/FoodImages/".$foodImageOld);
                         }
                         else
                         {
-                            echo "Error before inserting logs";
+                            echo "Error on moving uploaded files.";
+                        }
+                        $action = 'Update';
+                        $module = 'Foods';
+                        $usertype = $_SESSION['usertype'];
+                        $name = $_SESSION['name'];
+                        mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
+                        if(mysqli_stmt_execute($stmt))
+                        {
+                            $_SESSION['notify'] = 'Food Item was Successfully Updated!';
+                            header("location: manage_food.php");
+                            exit();
+                        }
+                        else
+                        {
+                            echo "Error on inserting logs";
                         }
                     }
                     else
                     {
-                        echo "Error on update statement";
+                        echo "Error before inserting logs";
                     }
                 }
                 else
                 {
-                    echo "Error before update statement";
+                    echo "Error on update statement";
                 }
+            }
+            else
+            {
+                echo "Error before update statement";
             }
         }
     }
@@ -185,7 +178,7 @@ if(isset($_POST['btnUpdate']))
 								</div>	
 
 								<div class="mb-3 col-6">
-									<input type="file" class="form-control" name="foodImage" value = "<?php echo $food['image'];?>">
+									<input type="file" class="form-control" name="foodImage" value = "<?php echo $food['image'];?>" required>
 									<input type="hidden" class="form-control" name="foodImageOld" value = "<?php echo $food['image'];?>">
 								</div>
 
