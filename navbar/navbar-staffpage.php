@@ -56,7 +56,7 @@
                         </li>
             
                         <li class="nav-item">
-                            <a class="nav-link" href="food.php">Feedback</a>
+                            <a class="nav-link" href="view_feedback.php">Feedback</a>
                         </li>
             
                         <li class="nav-item">

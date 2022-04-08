@@ -61,7 +61,6 @@
                     <div class="mb-3">
                         <input class="form-control btn btn-success" type="submit" name="login" value="Login">
                     </div>
-                    <a href="signup-user.php" class="btn btn-primary">Create Account</a>
                     <div class="link loginText mb-4"><a href="forgot-password.php">Forgot password?</a></div>
             </div>
             </form>

@@ -106,5 +106,6 @@
                 </div>
             </div>
         </div>
+        <?php include "footer/footer-nobg.php"; ?>
 </body>
 </html>
