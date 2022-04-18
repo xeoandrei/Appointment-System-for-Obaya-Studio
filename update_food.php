@@ -59,7 +59,7 @@ if(isset($_POST['btnUpdate']))
     if(file_exists("images/FoodImages/" . $image))
     {
         $filename = $image;
-        echo "Image already exists";
+        $_SESSION['update-food-error'] = "Image already exists";
     }
     else
     {
@@ -69,7 +69,7 @@ if(isset($_POST['btnUpdate']))
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
         if (!in_array($file_extension, $allowed_extension))
         {
-            echo 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
+            $_SESSION['update-food-error'] = 'You are allowed to only update images with only jpg, png, jpeg and gif formats';
         }
         else
         {
@@ -90,7 +90,7 @@ if(isset($_POST['btnUpdate']))
                         }
                         else
                         {
-                            echo "Error on moving uploaded files.";
+                            $_SESSION['update-food-error'] = "Error on moving uploaded files.";
                         }
                         $action = 'Update';
                         $module = 'Foods';
@@ -99,28 +99,28 @@ if(isset($_POST['btnUpdate']))
                         mysqli_stmt_bind_param($stmt, "ssssss", date("m/d/Y"), date("h:i:sa"), $action, $usertype, $name, $module);
                         if(mysqli_stmt_execute($stmt))
                         {
-                            $_SESSION['notify'] = 'Food Item was Successfully Updated!';
+                            $_SESSION['update-food-success'] = 'Food Item was Successfully Updated!';
                             header("location: manage_food.php");
                             exit();
                         }
                         else
                         {
-                            echo "Error on inserting logs";
+                            $_SESSION['update-food-error'] = "Error on inserting logs";
                         }
                     }
                     else
                     {
-                        echo "Error before inserting logs";
+                        $_SESSION['update-food-error'] = "Error before inserting logs";
                     }
                 }
                 else
                 {
-                    echo "Error on update statement";
+                    $_SESSION['update-food-error'] = "Error on update statement";
                 }
             }
             else
             {
-                echo "Error before update statement";
+                $_SESSION['update-food-error'] = "Error before update statement";
             }
         }
     }
@@ -157,6 +157,15 @@ if(isset($_POST['btnUpdate']))
 			<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
 				<div class="mt-5">
                     <h5 class="fw-bold my-3">Update Food Items</h5>
+                    <?php 
+                        if(isset($_SESSION['update-food-error']))
+                        {
+                            echo'<div class="alert alert-danger text-center">
+                                ' . $_SESSION['update-food-error'] . 
+                            '</div>';
+                            unset($_SESSION['update-food-error']);
+                        }
+                    ?>
 					<div class="card-body">
 						<form action = "<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method = "post" enctype = "multipart/form-data">
 							<div class="row">

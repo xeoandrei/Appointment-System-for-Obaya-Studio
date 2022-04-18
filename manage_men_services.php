@@ -115,6 +115,14 @@ include 'navbar/navbar-admin.php';
 							'</div>';
 							unset($_SESSION['delete-men-error']);
 						}
+
+						elseif(isset($_SESSION['search-men']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['search-men'] . 
+							'</div>';
+							unset($_SESSION['search-men']);
+						}
 					?>
 		            <?php
 		                if(isset($_POST['btnsubmit']))
@@ -131,7 +139,7 @@ include 'navbar/navbar-admin.php';
 				                }
 				                else
 				                {
-					                echo "Error on search button";
+					                $_SESSION['search-men'] = "Error on search button";
 				                }
 			                }
 		                }

@@ -37,7 +37,7 @@ if(isset($_POST['btnAdd']))
 				$file_extension = pathinfo($filename, PATHINFO_EXTENSION);
 				if (!in_array($file_extension, $allowed_extension))
 				{
-					$_SESSION['add-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
+					$_SESSION['add-women-error'] = 'You are allowed to only upload images with only jpg, png, jpeg and gif formats';
 				}
 				else
 				{
@@ -45,7 +45,7 @@ if(isset($_POST['btnAdd']))
 					if(file_exists("images/WomenServicesImages/" . $image))
 					{
 						$filename = $image;
-						$_SESSION['add-error'] = 'Image Already exists';
+						$_SESSION['add-women-error'] = 'Image Already exists';
 					}
 					else
 					{
@@ -67,45 +67,45 @@ if(isset($_POST['btnAdd']))
                             		if(mysqli_stmt_execute($stmt))
                             		{
 										move_uploaded_file($_FILES["serviceImage"]["tmp_name"], "images/WomenServicesImages/".$image);
-										$_SESSION['add-success'] = 'A New Service is Successfully Created!';
+										$_SESSION['add-women-success'] = 'A New Women\'s Service is Successfully Created!';
 										header("location: manage_women_services.php");
 										exit();
                             		}
                             		else
                             		{
-                                		$_SESSION['add-error'] = "Error on inserting logs";
+                                		$_SESSION['add-women-error'] = "Error on inserting logs";
                             		}	
 								}
 								else
 								{
-									$_SESSION['add-error'] = "Error on before inserting logs";
+									$_SESSION['add-women-error'] = "Error on before inserting logs";
 								}
 							}
 							else
 							{
-								$_SESSION['add-error'] = "Error on insert service statement";
+								$_SESSION['add-women-error'] = "Error on insert service statement";
 							}
 						}
 						else
 						{
-							$_SESSION['add-error'] = "Error on before inserting service";
+							$_SESSION['add-women-error'] = "Error on before inserting service";
 						}
 					}
 				}		
 			}
 			else
 			{
-				$_SESSION['add-error'] = "Service is already in use";
+				$_SESSION['add-women-error'] = "Service is already in use";
 			}
 		}
 		else
 		{
-			$_SESSION['add-error'] = "Error on select statment";
+			$_SESSION['add-women-error'] = "Error on select statment";
 		}
 	}
 	else
 	{
-		$_SESSION['add-error'] = "Error on prepare statment";
+		$_SESSION['add-women-error'] = "Error on prepare statment";
 	}
 }
 ?>
@@ -140,6 +140,15 @@ rel="stylesheet">
 		<div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">
 			<div class="mt-5">
 				<h5 class="fw-bold my-3">Add Services</h5>
+				<?php
+					if(isset($_SESSION['add-women-error']))
+					{
+						echo'<div class="alert alert-danger text-center">
+                                ' . $_SESSION['add-women-error'] . 
+                            '</div>';
+                            unset($_SESSION['add-women-error']);
+					}
+				?>
 				<div class="card-body">
 					<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method = "post" enctype = "multipart/form-data">
 						<div class="row">

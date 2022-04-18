@@ -50,7 +50,81 @@ include 'navbar/navbar-admin.php';
 						</form>
 					</div>
 				</div>
-				<div class="card-body"></div>
+				<div class="card-body">
+				<?php
+						if(isset($_SESSION['add-food-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['add-food-success'] . 
+							'</div>';
+							unset($_SESSION['add-food-success']);
+						}
+
+						elseif(isset($_SESSION['update-food-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['update-food-success'] . 
+							'</div>';
+							unset($_SESSION['update-food-success']);
+						}
+
+
+						elseif(isset($_SESSION['activate-food-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['activate-food-success'] . 
+							'</div>';
+							unset($_SESSION['activate-food-success']);
+						}
+
+						elseif(isset($_SESSION['deactivate-food-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['deactivate-food-success'] . 
+							'</div>';
+							unset($_SESSION['deactivate-food-success']);
+						}
+
+						elseif(isset($_SESSION['delete-food-success']))
+						{
+							echo'<div class="alert alert-success text-center">
+								' . $_SESSION['delete-food-success'] . 
+							'</div>';
+							unset($_SESSION['delete-food-success']);
+						}
+
+						elseif(isset($_SESSION['activate-food-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['activate-food-error'] . 
+							'</div>';
+							unset($_SESSION['activate-food-error']);
+						}
+
+						elseif(isset($_SESSION['deactivate-food-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['deactivate-food-error'] . 
+							'</div>';
+							unset($_SESSION['deactivate-food-error']);
+						}
+
+						elseif(isset($_SESSION['delete-food-error']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['delete-food-error'] . 
+							'</div>';
+							unset($_SESSION['delete-food-error']);
+						}
+
+						elseif(isset($_SESSION['search-food']))
+						{
+							echo'<div class="alert alert-danger text-center">
+								' . $_SESSION['search-food'] . 
+							'</div>';
+							unset($_SESSION['search-food']);
+						}
+					?>
 		            <?php
 		                if(isset($_POST['btnsubmit']))
 		                {
@@ -66,7 +140,7 @@ include 'navbar/navbar-admin.php';
 				                }
 				                else
 				                {
-					                echo "Error on search button";
+					                $_SESSION['search-food'] = "Error on search button";
 				                }
 			                }
 		                }
@@ -80,6 +154,7 @@ include 'navbar/navbar-admin.php';
                             }
                         }
 		            ?>	
+					</div>
                     </div>
                 </div>
             </div> 
