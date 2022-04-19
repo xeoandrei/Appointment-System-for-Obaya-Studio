@@ -1,6 +1,6 @@
 <?php
-require_once "config.php";
-session_start();
+require "config.php";
+require "controllerUserData.php";
 //check if the session contains data
 if (($_SESSION['usertype'] == 'ADMINISTRATOR'))
 {
@@ -141,7 +141,7 @@ function build_table($result){
 			echo "<td>" . $row['usertype'] . "</td>";
 			echo "<td>" . $row['status'] . "</td>";
 			echo "<td>";
-			echo "<a class='btn btn-danger' href='delete_account.php?name=" . $row['name'] . "' onclick='return confirm(\"Do you want to Delete this Account?\")'>Delete</a> ";
+			echo "<a class='btn btn-danger' href='delete_account.php?id=" . $row['id'] . "' onclick='return confirm(\"Do you want to Delete this Account?\")'>Delete</a> ";
 			echo "</td>";
 			echo "</tr>";
 		}
