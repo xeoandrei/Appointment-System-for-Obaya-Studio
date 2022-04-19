@@ -57,7 +57,7 @@ $result = mysqli_query($link, $sql); ?>
                               // echo "<img src='images/service1.jpg' class='card-img-top'>";
                               //echo "<img src='ServicesImages/'". $row['image'] . "class='card-img-top'>";
                               $image = 'images/MenServicesImages/'.$row["image"];
-                              echo "<img src=$image class='card-img-top '>";
+                              echo "<img src='$image' class='card-img-top '>";
                               echo "<div class='card-body'>";
                                 echo "<h5 class='card-title'>" . $row["name"] . " - ₱" . $row["cost"] . "</h5>";
                                 echo "<p class='card-text'>" . $row["description"] . "</p>";

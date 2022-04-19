@@ -194,7 +194,7 @@ include 'navbar/navbar-admin.php';
 				//echo "<td>" . $row['image'] . "</td>";
 				//fetching image from menservicesimages folder
 				$image = 'images/MenServicesImages/'.$row["image"];
-				echo "<td>" ."<img src=$image height = '92px' width = '92px'". "</td>";
+				echo "<td>" ."<img src='$image' height = '92px' width = '92px'". "</td>";
                 echo "<td>" . $row['status'] . "</td>";
                 // echo "<td>" . $row['createdby'] . "</td>";
 				echo "<td>";
