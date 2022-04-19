@@ -80,8 +80,8 @@ else{
                     </div>
                     <class="form-control"><select name = "cmbusertype" id = "cmbusertype" class="form-control" required>
 			            <option value = "">--User Type--</option>
-			            <option value = "ADMINISTRATOR">Administrator</option>
-			            <option value = "STAFF">Staff</option>
+			            <option value = "ADMINISTRATOR">ADMINISTRATOR</option>
+			            <option value = "STAFF">STAFF</option>
 		                </select><br>
                     <div class="mb-4">
                         <input class="form-control btn btn-primary" type="submit" name="signup" value="Add New Account">
