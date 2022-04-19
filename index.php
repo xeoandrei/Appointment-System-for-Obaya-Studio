@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
-    require_once "config.php";
-    session_start();
+    require "config.php";
+    require "controllerUserData.php";
+    //require "controllerUserData.php";
     if(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'ADMINISTRATOR')){
         echo 'Good day! ' . $_SESSION['email'] . ' <a href="management.php">Admin Panel</a>';
     } elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF')) {
