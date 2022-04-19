@@ -63,19 +63,18 @@
                             <a class="nav-link" href="view_feedback.php">Feedback</a>
                         </li>
             
+                        <li class="nav-item">
                         <?php
-                        if(($_SESSION['usertype']) == 'ADMINISTRATOR')
-	                    {
-                            echo '<li class="nav-item">';
+                            if($_SESSION['usertype'] == 'ADMINISTRATOR')
+                            {
                                 echo '<a class="nav-link" href="manage_accounts.php">Staff</a>';
-                            echo '<li class="nav-item">';
-                            echo '</li>';
-                        }
+                            }
 		                ?>
+                        </li>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">  
                         <li class="nav-item mx-3 my-3">
                             <a href="logout.php" class="btn btn-danger me-3">Logout</a>
                         </li>
