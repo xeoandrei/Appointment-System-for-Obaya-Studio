@@ -30,7 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css?v=<?php echo time(); ?>">
 
     <title>Obaya Studio | Home</title>
 </head>
@@ -44,8 +44,8 @@
                 <h1 class="firstPageText">Here to serve you good looks and good coffee!</h1>
                 
                 <form>
-                    <a href="check_schedule.php" class="btn btn-light btn-lg myButton"><i class="fas fa-book"></i> Book Now</a>
-                    <a href="about_us.php" class="btn btn-outline-light btn-lg myButton2"><i class="fas fa-info-circle"></i> About Us</a>
+                    <a href="check_schedule.php" class="btn btn-light btn-lg mx-2 my-3"><i class="fas fa-book"></i> Book Now</a>
+                    <a href="about_us.php" class="btn btn-outline-light btn-lg mx-2 my-3"><i class="fas fa-info-circle"></i> About Us</a>
                 </form>           
             </div>
             <div class="col-lg-6 mobMargin">
