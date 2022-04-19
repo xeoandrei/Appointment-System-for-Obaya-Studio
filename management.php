@@ -1,4 +1,4 @@
-<?php require_once "controllerUserData.php";
+<?php require "controllerUserData.php";
     include 'dashboard_counter.php';
 
     $email = $_SESSION['email'];
