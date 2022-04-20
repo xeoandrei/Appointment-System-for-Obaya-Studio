@@ -66,6 +66,15 @@ body{
     color:#959fa3;
 }
 
+/*White Text*/
+.whiteText{
+    color: white;
+}
+
+/*Ubuntu Font*/
+.ubuntuF{
+    font-family: 'Ubuntu', sans-serif;
+}
 
 @media screen and (max-width: 1618px) {
 
