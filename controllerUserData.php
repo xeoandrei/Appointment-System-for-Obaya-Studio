@@ -57,6 +57,7 @@ if(isset($_POST['signup'])){
             $fetch_data = mysqli_fetch_assoc($code_res);
             $fetch_code = $fetch_data['code'];
             $email = $fetch_data['email'];
+            $usertype = $fetch_data['usertype'];
             $code = 0;
             $status = 'verified';
             $update_otp = "UPDATE usertable SET code = $code, status = '$status' WHERE code = $fetch_code";
@@ -64,6 +65,7 @@ if(isset($_POST['signup'])){
             if($update_res){
                 $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email;
+                $_SESSION['usertype'] = $usertype;
                 header('location: management.php');
                 exit();
             }else{

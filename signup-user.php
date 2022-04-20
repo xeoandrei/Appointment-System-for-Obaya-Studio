@@ -1,4 +1,4 @@
-<?php require_once "controllerUserData.php";
+<?php require "controllerUserData.php";
 //check if the session contains data
 if (($_SESSION['usertype'] == 'ADMINISTRATOR')){
     //display session data
