@@ -31,7 +31,7 @@ if($email == false && $password == false){
 <body>
 <?php
 include 'navbar/navbar-admin.php';
-$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId";  
+$sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId = appointment.appointmentId ";  
 $result = mysqli_query($con, $sql); ?>
      <div class="container">
           <div class="col-lg-12 col-md-12">

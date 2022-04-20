@@ -86,7 +86,7 @@
                                    <td><?php echo $row["status"];?></td>
                                    <td>
                                    <?php
-                                    if($row['status']!='Cancelled'){
+                                    if($row['status']!='Cancelled' && $row['status']!='Finished'){
                                         echo '<a class="btn btn-danger" href="cancel_appointment_customer.php?cancelcus=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a>';
                                     }
                                 }

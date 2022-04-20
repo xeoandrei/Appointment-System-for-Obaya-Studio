@@ -22,23 +22,23 @@
         $contact = $_SESSION['contact'];
 
         //VERIFY IF DATE&TIME, EMAIL, CONTACT NUMBER IS ALREADY TAKEN IN DATABASE ONLY IF STATUS IS VERIFIED.
-        // $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime' AND status='Verified'";
-        // $email_check = "SELECT appointment.status, customer.email FROM appointment INNER JOIN customer ON appointment.status='Verified' WHERE customer.email = '$email'";
-        // $contactNum_check = "SELECT * FROM customer, appointment WHERE contact = '$contact' AND status='Verified'";
-        // $res = mysqli_query($con, $datetime_check);
-        // $res2 = mysqli_query($con, $email_check);
-        // $res3 = mysqli_query($con, $contactNum_check);
+        $datetime_check = "SELECT * FROM appointment WHERE datetime = '$datetime' AND status='Verified'";
+        $email_check = "SELECT * FROM appointment WHERE email = '$email' AND appointment.status='Verified'";
+        $contactNum_check = "SELECT * FROM appointment INNER JOIN customer WHERE contact = '$contact' AND status='Verified'";
+        $res = mysqli_query($con, $datetime_check);
+        $res2 = mysqli_query($con, $email_check);
+        $res3 = mysqli_query($con, $contactNum_check);
         
-        // if(mysqli_num_rows($res) > 0){
-        //     $_SESSION['schederror'] = "Scheduled that you have selected is already taken.";
-        //     header('Location: check_schedule.php');
-        // } elseif(mysqli_num_rows($res2) > 0) {
-        //     $_SESSION['emailerror'] = "Email that you have entered is already taken." . mysqli_num_rows($res2);
-        //     header('Location: check_schedule.php');
-        // } elseif(mysqli_num_rows($res3) > 0) {
-        //     $_SESSION['emailerror'] = "Contact number that you have entered is already taken.";
-        //     header('Location: check_schedule.php');
-        // }
+        if(mysqli_num_rows($res) > 0){
+            $_SESSION['schederror'] = "Scheduled that you have selected is already taken.";
+            header('Location: check_schedule.php');
+        } elseif(mysqli_num_rows($res2) > 0) {
+            $_SESSION['emailerror'] = "Email that you have entered is already taken." . mysqli_num_rows($res2);
+            header('Location: check_schedule.php');
+        } elseif(mysqli_num_rows($res3) > 0) {
+            $_SESSION['emailerror'] = "Contact number that you have entered is already taken.";
+            header('Location: check_schedule.php');
+        }
 
     } else {
         header('Location: check_schedule.php');

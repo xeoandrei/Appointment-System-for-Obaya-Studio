@@ -26,18 +26,23 @@
     $email = $_SESSION['customerEmail'];
     $contact = $_SESSION['contact'];
 
-    $query = "INSERT INTO appointment(appointmentId, datetime, status) ";
-    $query .= "VALUES ('$tokenId', '$datetime', 'Pending')";
+    $query = "INSERT INTO appointment(appointmentId, datetime, email, status) ";
+    $query .= "VALUES ('$tokenId', '$datetime', '$email', 'Pending')";
 
     $result = mysqli_query($con, $query);
-        if(!$result){
-            die('QUERY FAILED! ' . mysql_error());
-        } else {
-            $result = mysqli_query($con, "SELECT appointmentId FROM appointment WHERE datetime = '$datetime'");
-            while ($row = mysqli_fetch_array($result)) 
-            {
-                $id_val = $row['appointmentId'];  
-            }
+    if(!$result){
+        die('QUERY FAILED! ' . mysql_error());
+    } else {
+        $result = mysqli_query($con, "SELECT * FROM appointment");
+        while ($row = mysqli_fetch_array($result)) 
+        {
+            $id_val_1 = $row['id'];
+        }
+        $result = mysqli_query($con, "SELECT appointmentId FROM appointment WHERE id = '$id_val_1'");
+        while ($row = mysqli_fetch_array($result)) 
+        {
+            $id_val = $row['appointmentId'];  
+        }
 
     foreach($_POST['service'] as $key => $value){
         $sql = "INSERT INTO customer(name, email, contact, service, appointmentId) VALUES ('$name', '$email', '$contact', :service, '$id_val')";
@@ -47,6 +52,5 @@
         ]);
     }
 }
-
 
         
