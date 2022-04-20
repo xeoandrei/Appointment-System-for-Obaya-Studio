@@ -43,7 +43,7 @@ require "connection.php";
     <title>Obaya Studio | Feedback</title>
 </head>
 <body>
-    <?php include "navbar/navbar-admin.php"; ?>  
+    <?php include "navbar/navbar-admin.php"; ?>
     <div class="container-fluid row">
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded">
             <div class="card-body">
