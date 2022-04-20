@@ -84,7 +84,6 @@
                             <div class="mb-3 col-6">
                                 <select name="time" class="form-select" id="" required>
                                     <option value="" selected="true" disabled="disabled">Select Time</option>  
-                                    <option value="8:00:00">8:00AM</option>
                                     <option value="9:00:00">9:00AM</option>
                                     <option value="10:00:00">10:00AM</option>
                                     <option value="11:00:00">11:00AM</option>
