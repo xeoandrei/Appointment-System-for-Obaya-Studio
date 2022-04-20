@@ -53,22 +53,23 @@
                     <!-- FORM -->
                     <form action="book_appointment.php" method="POST">
                         <?php
-                        if(isset($_SESSION['schederror'])){
-                            echo   '<div class="alert alert-danger text-center">
-                                        ' . $_SESSION['schederror'] . 
-                                    '</div>';
-                            unset($_SESSION['schederror']);
-                        } elseif(isset($_SESSION['emailerror'])){
-                            echo   '<div class="alert alert-danger text-center">
-                                        ' . $_SESSION['emailerror'] . 
-                                    '</div>';
-                            unset($_SESSION['emailerror']);
-                        } elseif(isset($_SESSION['contactnumerror'])){
-                            echo   '<div class="alert alert-danger text-center">
-                                        ' . $_SESSION['contactnumerror'] . 
-                                    '</div>';
-                            unset($_SESSION['emailerror']);
-                        }
+                        // if(isset($_SESSION['schederror'])){
+                        //     echo   '<div class="alert alert-danger text-center">
+                        //                 ' . $_SESSION['schederror'] . 
+                        //             '</div>';
+                        //     unset($_SESSION['schederror']);
+                        // } elseif(isset($_SESSION['emailerror'])){
+                        //     echo $_SESSION['customerEmail'];
+                        //     echo   '<div class="alert alert-danger text-center">
+                        //                 ' . $_SESSION['emailerror'] . 
+                        //             '</div>';
+                        //     unset($_SESSION['emailerror']);
+                        // } elseif(isset($_SESSION['contactnumerror'])){
+                        //     echo   '<div class="alert alert-danger text-center">
+                        //                 ' . $_SESSION['contactnumerror'] . 
+                        //             '</div>';
+                        //     unset($_SESSION['emailerror']);
+                        // }
                         ?>
                         <div class="row">
                             <div class="mb-3 col-6">
