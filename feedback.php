@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "connection.php";
-$token=$_SESSION['feedbackTokenId'];  
+$token = $_SESSION['feedbackTokenId'];  
         if(isset($_POST['rating'])){    
             $name = $_POST['name'];
             $rating = $_POST['rating'];
@@ -12,7 +12,8 @@ $token=$_SESSION['feedbackTokenId'];
             $stmt = $con->prepare($query);
             $stmt->bind_param('isss', $rating, $feedback, $name, $token);
             $stmt->execute();
-            header('Location: success_feedback.php');
+            header('Location: feedback_verify.php');
+            $_SESSION['feedback-success'] = 'You have successfully submitted your feedback!';
             $stmt->close();
             $con->close();
     }

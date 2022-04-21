@@ -55,11 +55,16 @@
                                         ' . $_SESSION['tokeniderror'] . 
                                     '</div>';
                             unset($_SESSION['tokeniderror']);
+                        }elseif(isset($_SESSION['feedback-success'])){
+                            echo   '<div class="alert alert-success text-center">
+                                        ' . $_SESSION['feedback-success'] . 
+                                    '</div>';
+                            unset($_SESSION['feedback-success']);
                         }
                     ?>
                 
                     <div class="mb-3">
-                        <input class="form-control" type="text" name="tokenId" placeholder="Token Id" required>
+                        <input class="form-control" type="text" name="tokenId" placeholder="Token ID" required>
                     </div>
                     <div class="mb-3">
                         <input class="form-control btn btn-success" type="submit" name="submitFbTokenId" value="Submit">
