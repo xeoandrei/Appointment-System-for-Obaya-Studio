@@ -9,11 +9,14 @@ if(isset($_POST['btnUpdateAppointment'])){
 
     if(!$result){
         die('Update failed.');
+        $_SESSION['update-appointment'] = 'You have failed to change status to ' . $status . ' of appointment with Token ID: ' . $id . '!';
+        header('location: manage_appointments.php');
     } else {
-       header('location:manage_appointments.php');
+        $_SESSION['update-appointment'] = 'You have successfully changed status to ' . $status . ' of appointment with Token ID: ' . $id . '!';
+        header('location: manage_appointments.php');
     }
 } else {
-    header('location:manage_appointments.php');
+    header('location: manage_appointments.php');
 }
 ?>
 <!DOCTYPE html>

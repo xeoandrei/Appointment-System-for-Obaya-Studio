@@ -1,5 +1,6 @@
 <?php
 include_once('connection.php');
+session_start();
  
 if(isset($_GET['done'])){
     $id = $_GET['done'];
@@ -8,8 +9,11 @@ if(isset($_GET['done'])){
 
     if(!$result){
         die('Update failed.');
+        $_SESSION['done-appointment'] = 'You have failed to change status to Finished of appointment with Token ID: ' . $id . '!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        header('Location: manage_appointments.php');
+        $_SESSION['done-appointment'] = 'You have successfully changed status of appointment with Token ID: ' . $id . ' to Finished!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 ?>

@@ -37,75 +37,114 @@ $result = mysqli_query($con, $sql); ?>
           <div class="col-lg-12 col-md-12">
                   <div class="card shadow p-3 mb-5 bg-body rounded">
                       <div class="card-header bg-dark text-white py-3">
-                          Verified Appointments
+                          Cancelled Appointments
                       </div>
-                    <div class="card-body"></div>
-                    <div class="table table-responsive">
-                         <table class="table table-sm">
-                              <tr>
-                                   <th>Customer ID</th>
-                                   <th>Name</th>
-                                   <th>Email</th>
-                                   <th>Contact</th>
-                                   <th>Service</th>
-                                   <th>Schedule</th>
-                                   <th>Appointment ID</th>
-                                   <th>Status</th>
-                                   <th>Action</th>
-                                   <th>Notify</th>
-                              </tr>
-                              <?php  
-                                        if(mysqli_num_rows($result) > 0)  
-                                        {  
-                                             while($row = mysqli_fetch_array($result))  
+                    <div class="card-body">
+                         <?php
+                              if(isset($_SESSION['notify-success'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['notify-success'] . 
+                                   '</div>';
+                                   unset($_SESSION['notify-success']);
+                              }elseif(isset($_SESSION['notify-cancelled'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['notify-cancelled'] . 
+                                   '</div>';
+                                   unset($_SESSION['notify-cancelled']);
+                              }elseif(isset($_SESSION['verify-appointment'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['verify-appointment'] . 
+                                   '</div>';
+                                   unset($_SESSION['verify-appointment']);
+                              }elseif(isset($_SESSION['done-appointment'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['done-appointment'] . 
+                                   '</div>';
+                                   unset($_SESSION['done-appointment']);
+                              }elseif(isset($_SESSION['cancel-appointment'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['cancel-appointment'] . 
+                                   '</div>';
+                                   unset($_SESSION['cancel-appointment']);
+                              }elseif(isset($_SESSION['update-appointment'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['update-appointment'] . 
+                                   '</div>';
+                                   unset($_SESSION['update-appointment']);
+                              }elseif(isset($_SESSION['delete-appointment'])){
+                                   echo'<div class="alert alert-success text-center">
+                                        ' . $_SESSION['delete-appointment'] . 
+                                   '</div>';
+                                   unset($_SESSION['delete-appointment']);
+                              }
+                         ?>
+                         <div class="table table-responsive">
+                              <table class="table table-sm">
+                                   <tr>
+                                        <th>Customer ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Contact</th>
+                                        <th>Service</th>
+                                        <th>Schedule</th>
+                                        <th>Appointment ID</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                        <th>Notify</th>
+                                   </tr>
+                                   <?php  
+                                             if(mysqli_num_rows($result) > 0)  
                                              {  
-                                        ?>
-                              <tr>
-                                   <td><?php echo $row["customerId"];?></td>
-                                   <td><?php echo $row["name"]; ?></td>
-                                   <td><?php echo $row["email"]; ?></td>
-                                   <td><?php echo $row["contact"]; ?></td>
-                                   <td><?php echo $row["service"]; ?></td>
-                                   <td><?php echo $row["datetime"]; ?></td>
-                                   <td><?php echo $row["appointmentId"]; ?></td>
-                                   <td><?php echo $row["status"]; ?></td>
-                                   <td>
-                                        <div class="dropdown">
-                                             <button class="btn btn-primary dropdown-toggle" type="button"
-                                                  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                  Action
-                                             </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                             <?php
-                                                       $apptId = $row["appointmentId"];
-                                                       if($row['status']=='Pending'){
-                                                            echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Verified?\')">Verify</a></li>';
-                                                            echo '<li><hr class="dropdown-divider"></li>';
-                                                       }elseif($row['status']=='Verified'){
-                                                            echo '<li><a class="dropdown-item" href="done_appointment.php?done=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Finished?\')">Done</a></li>';
-                                                            echo '<li><hr class="dropdown-divider"></li>';
-                                                       }elseif($row['status']!='Cancelled'){
-                                                            echo '<li><a class="dropdown-item" href="cancel_appointment.php?cancel=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a></li>';
-                                                            echo '<li><hr class="dropdown-divider"></li>';
-                                                       }
-                                                       echo '<li><a class="dropdown-item" href="update_appointment.php?update=' . $row['appointmentId'] . '">Update Status</a></li>';
-                                                       echo '<li><hr class="dropdown-divider"></li>';
-                                                       echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
+                                                  while($row = mysqli_fetch_array($result))  
+                                                  {  
                                              ?>
-                                             </ul>
-                                        </div>
-                                   </td>
-                                   <td>
-                                        <?php 
-                                        if($row['status']=='Cancelled'){
-                                             echo "<a class='btn btn-danger' href = 'notify_cancelled.php?notifcancel=" . "notifcancel" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Cancelled appointment?\")'>Notify</a>";
+                                   <tr>
+                                        <td><?php echo $row["customerId"];?></td>
+                                        <td><?php echo $row["name"]; ?></td>
+                                        <td><?php echo $row["email"]; ?></td>
+                                        <td><?php echo $row["contact"]; ?></td>
+                                        <td><?php echo $row["service"]; ?></td>
+                                        <td><?php echo $row["datetime"]; ?></td>
+                                        <td><?php echo $row["appointmentId"]; ?></td>
+                                        <td><?php echo $row["status"]; ?></td>
+                                        <td>
+                                             <div class="dropdown">
+                                                  <button class="btn btn-primary dropdown-toggle" type="button"
+                                                       id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                       Action
+                                                  </button>
+                                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                  <?php
+                                                            $apptId = $row["appointmentId"];
+                                                            if($row['status']=='Pending'){
+                                                                 echo '<li><a class="dropdown-item" href="verify_appointment.php?verify=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Verified?\')">Verify</a></li>';
+                                                                 echo '<li><hr class="dropdown-divider"></li>';
+                                                            }elseif($row['status']=='Verified'){
+                                                                 echo '<li><a class="dropdown-item" href="done_appointment.php?done=' . $row["appointmentId"] . '" onclick="return confirm(\'Change status of appointment to Finished?\')">Done</a></li>';
+                                                                 echo '<li><hr class="dropdown-divider"></li>';
+                                                            }elseif($row['status']!='Cancelled'){
+                                                                 echo '<li><a class="dropdown-item" href="cancel_appointment.php?cancel=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to cancel this appointment?\')">Cancel</a></li>';
+                                                                 echo '<li><hr class="dropdown-divider"></li>';
+                                                            }
+                                                            echo '<li><a class="dropdown-item" href="update_appointment.php?update=' . $row['appointmentId'] . '">Update Status</a></li>';
+                                                            echo '<li><hr class="dropdown-divider"></li>';
+                                                            echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
+                                                  ?>
+                                                  </ul>
+                                             </div>
+                                        </td>
+                                        <td>
+                                             <?php 
+                                             if($row['status']=='Cancelled'){
+                                                  echo '<a class="btn btn-danger" href="notify_cancelled.php?notifcancel=' . "notifcancel" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . '" onclick="return confirm(\'Notify user of Cancelled appointment?\')">Notify</a>';
+                                             }
                                         }
                                    }
-                              }
-                                        ?>
-                                   </td>
-                              </tr>
-                         </table>
+                                             ?>
+                                        </td>
+                                   </tr>
+                              </table>
+                         </div>
                     </div>
                </div>
           </div>

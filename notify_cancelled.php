@@ -1,5 +1,6 @@
 <?php
 include_once('connection.php');
+session_start();
  
 if(isset($_GET['notifcancel'])){
     $id = $_GET['id'];
@@ -24,7 +25,7 @@ if(isset($_GET['notifcancel'])){
     $message .= '</body></html>';
 
     if(mail($email, $subject, $message, $headers)){
-        $_SESSION['email'] = $email;
+        $_SESSION['notify-cancelled'] = 'You have successfully notified ' . $email . ' for his/her cancelled appointment.';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }
     else

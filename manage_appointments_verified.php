@@ -35,11 +35,49 @@ $sql = "SELECT * FROM customer INNER JOIN appointment ON customer.appointmentId 
 $result = mysqli_query($con, $sql); ?>
      <div class="container">
           <div class="col-lg-12 col-md-12">
-                  <div class="card shadow p-3 mb-5 bg-body rounded">
-                      <div class="card-header bg-dark text-white py-3">
-                          Verified Appointments
-                      </div>
-                    <div class="card-body"></div>
+               <div class="card shadow p-3 mb-5 bg-body rounded">
+                    <div class="card-header bg-dark text-white py-3">
+                         Verified Appointments
+                    </div>
+               <div class="card-body">
+                    <?php
+                         if(isset($_SESSION['notify-success'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['notify-success'] . 
+                              '</div>';
+                              unset($_SESSION['notify-success']);
+                         }elseif(isset($_SESSION['notify-cancelled'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['notify-cancelled'] . 
+                              '</div>';
+                              unset($_SESSION['notify-cancelled']);
+                         }elseif(isset($_SESSION['verify-appointment'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['verify-appointment'] . 
+                              '</div>';
+                              unset($_SESSION['verify-appointment']);
+                         }elseif(isset($_SESSION['done-appointment'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['done-appointment'] . 
+                              '</div>';
+                              unset($_SESSION['done-appointment']);
+                         }elseif(isset($_SESSION['cancel-appointment'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['cancel-appointment'] . 
+                              '</div>';
+                              unset($_SESSION['cancel-appointment']);
+                         }elseif(isset($_SESSION['update-appointment'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['update-appointment'] . 
+                              '</div>';
+                              unset($_SESSION['update-appointment']);
+                         }elseif(isset($_SESSION['delete-appointment'])){
+                              echo'<div class="alert alert-success text-center">
+                                   ' . $_SESSION['delete-appointment'] . 
+                              '</div>';
+                              unset($_SESSION['delete-appointment']);
+                         }
+                    ?>
                     <div class="table table-responsive">
                          <table class="table table-sm">
                               <tr>
@@ -98,7 +136,7 @@ $result = mysqli_query($con, $sql); ?>
                                    <td>
                                         <?php 
                                         if($row['status']=='Verified'){
-                                             echo "<a class='btn btn-success' href = 'notify_verified.php?notifverify=" . "notifverify" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Verified appointment?\")'>Notify</a>";
+                                             echo '<a class="btn btn-success" href="notify_verified.php?notifverify=' . "notifverify" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . '" onclick="return confirm(\'Notify user of Verified appointment?\')">Notify</a>';
                                         }
                                    }
                               }

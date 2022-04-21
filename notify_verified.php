@@ -1,5 +1,6 @@
 <?php
 include_once('connection.php');
+session_start();
  
 if(isset($_GET['notifverify'])){
     $id = $_GET['id'];
@@ -22,9 +23,9 @@ if(isset($_GET['notifverify'])){
     $message = '<html><body>';
     $message .= '<p style="color:black;">Good day! Your appointment has been confirmed. You can view your appointment details ' . '<a href="http://localhost/Obaya-Studio/view_appointment.php">here</a>' . ' by entering your Token ID:' . " $id." . '</p>';
     $message .= '</body></html>';
-
+    
     if(mail($email, $subject, $message, $headers)){
-        $_SESSION['email'] = $email;
+        $_SESSION['notify-success'] = 'You have successfully notified ' . $email . ' for his/her verified appointment.';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }   
     else

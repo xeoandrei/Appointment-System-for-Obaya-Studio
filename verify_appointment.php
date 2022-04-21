@@ -1,5 +1,6 @@
 <?php
 include_once('connection.php');
+session_start();
  
 if(isset($_GET['verify'])){
     $id = $_GET['verify'];
@@ -8,8 +9,11 @@ if(isset($_GET['verify'])){
 
     if(!$result){
         die('Update failed.');
+        $_SESSION['verify-appointment'] = 'You have failed to verified appointment with Token ID: ' . $id . '!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        header('Location: manage_appointments.php');
+        $_SESSION['verify-appointment'] = 'You have successfully verified appointment with Token ID: ' . $id . '!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
 ?>

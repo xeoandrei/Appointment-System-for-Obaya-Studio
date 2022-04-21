@@ -1,5 +1,6 @@
 <?php
 include_once('connection.php');
+session_start();
  
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
@@ -10,8 +11,11 @@ if(isset($_GET['delete'])){
 
     if(!$result || !$result2){
         die('Delete appointment failed.');
+        $_SESSION['delete-appointment'] = 'You have failed to delete appointment with Token ID: ' . $id . '!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        header('Location: manage_appointments.php');
+        $_SESSION['delete-appointment'] = 'You have successfully deleted appointment with Token ID: ' . $id . '!';
+        header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 }
