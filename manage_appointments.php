@@ -98,9 +98,9 @@ $result = mysqli_query($con, $sql); ?>
                                    <td>
                                         <?php 
                                         if($row['status']=='Verified'){
-                                             echo '<a class="btn btn-success" href="#" onclick="return confirm(\'Notify user of verified appointment?\')">Notify</a>';
+                                             echo "<a class='btn btn-success' href = 'notify_verified.php?notifverify=" . "notifverify" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Verified appointment?\")'>Notify</a>";
                                         }elseif($row['status']=='Cancelled'){
-                                             echo '<a class="btn btn-danger" href="#" onclick="return confirm(\'Notify user of cancelled appointment?\')">Notify</a>';
+                                             echo "<a class='btn btn-danger' href = 'notify_cancelled.php?notifcancel=" . "notifcancel" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Cancelled appointment?\")'>Notify</a>";
                                         }
                                    }
                               }

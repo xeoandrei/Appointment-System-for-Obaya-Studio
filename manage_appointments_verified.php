@@ -52,6 +52,7 @@ $result = mysqli_query($con, $sql); ?>
                                    <th>Appointment ID</th>
                                    <th>Status</th>
                                    <th>Action</th>
+                                   <th>Notify</th>
                               </tr>
                               <?php  
                                         if(mysqli_num_rows($result) > 0)  
@@ -90,11 +91,18 @@ $result = mysqli_query($con, $sql); ?>
                                                        echo '<li><a class="dropdown-item" href="update_appointment.php?update=' . $row['appointmentId'] . '">Update Status</a></li>';
                                                        echo '<li><hr class="dropdown-divider"></li>';
                                                        echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
-                                                  }
-                                             }
                                              ?>
                                              </ul>
                                         </div>
+                                   </td>
+                                   <td>
+                                        <?php 
+                                        if($row['status']=='Verified'){
+                                             echo "<a class='btn btn-success' href = 'notify_verified.php?notifverify=" . "notifverify" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Verified appointment?\")'>Notify</a>";
+                                        }
+                                   }
+                              }
+                                        ?>
                                    </td>
                               </tr>
                          </table>

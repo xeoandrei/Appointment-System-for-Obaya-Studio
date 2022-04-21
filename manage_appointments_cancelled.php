@@ -91,14 +91,18 @@ $result = mysqli_query($con, $sql); ?>
                                                        echo '<li><a class="dropdown-item" href="update_appointment.php?update=' . $row['appointmentId'] . '">Update Status</a></li>';
                                                        echo '<li><hr class="dropdown-divider"></li>';
                                                        echo '<li><a class="dropdown-item" href="delete_appointment.php?delete=' . $row['appointmentId'] . '" onclick="return confirm(\'Are you sure you want to delete this appointment?\')">Delete</a></li>';
-                                                  }
-                                             }
                                              ?>
                                              </ul>
                                         </div>
                                    </td>
                                    <td>
-                                        <button class="btn btn-danger">Notify</button>
+                                        <?php 
+                                        if($row['status']=='Cancelled'){
+                                             echo "<a class='btn btn-danger' href = 'notify_cancelled.php?notifcancel=" . "notifcancel" . "&" . "id" . "=" . $row['appointmentId'] . "&" . "email" . "=" . $row["email"] . "' onclick='return confirm(\'Notify user of Cancelled appointment?\")'>Notify</a>";
+                                        }
+                                   }
+                              }
+                                        ?>
                                    </td>
                               </tr>
                          </table>
