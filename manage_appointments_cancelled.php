@@ -52,6 +52,7 @@ $result = mysqli_query($con, $sql); ?>
                                    <th>Appointment ID</th>
                                    <th>Status</th>
                                    <th>Action</th>
+                                   <th>Notify</th>
                               </tr>
                               <?php  
                                         if(mysqli_num_rows($result) > 0)  
@@ -95,6 +96,9 @@ $result = mysqli_query($con, $sql); ?>
                                              ?>
                                              </ul>
                                         </div>
+                                   </td>
+                                   <td>
+                                        <button class="btn btn-danger">Notify</button>
                                    </td>
                               </tr>
                          </table>
