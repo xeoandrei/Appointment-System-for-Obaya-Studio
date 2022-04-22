@@ -65,9 +65,15 @@
                         $tokenId = $_SESSION['tokenId'];
                         $customerEmail = $_SESSION['customerEmail'];
                         $subject = "Obaya Booked Appointment Token Id";
-                        $message = "Your Token Id is $tokenId";
-                        $sender = "From: sammygarma26@gmail.com";
-                        if(mail($customerEmail, $subject, $message, $sender)){
+                        $message = "Your Token Id is $tokenId.";
+                        $headers = [
+                            'MIME-Version' => '1.0',
+                            'Content-type' => 'text/html; charset=utf8',
+                            'From' => 'Obaya Studio sammygarma26@gmail.com',
+                            'Reply-To' => 'sammygarma26@gmail.com',
+                            'X-Mailer' => 'PHP/' . phpversion()
+                        ];
+                        if(mail($customerEmail, $subject, $message, $headers)){
                             $info = "Please wait for your booking to be approved within 24 hours - $customerEmail";
                             $_SESSION['info'] = $info;
                             $_SESSION['customerEmail'] = $customerEmail;
