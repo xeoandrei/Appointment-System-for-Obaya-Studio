@@ -2,7 +2,6 @@
 require_once "connection.php";
 session_start();
 //check if the session contains data
-print_r($_SESSION);
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
 if($email == false && $password == false){
