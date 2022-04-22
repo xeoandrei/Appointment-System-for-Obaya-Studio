@@ -6,17 +6,17 @@ if(isset($_GET['notifverify'])){
     $id = $_GET['id'];
 	$email = $_GET['email'];
 
-    $sender = "From: sammygarma26@gmail.com";
     $subject = "Obaya Notification for Confirmed Appointment";
 
     // To send HTML mail, the Content-type header must be set
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
     // Create email headers
-    $headers .= 'From: '.$sender."\r\n".
-    'Reply-To: '.$sender."\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    $headers = [
+        'MIME-Version' => '1.0',
+        'Content-type' => 'text/html; charset=utf8',
+        'From' => 'Obaya Studio sammygarma26@gmail.com',
+        'Reply-To' => 'sammygarma26@gmail.com',
+        'X-Mailer' => 'PHP/' . phpversion()
+    ];
 
     
     // Compose a simple HTML email message
