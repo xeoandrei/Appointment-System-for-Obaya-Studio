@@ -1,4 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+<style>
+        @media all and (min-width: 992px) {
+
+    *,*:before,*:after{
+        padding:0;
+        margin: 0;
+    }
+
+    .navbar .nav-item:after{
+        content:"";
+        position: absolute;
+        background-color: white;
+        height: 3px;
+        width: 0;
+        left:0;
+        bottom: -10;
+        transition: .5s;
+    }
+  
+    .navbar .nav-item:hover:after{
+        width:100%;
+    }  
+
+    .navbar .nav-item:hover .nav-link{ 
+        color: #FFF;  }       
+    
+	.navbar .dropdown-menu.fade-down{ 
+        top:80%; 
+        transform: rotateX(-75deg); 
+        transform-origin: 0% 0%;}
+	.navbar .dropdown-menu.fade-up{ 
+        top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ 
+        transition: .3s;
+        opacity:1; 
+        visibility:visible; 
+        top:100%; 
+        transform: rotateX(0deg); 
+        color: #d48b33; }
+
+}	
+</style>
                 <a class="navbar-brand mx-5" href="index.php">
                     <img src="images/logo3.png" style="height: 90px; margin-right: 1em;">
                 </a>
@@ -7,8 +49,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="index.php" >Home</a>
                         </li>
             
                         <li class="nav-item dropdown">
@@ -41,11 +83,11 @@
                             </ul>
                         </li>
             
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="food.php">Food</a>
                         </li>
             
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="about_us.php">About Us</a>
                         </li>
     
@@ -73,12 +115,4 @@
                 </div>  
         </nav>
 
-        <style>
-        @media all and (min-width: 992px) {
-    .navbar .nav-item:hover .nav-link{ color: #FFF;;  }       
-	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%;}
-	.navbar .dropdown-menu.fade-up{ top:180%;  }
-	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); color: #d48b33; }
-
-}	
-</style>
+      
