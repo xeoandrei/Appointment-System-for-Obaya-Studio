@@ -53,7 +53,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                        <li class="nav-link">
                             <?php
                             if(isset($_SESSION['email'])){
                                 echo   '<li class="nav-item mx-3 my-3">
@@ -82,7 +82,6 @@
     *,*:before,*:after{
         padding:0;
         margin: 0;
-        box-sizing: border-box;
     }
 
     .navbar .nav-item:after{
@@ -92,13 +91,12 @@
         height: 3px;
         width: 0;
         left:0;
-  
+        bottom: -10;
         transition: .5s;
     }
   
     .navbar .nav-item:hover:after{
         width:100%;
     }  
-    
 }	
 </style>

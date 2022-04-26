@@ -53,7 +53,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                        <li class="nav-link">
                             <?php
                             if(isset($_SESSION['email'])){
                                 echo   '<li class="nav-item mx-3 my-3">
