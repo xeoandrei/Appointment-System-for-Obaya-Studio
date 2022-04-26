@@ -64,3 +64,13 @@
                     </ul>
                 </div>  
         </nav>
+
+        <style>
+        @media all and (min-width: 992px) {
+    .navbar .nav-item:hover .nav-link{ color: #FFF;;  }       
+	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%;}
+	.navbar .dropdown-menu.fade-up{ top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); color: #d48b33; }
+
+}	
+</style>

@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <?php include "navbar/navbar.php"; ?>
+    <?php include "navbar/navbar-book.php"; ?>
     <div class="container-fluid row">
         <!-- CARD -->
         <div class="card mx-auto shadow p-3 mb-5 bg-body rounded col-lg-6 col-md-8">

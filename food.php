@@ -38,7 +38,7 @@ elseif(isset($_SESSION['email']) AND ($_SESSION['usertype'] == 'STAFF'))
 </head>
 <body>
 <?php
-include 'navbar/navbar.php';
+include 'navbar/navbar-food.php';
 $sql = "SELECT * FROM food";  
 $result = mysqli_query($link, $sql); ?>
         <section id="services">

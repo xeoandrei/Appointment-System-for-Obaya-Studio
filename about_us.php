@@ -36,7 +36,7 @@
 <body>
        
     <section id="firstPage" class="container-fluid"> 
-        <?php include "navbar/navbar-index.php"; ?>
+        <?php include "navbar/navbar-aboutus.php"; ?>
 
         <div class="row marginTop">
             <div class="col-lg-6">
@@ -115,6 +115,9 @@
                         </p>
                         <p class="whiteText">
                         <i class="fab fa-facebook-messenger"></i> Messenger: <a class="whiteText text-decoration-none" text-decoration: none; href="https://www.facebook.com/messages/t/108422251306606"> Obaya Studio </a>
+                        </p>
+                        <p class="whiteText">
+                        <i class="fa fa-instagram"></i> Instagram: <a class="whiteText text-decoration-none" text-decoration: none; href="https://www.instagram.com/obayastudio/"> Obaya Studio </a>
                         </p>
                 </div>
             </div>
