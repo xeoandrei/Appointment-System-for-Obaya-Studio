@@ -6,7 +6,7 @@
         $sql = "SELECT * FROM appointment WHERE appointmentId = '$token' AND status='Finished'";
         $tokenId_checkResult = mysqli_query($con, $sql);
         if(mysqli_num_rows($tokenId_checkResult) <= 0){
-            $_SESSION['tokeniderror'] = 'Token ID invalid.';
+            $_SESSION['tokeniderror'] = 'Client Code invalid.';
             header('Location: feedback_verify.php');
         }
         $sql2 = "SELECT * FROM feedback WHERE appointmentId ='$token'";

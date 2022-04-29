@@ -49,7 +49,7 @@
 							<div class="row">
                             	<div class="mb-3 col-6">
                                     <input type="text" class="form-control" value="<?php echo $id;?>" name="updateApptId" hidden required>
-									<input type="text" class="form-control" value="Token ID: <?php echo $id;?>" name="" disabled required>
+									<input type="text" class="form-control" value="Client Code: <?php echo $id;?>" name="" disabled required>
 								</div>
 								<div class="mb-3 col-6">
 									<select name="updateApptStatus" class="form-select" required>  

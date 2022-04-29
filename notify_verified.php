@@ -21,7 +21,7 @@ if(isset($_GET['notifverify'])){
     
     // Compose a simple HTML email message
     $message = '<html><body>';
-    $message .= '<p style="color:black;">Good day! Your appointment has been confirmed. You can view your appointment details ' . '<a href="http://localhost/Obaya-Studio/view_appointment.php">here</a>' . ' by entering your Token ID:' . " $id." . '</p>';
+    $message .= '<p style="color:black;">Good day! Your appointment has been confirmed. You can view your appointment details ' . '<a href="http://localhost/Obaya-Studio/view_appointment.php">here</a>' . ' by entering your Client Code:' . " $id." . '</p>';
     $message .= '</body></html>';
     
     if(mail($email, $subject, $message, $headers)){

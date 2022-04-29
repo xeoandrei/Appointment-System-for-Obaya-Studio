@@ -10,11 +10,11 @@
 
     if(isset($_POST['viewAppointmentSubmit'])){
         $tokenId = $_POST['tokenId'];
-        //Check if token id exists
+        //Check if token id / client code exists
         $tokenId_check = "SELECT * FROM appointment WHERE appointmentId = '$tokenId'";
         $tokenId_checkResult = mysqli_query($con, $tokenId_check);
         if(mysqli_num_rows($tokenId_checkResult) <= 0){
-            $_SESSION['tokeniderror'] = 'Token ID invalid.';
+            $_SESSION['tokeniderror'] = 'Client Code invalid.';
             header('Location: view_appointment.php');
         }
 
@@ -67,7 +67,7 @@
                                    <th>Email</th>
                                    <th>Service</th>
                                    <th>Schedule</th>
-                                   <th>Token ID</th>
+                                   <th>Client Code</th>
                                    <th>Status</th>
                                    <th>Action</th>
                               </tr>

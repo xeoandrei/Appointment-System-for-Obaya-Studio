@@ -21,7 +21,7 @@ if(isset($_GET['notifcancel'])){
     
     // Compose a simple HTML email message
     $message = '<html><body>';
-    $message .= '<p>Good day! We are very sorry but your appointment with the Token ID: '. "$id," . ' did not went as scheduled.</p>';
+    $message .= '<p>Good day! We are very sorry but your appointment with the Client Code: '. "$id," . ' was cancelled and proceed as scheduled.</p>';
     $message .= '</body></html>';
 
     if(mail($email, $subject, $message, $headers)){

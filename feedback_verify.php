@@ -64,7 +64,7 @@
                     ?>
                 
                     <div class="mb-3">
-                        <input class="form-control" type="text" name="tokenId" placeholder="Token ID" required>
+                        <input class="form-control" type="text" name="tokenId" placeholder="Client Code" required>
                     </div>
                     <div class="mb-3">
                         <input class="form-control btn btn-success" type="submit" name="submitFbTokenId" value="Submit">

@@ -9,10 +9,10 @@ if(isset($_POST['btnUpdateAppointment'])){
 
     if(!$result){
         die('Update failed.');
-        $_SESSION['update-appointment'] = 'You have failed to change status to ' . $status . ' of appointment with Token ID: ' . $id . '!';
+        $_SESSION['update-appointment'] = 'You have failed to change status to ' . $status . ' of appointment with Client Code: ' . $id . '!';
         header('location: manage_appointments.php');
     } else {
-        $_SESSION['update-appointment'] = 'You have successfully changed status to ' . $status . ' of appointment with Token ID: ' . $id . '!';
+        $_SESSION['update-appointment'] = 'You have successfully changed status to ' . $status . ' of appointment with Client Code: ' . $id . '!';
         header('location: manage_appointments.php');
     }
 } else {

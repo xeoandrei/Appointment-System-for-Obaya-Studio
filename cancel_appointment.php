@@ -9,10 +9,10 @@ if(isset($_GET['cancel'])){
 
     if(!$result){
         die('Update failed.');
-        $_SESSION['cancel-appointment'] = 'You have failed to change status to Cancelled of appointment with Token ID: ' . $id . '!';
+        $_SESSION['cancel-appointment'] = 'You have failed to change status to Cancelled of appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        $_SESSION['cancel-appointment'] = 'You have successfully cancelled appointment with Token ID: ' . $id . '!';
+        $_SESSION['cancel-appointment'] = 'You have successfully cancelled appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

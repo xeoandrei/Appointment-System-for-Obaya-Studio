@@ -66,7 +66,7 @@ require "connection.php";
                                 <i>By: <?php echo $row['name']; ?> </i> 
                             </div>
                             <div class="float-end mt-2">
-                                TokenId: <?php echo $row['appointmentId']; ?>
+                                Client Code: <?php echo $row['appointmentId']; ?>
                             </div>
                         </div>           
                         <div class="card-body">

@@ -51,7 +51,7 @@
             <div class="card-body">
                 <div class="my-4">
                     <img src="images/check.png" style="height:75px;" alt="">
-                    <h6 class="mt-3">Your token id is: 
+                    <h6 class="mt-3">Your client code is: 
                         <?php 
                             $tokenId = $_SESSION['tokenId'];
                             echo "$tokenId"; 
@@ -64,8 +64,8 @@
                     <?php
                         $tokenId = $_SESSION['tokenId'];
                         $customerEmail = $_SESSION['customerEmail'];
-                        $subject = "Obaya Booked Appointment Token Id";
-                        $message = "Your Token Id is $tokenId.";
+                        $subject = "Obaya Booked Appointment Client Code";
+                        $message = "Your Client Code is $tokenId.";
                         $headers = [
                             'MIME-Version' => '1.0',
                             'Content-type' => 'text/html; charset=utf8',

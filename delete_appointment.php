@@ -11,10 +11,10 @@ if(isset($_GET['delete'])){
 
     if(!$result || !$result2){
         die('Delete appointment failed.');
-        $_SESSION['delete-appointment'] = 'You have failed to delete appointment with Token ID: ' . $id . '!';
+        $_SESSION['delete-appointment'] = 'You have failed to delete appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        $_SESSION['delete-appointment'] = 'You have successfully deleted appointment with Token ID: ' . $id . '!';
+        $_SESSION['delete-appointment'] = 'You have successfully deleted appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 

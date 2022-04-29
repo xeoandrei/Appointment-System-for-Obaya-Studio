@@ -9,10 +9,10 @@ if(isset($_GET['verify'])){
 
     if(!$result){
         die('Update failed.');
-        $_SESSION['verify-appointment'] = 'You have failed to verified appointment with Token ID: ' . $id . '!';
+        $_SESSION['verify-appointment'] = 'You have failed to verified appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     } else {
-        $_SESSION['verify-appointment'] = 'You have successfully verified appointment with Token ID: ' . $id . '!';
+        $_SESSION['verify-appointment'] = 'You have successfully verified appointment with Client Code: ' . $id . '!';
         header('location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
