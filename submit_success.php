@@ -62,10 +62,14 @@
 
                     <p>Click this <a href="view_appointment.php">link</a> to check your appointment details.</p>
                     <?php
+                        
                         $tokenId = $_SESSION['tokenId'];
                         $customerEmail = $_SESSION['customerEmail'];
+                        
                         $subject = "Obaya Booked Appointment Client Code";
-                        $message = "Your Client Code is $tokenId.";
+                        
+                        // To send HTML mail, the Content-type header must be set
+                        // Create email headers
                         $headers = [
                             'MIME-Version' => '1.0',
                             'Content-type' => 'text/html; charset=utf8',
@@ -73,6 +77,19 @@
                             'Reply-To' => 'sammygarma26@gmail.com',
                             'X-Mailer' => 'PHP/' . phpversion()
                         ];
+
+                        // Compose a simple HTML email message
+                        $message = "Your Client Code is $tokenId.";
+                        $message = '<html><body>';
+                        $message .= "Thank you for booking with us! Here is your Client Code $tokenId.";
+                        $message .= " The Client Code will be only sent to our customer once they decide to book with us and is unique for each booked appointment.";
+                        $message .= " This Client Code can be used for keeping track of your appointment status and also";
+                        $message .= " view details of your appointment with Obaya. Once you have finished your scheduled appointment";
+                        $message .= " you can also rate and provide us with a feedback on how your service went with Obaya!";
+                        $message .= " In case of emergency, you also have the option to cancel your booked appointment with Obaya.";
+                        $message .= "<closing message>";
+                        $message .= '</body></html>'; 
+
                         if(mail($customerEmail, $subject, $message, $headers)){
                             $info = "Please wait for your booking to be approved within 24 hours - $customerEmail";
                             $_SESSION['info'] = $info;
