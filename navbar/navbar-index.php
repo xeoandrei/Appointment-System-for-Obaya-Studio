@@ -56,7 +56,7 @@
                         <li class="nav-link">
                             <?php
                             if(isset($_SESSION['email'])){
-                                echo   '<li class="nav-item mx-3 my-3">
+                                echo   '<li class="nav-link mx-3 my-3">
                                             <a href="logout.php" class="btn btn-danger me-3">Logout</a>
                                         </li>';
                             } else {
